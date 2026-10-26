@@ -1,0 +1,15 @@
+.venv/
+.venv-mining/
+.modal_venv/
+.venv-*/
+models/
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+!.env.example
+.run.lock
+.pytest_cache/
+*.tar.gz
+*.zip

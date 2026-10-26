@@ -1,0 +1,1564 @@
+{
+  "scope": "AI_assessed_fixed_evaluation_split_previously_exposed_in_older_pilot",
+  "evaluation_freeze_sha256": "dfafe4319d42bf0e8b69242b8c322f98d61b8db4d19239c9202420f08ac376d1",
+  "judgments_sha256": "8de212468defe2b1949db58d25c39c205bcb84ec9463522cbfdffedcb830313e",
+  "methods": {
+    "bge_m3": {
+      "sources": 524,
+      "produced": 524,
+      "missing": 0,
+      "uncertain": 1,
+      "mean_fidelity_0_4": 0.518,
+      "score_counts": {
+        "0": 356,
+        "1": 77,
+        "2": 80,
+        "3": 6,
+        "4": 4
+      },
+      "ai_retained_strict": 4,
+      "strict_yield": 0.0076,
+      "mostly_or_fully_faithful": 10,
+      "issue_counts": {
+        "uncertain": 1,
+        "addition": 491,
+        "omission": 493,
+        "mistranslation": 42,
+        "minor": 6,
+        "contradiction": 1
+      },
+      "cost_per_retained_pair": null
+    },
+    "blind_translation": {
+      "sources": 524,
+      "produced": 524,
+      "missing": 0,
+      "uncertain": 1,
+      "mean_fidelity_0_4": 3.109,
+      "score_counts": {
+        "0": 11,
+        "1": 27,
+        "2": 140,
+        "3": 61,
+        "4": 284
+      },
+      "ai_retained_strict": 284,
+      "strict_yield": 0.542,
+      "mostly_or_fully_faithful": 345,
+      "issue_counts": {
+        "uncertain": 1,
+        "mistranslation": 213,
+        "addition": 12,
+        "minor": 61,
+        "omission": 80,
+        "contradiction": 8
+      },
+      "cost_per_retained_pair": null
+    },
+    "grounded_a": {
+      "sources": 524,
+      "produced": 524,
+      "missing": 0,
+      "uncertain": 1,
+      "mean_fidelity_0_4": 3.476,
+      "score_counts": {
+        "0": 5,
+        "1": 8,
+        "2": 90,
+        "3": 50,
+        "4": 370
+      },
+      "ai_retained_strict": 370,
+      "strict_yield": 0.7061,
+      "mostly_or_fully_faithful": 420,
+      "issue_counts": {
+        "uncertain": 1,
+        "mistranslation": 133,
+        "minor": 50,
+        "addition": 8,
+        "omission": 48,
+        "contradiction": 5
+      },
+      "cost_per_retained_pair": null
+    },
+    "grounded_b": {
+      "sources": 524,
+      "produced": 524,
+      "missing": 0,
+      "uncertain": 1,
+      "mean_fidelity_0_4": 3.56,
+      "score_counts": {
+        "0": 1,
+        "1": 5,
+        "2": 82,
+        "3": 47,
+        "4": 388
+      },
+      "ai_retained_strict": 388,
+      "strict_yield": 0.7405,
+      "mostly_or_fully_faithful": 435,
+      "issue_counts": {
+        "uncertain": 1,
+        "mistranslation": 117,
+        "minor": 47,
+        "omission": 36,
+        "contradiction": 2,
+        "addition": 11
+      },
+      "cost_per_retained_pair": null
+    },
+    "grounded_c": {
+      "sources": 524,
+      "produced": 524,
+      "missing": 0,
+      "uncertain": 1,
+      "mean_fidelity_0_4": 3.461,
+      "score_counts": {
+        "0": 7,
+        "1": 10,
+        "2": 90,
+        "3": 44,
+        "4": 372
+      },
+      "ai_retained_strict": 372,
+      "strict_yield": 0.7099,
+      "mostly_or_fully_faithful": 416,
+      "issue_counts": {
+        "uncertain": 1,
+        "mistranslation": 127,
+        "minor": 44,
+        "addition": 9,
+        "omission": 53,
+        "contradiction": 6
+      },
+      "cost_per_retained_pair": null
+    },
+    "laser_1": {
+      "sources": 524,
+      "produced": 524,
+      "missing": 0,
+      "uncertain": 1,
+      "mean_fidelity_0_4": 0.298,
+      "score_counts": {
+        "0": 431,
+        "1": 39,
+        "2": 46,
+        "3": 3,
+        "4": 4
+      },
+      "ai_retained_strict": 4,
+      "strict_yield": 0.0076,
+      "mostly_or_fully_faithful": 7,
+      "issue_counts": {
+        "uncertain": 1,
+        "addition": 507,
+        "omission": 505,
+        "mistranslation": 26,
+        "minor": 3
+      },
+      "cost_per_retained_pair": null
+    },
+    "rerank_only": {
+      "sources": 524,
+      "produced": 170,
+      "missing": 354,
+      "uncertain": 0,
+      "mean_fidelity_0_4": 1.759,
+      "score_counts": {
+        "0": 10,
+        "1": 39,
+        "2": 109,
+        "3": 6,
+        "4": 6
+      },
+      "ai_retained_strict": 6,
+      "strict_yield": 0.0115,
+      "mostly_or_fully_faithful": 12,
+      "issue_counts": {
+        "addition": 151,
+        "omission": 127,
+        "mistranslation": 27,
+        "minor": 6
+      },
+      "cost_per_retained_pair": null
+    }
+  },
+  "per_article": {
+    "Bejgien": {
+      "bge_m3": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 1.077,
+        "score_counts": {
+          "0": 8,
+          "1": 8,
+          "2": 10,
+          "3": 0,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 0,
+        "issue_counts": {
+          "mistranslation": 7,
+          "omission": 25,
+          "addition": 22
+        },
+        "cost_per_retained_pair": null
+      },
+      "blind_translation": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.0,
+        "score_counts": {
+          "0": 0,
+          "1": 4,
+          "2": 4,
+          "3": 6,
+          "4": 12
+        },
+        "ai_retained_strict": 12,
+        "strict_yield": 0.4615,
+        "mostly_or_fully_faithful": 18,
+        "issue_counts": {
+          "mistranslation": 12,
+          "minor": 6,
+          "omission": 3,
+          "addition": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_a": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.5,
+        "score_counts": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 6,
+          "4": 17
+        },
+        "ai_retained_strict": 17,
+        "strict_yield": 0.6538,
+        "mostly_or_fully_faithful": 23,
+        "issue_counts": {
+          "omission": 2,
+          "minor": 6,
+          "mistranslation": 7
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_b": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.538,
+        "score_counts": {
+          "0": 1,
+          "1": 0,
+          "2": 1,
+          "3": 6,
+          "4": 18
+        },
+        "ai_retained_strict": 18,
+        "strict_yield": 0.6923,
+        "mostly_or_fully_faithful": 24,
+        "issue_counts": {
+          "omission": 4,
+          "minor": 6,
+          "contradiction": 1,
+          "mistranslation": 5
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_c": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.462,
+        "score_counts": {
+          "0": 0,
+          "1": 1,
+          "2": 3,
+          "3": 5,
+          "4": 17
+        },
+        "ai_retained_strict": 17,
+        "strict_yield": 0.6538,
+        "mostly_or_fully_faithful": 22,
+        "issue_counts": {
+          "omission": 3,
+          "minor": 5,
+          "mistranslation": 6,
+          "addition": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "laser_1": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.5,
+        "score_counts": {
+          "0": 17,
+          "1": 5,
+          "2": 4,
+          "3": 0,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 0,
+        "issue_counts": {
+          "omission": 24,
+          "addition": 26,
+          "mistranslation": 4
+        },
+        "cost_per_retained_pair": null
+      },
+      "rerank_only": {
+        "sources": 26,
+        "produced": 18,
+        "missing": 8,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 1.944,
+        "score_counts": {
+          "0": 0,
+          "1": 1,
+          "2": 17,
+          "3": 0,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 0,
+        "issue_counts": {
+          "omission": 15,
+          "addition": 16,
+          "mistranslation": 2
+        },
+        "cost_per_retained_pair": null
+      }
+    },
+    "Berlin": {
+      "bge_m3": {
+        "sources": 16,
+        "produced": 16,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 1.312,
+        "score_counts": {
+          "0": 5,
+          "1": 4,
+          "2": 5,
+          "3": 1,
+          "4": 1
+        },
+        "ai_retained_strict": 1,
+        "strict_yield": 0.0625,
+        "mostly_or_fully_faithful": 2,
+        "issue_counts": {
+          "omission": 13,
+          "addition": 12,
+          "mistranslation": 2,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "blind_translation": {
+        "sources": 16,
+        "produced": 16,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.562,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 3,
+          "3": 1,
+          "4": 12
+        },
+        "ai_retained_strict": 12,
+        "strict_yield": 0.75,
+        "mostly_or_fully_faithful": 13,
+        "issue_counts": {
+          "mistranslation": 4,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_a": {
+        "sources": 16,
+        "produced": 16,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.688,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 2,
+          "3": 1,
+          "4": 13
+        },
+        "ai_retained_strict": 13,
+        "strict_yield": 0.8125,
+        "mostly_or_fully_faithful": 14,
+        "issue_counts": {
+          "mistranslation": 3,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_b": {
+        "sources": 16,
+        "produced": 16,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.812,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 1,
+          "3": 1,
+          "4": 14
+        },
+        "ai_retained_strict": 14,
+        "strict_yield": 0.875,
+        "mostly_or_fully_faithful": 15,
+        "issue_counts": {
+          "mistranslation": 2,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_c": {
+        "sources": 16,
+        "produced": 16,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.625,
+        "score_counts": {
+          "0": 0,
+          "1": 1,
+          "2": 1,
+          "3": 1,
+          "4": 13
+        },
+        "ai_retained_strict": 13,
+        "strict_yield": 0.8125,
+        "mostly_or_fully_faithful": 14,
+        "issue_counts": {
+          "mistranslation": 3,
+          "addition": 1,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "laser_1": {
+        "sources": 16,
+        "produced": 16,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.938,
+        "score_counts": {
+          "0": 10,
+          "1": 0,
+          "2": 4,
+          "3": 1,
+          "4": 1
+        },
+        "ai_retained_strict": 1,
+        "strict_yield": 0.0625,
+        "mostly_or_fully_faithful": 2,
+        "issue_counts": {
+          "omission": 14,
+          "addition": 13,
+          "mistranslation": 1,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "rerank_only": {
+        "sources": 16,
+        "produced": 13,
+        "missing": 3,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 2.077,
+        "score_counts": {
+          "0": 0,
+          "1": 2,
+          "2": 9,
+          "3": 1,
+          "4": 1
+        },
+        "ai_retained_strict": 1,
+        "strict_yield": 0.0625,
+        "mostly_or_fully_faithful": 2,
+        "issue_counts": {
+          "omission": 8,
+          "addition": 11,
+          "mistranslation": 1,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      }
+    },
+    "Boarisch": {
+      "bge_m3": {
+        "sources": 270,
+        "produced": 270,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.174,
+        "score_counts": {
+          "0": 236,
+          "1": 23,
+          "2": 10,
+          "3": 0,
+          "4": 1
+        },
+        "ai_retained_strict": 1,
+        "strict_yield": 0.0037,
+        "mostly_or_fully_faithful": 1,
+        "issue_counts": {
+          "mistranslation": 6,
+          "addition": 263,
+          "omission": 266
+        },
+        "cost_per_retained_pair": null
+      },
+      "blind_translation": {
+        "sources": 270,
+        "produced": 270,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 2.948,
+        "score_counts": {
+          "0": 8,
+          "1": 16,
+          "2": 85,
+          "3": 34,
+          "4": 127
+        },
+        "ai_retained_strict": 127,
+        "strict_yield": 0.4704,
+        "mostly_or_fully_faithful": 161,
+        "issue_counts": {
+          "mistranslation": 127,
+          "omission": 56,
+          "minor": 34,
+          "contradiction": 6,
+          "addition": 5
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_a": {
+        "sources": 270,
+        "produced": 270,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.337,
+        "score_counts": {
+          "0": 4,
+          "1": 5,
+          "2": 60,
+          "3": 28,
+          "4": 173
+        },
+        "ai_retained_strict": 173,
+        "strict_yield": 0.6407,
+        "mostly_or_fully_faithful": 201,
+        "issue_counts": {
+          "mistranslation": 84,
+          "omission": 39,
+          "minor": 28,
+          "contradiction": 4,
+          "addition": 4
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_b": {
+        "sources": 270,
+        "produced": 270,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.452,
+        "score_counts": {
+          "0": 0,
+          "1": 4,
+          "2": 55,
+          "3": 26,
+          "4": 185
+        },
+        "ai_retained_strict": 185,
+        "strict_yield": 0.6852,
+        "mostly_or_fully_faithful": 211,
+        "issue_counts": {
+          "mistranslation": 75,
+          "minor": 26,
+          "omission": 23,
+          "addition": 10
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_c": {
+        "sources": 270,
+        "produced": 270,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.33,
+        "score_counts": {
+          "0": 5,
+          "1": 6,
+          "2": 59,
+          "3": 25,
+          "4": 175
+        },
+        "ai_retained_strict": 175,
+        "strict_yield": 0.6481,
+        "mostly_or_fully_faithful": 200,
+        "issue_counts": {
+          "mistranslation": 79,
+          "omission": 41,
+          "minor": 25,
+          "contradiction": 4,
+          "addition": 3
+        },
+        "cost_per_retained_pair": null
+      },
+      "laser_1": {
+        "sources": 270,
+        "produced": 270,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.107,
+        "score_counts": {
+          "0": 250,
+          "1": 13,
+          "2": 6,
+          "3": 0,
+          "4": 1
+        },
+        "ai_retained_strict": 1,
+        "strict_yield": 0.0037,
+        "mostly_or_fully_faithful": 1,
+        "issue_counts": {
+          "omission": 267,
+          "addition": 267,
+          "mistranslation": 5
+        },
+        "cost_per_retained_pair": null
+      },
+      "rerank_only": {
+        "sources": 270,
+        "produced": 23,
+        "missing": 247,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 1.391,
+        "score_counts": {
+          "0": 4,
+          "1": 8,
+          "2": 10,
+          "3": 0,
+          "4": 1
+        },
+        "ai_retained_strict": 1,
+        "strict_yield": 0.0037,
+        "mostly_or_fully_faithful": 1,
+        "issue_counts": {
+          "mistranslation": 5,
+          "addition": 19,
+          "omission": 19
+        },
+        "cost_per_retained_pair": null
+      }
+    },
+    "Deitschland": {
+      "bge_m3": {
+        "sources": 99,
+        "produced": 99,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.859,
+        "score_counts": {
+          "0": 49,
+          "1": 17,
+          "2": 31,
+          "3": 2,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 2,
+        "issue_counts": {
+          "addition": 90,
+          "minor": 2,
+          "omission": 87,
+          "mistranslation": 11,
+          "contradiction": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "blind_translation": {
+        "sources": 99,
+        "produced": 99,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.323,
+        "score_counts": {
+          "0": 1,
+          "1": 3,
+          "2": 23,
+          "3": 8,
+          "4": 64
+        },
+        "ai_retained_strict": 64,
+        "strict_yield": 0.6465,
+        "mostly_or_fully_faithful": 72,
+        "issue_counts": {
+          "mistranslation": 32,
+          "omission": 8,
+          "minor": 8,
+          "addition": 3,
+          "contradiction": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_a": {
+        "sources": 99,
+        "produced": 99,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.677,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 13,
+          "3": 6,
+          "4": 80
+        },
+        "ai_retained_strict": 80,
+        "strict_yield": 0.8081,
+        "mostly_or_fully_faithful": 86,
+        "issue_counts": {
+          "mistranslation": 17,
+          "omission": 3,
+          "addition": 2,
+          "minor": 6
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_b": {
+        "sources": 99,
+        "produced": 99,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.677,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 13,
+          "3": 6,
+          "4": 80
+        },
+        "ai_retained_strict": 80,
+        "strict_yield": 0.8081,
+        "mostly_or_fully_faithful": 86,
+        "issue_counts": {
+          "mistranslation": 17,
+          "omission": 4,
+          "minor": 6,
+          "addition": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_c": {
+        "sources": 99,
+        "produced": 99,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.626,
+        "score_counts": {
+          "0": 1,
+          "1": 1,
+          "2": 13,
+          "3": 4,
+          "4": 80
+        },
+        "ai_retained_strict": 80,
+        "strict_yield": 0.8081,
+        "mostly_or_fully_faithful": 84,
+        "issue_counts": {
+          "mistranslation": 17,
+          "omission": 5,
+          "addition": 3,
+          "minor": 4,
+          "contradiction": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "laser_1": {
+        "sources": 99,
+        "produced": 99,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.374,
+        "score_counts": {
+          "0": 78,
+          "1": 6,
+          "2": 14,
+          "3": 1,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 1,
+        "issue_counts": {
+          "omission": 93,
+          "addition": 97,
+          "mistranslation": 8,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "rerank_only": {
+        "sources": 99,
+        "produced": 63,
+        "missing": 36,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 1.667,
+        "score_counts": {
+          "0": 4,
+          "1": 17,
+          "2": 39,
+          "3": 2,
+          "4": 1
+        },
+        "ai_retained_strict": 1,
+        "strict_yield": 0.0101,
+        "mostly_or_fully_faithful": 3,
+        "issue_counts": {
+          "addition": 58,
+          "minor": 2,
+          "mistranslation": 11,
+          "omission": 45
+        },
+        "cost_per_retained_pair": null
+      }
+    },
+    "Eiropäische Union": {
+      "bge_m3": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.885,
+        "score_counts": {
+          "0": 13,
+          "1": 6,
+          "2": 4,
+          "3": 3,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 3,
+        "issue_counts": {
+          "addition": 23,
+          "mistranslation": 7,
+          "minor": 3,
+          "omission": 22
+        },
+        "cost_per_retained_pair": null
+      },
+      "blind_translation": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.538,
+        "score_counts": {
+          "0": 1,
+          "1": 0,
+          "2": 3,
+          "3": 2,
+          "4": 20
+        },
+        "ai_retained_strict": 20,
+        "strict_yield": 0.7692,
+        "mostly_or_fully_faithful": 22,
+        "issue_counts": {
+          "mistranslation": 5,
+          "contradiction": 1,
+          "minor": 2,
+          "omission": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_a": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.962,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 1,
+          "4": 25
+        },
+        "ai_retained_strict": 25,
+        "strict_yield": 0.9615,
+        "mostly_or_fully_faithful": 26,
+        "issue_counts": {
+          "mistranslation": 1,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_b": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.846,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 23
+        },
+        "ai_retained_strict": 23,
+        "strict_yield": 0.8846,
+        "mostly_or_fully_faithful": 25,
+        "issue_counts": {
+          "mistranslation": 3,
+          "minor": 2
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_c": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.962,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 1,
+          "4": 25
+        },
+        "ai_retained_strict": 25,
+        "strict_yield": 0.9615,
+        "mostly_or_fully_faithful": 26,
+        "issue_counts": {
+          "mistranslation": 1,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "laser_1": {
+        "sources": 26,
+        "produced": 26,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.308,
+        "score_counts": {
+          "0": 22,
+          "1": 1,
+          "2": 2,
+          "3": 1,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 1,
+        "issue_counts": {
+          "omission": 25,
+          "addition": 25,
+          "mistranslation": 3,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "rerank_only": {
+        "sources": 26,
+        "produced": 11,
+        "missing": 15,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 1.727,
+        "score_counts": {
+          "0": 1,
+          "1": 3,
+          "2": 5,
+          "3": 2,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 2,
+        "issue_counts": {
+          "addition": 10,
+          "mistranslation": 3,
+          "minor": 2,
+          "omission": 8
+        },
+        "cost_per_retained_pair": null
+      }
+    },
+    "Frankreich": {
+      "bge_m3": {
+        "sources": 18,
+        "produced": 18,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 1.0,
+        "score_counts": {
+          "0": 7,
+          "1": 4,
+          "2": 7,
+          "3": 0,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 0,
+        "issue_counts": {
+          "omission": 15,
+          "addition": 17,
+          "mistranslation": 3
+        },
+        "cost_per_retained_pair": null
+      },
+      "blind_translation": {
+        "sources": 18,
+        "produced": 18,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.556,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 3,
+          "3": 2,
+          "4": 13
+        },
+        "ai_retained_strict": 13,
+        "strict_yield": 0.7222,
+        "mostly_or_fully_faithful": 15,
+        "issue_counts": {
+          "omission": 1,
+          "mistranslation": 5,
+          "minor": 2
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_a": {
+        "sources": 18,
+        "produced": 18,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.722,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 2,
+          "3": 1,
+          "4": 15
+        },
+        "ai_retained_strict": 15,
+        "strict_yield": 0.8333,
+        "mostly_or_fully_faithful": 16,
+        "issue_counts": {
+          "mistranslation": 3,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_b": {
+        "sources": 18,
+        "produced": 18,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.833,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 1,
+          "3": 1,
+          "4": 16
+        },
+        "ai_retained_strict": 16,
+        "strict_yield": 0.8889,
+        "mostly_or_fully_faithful": 17,
+        "issue_counts": {
+          "mistranslation": 2,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_c": {
+        "sources": 18,
+        "produced": 18,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.722,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 2,
+          "3": 1,
+          "4": 15
+        },
+        "ai_retained_strict": 15,
+        "strict_yield": 0.8333,
+        "mostly_or_fully_faithful": 16,
+        "issue_counts": {
+          "mistranslation": 3,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "laser_1": {
+        "sources": 18,
+        "produced": 18,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.667,
+        "score_counts": {
+          "0": 12,
+          "1": 0,
+          "2": 6,
+          "3": 0,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 0,
+        "issue_counts": {
+          "omission": 16,
+          "addition": 17,
+          "mistranslation": 2
+        },
+        "cost_per_retained_pair": null
+      },
+      "rerank_only": {
+        "sources": 18,
+        "produced": 12,
+        "missing": 6,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 1.667,
+        "score_counts": {
+          "0": 1,
+          "1": 2,
+          "2": 9,
+          "3": 0,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 0,
+        "issue_counts": {
+          "omission": 8,
+          "addition": 11,
+          "mistranslation": 2
+        },
+        "cost_per_retained_pair": null
+      }
+    },
+    "Geografie": {
+      "bge_m3": {
+        "sources": 5,
+        "produced": 5,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.8,
+        "score_counts": {
+          "0": 1,
+          "1": 4,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 0,
+        "issue_counts": {
+          "omission": 5,
+          "addition": 5
+        },
+        "cost_per_retained_pair": null
+      },
+      "blind_translation": {
+        "sources": 5,
+        "produced": 5,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.4,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 1,
+          "3": 1,
+          "4": 3
+        },
+        "ai_retained_strict": 3,
+        "strict_yield": 0.6,
+        "mostly_or_fully_faithful": 4,
+        "issue_counts": {
+          "mistranslation": 2,
+          "omission": 2,
+          "minor": 1,
+          "addition": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_a": {
+        "sources": 5,
+        "produced": 5,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.6,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 2,
+          "4": 3
+        },
+        "ai_retained_strict": 3,
+        "strict_yield": 0.6,
+        "mostly_or_fully_faithful": 5,
+        "issue_counts": {
+          "mistranslation": 1,
+          "omission": 1,
+          "minor": 2,
+          "addition": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_b": {
+        "sources": 5,
+        "produced": 5,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.8,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 1,
+          "4": 4
+        },
+        "ai_retained_strict": 4,
+        "strict_yield": 0.8,
+        "mostly_or_fully_faithful": 5,
+        "issue_counts": {
+          "mistranslation": 1,
+          "omission": 1,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_c": {
+        "sources": 5,
+        "produced": 5,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.8,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 1,
+          "4": 4
+        },
+        "ai_retained_strict": 4,
+        "strict_yield": 0.8,
+        "mostly_or_fully_faithful": 5,
+        "issue_counts": {
+          "mistranslation": 1,
+          "omission": 1,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "laser_1": {
+        "sources": 5,
+        "produced": 5,
+        "missing": 0,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 0.2,
+        "score_counts": {
+          "0": 4,
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        },
+        "ai_retained_strict": 0,
+        "strict_yield": 0.0,
+        "mostly_or_fully_faithful": 0,
+        "issue_counts": {
+          "omission": 5,
+          "addition": 4
+        },
+        "cost_per_retained_pair": null
+      },
+      "rerank_only": {
+        "sources": 5,
+        "produced": 3,
+        "missing": 2,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 3.0,
+        "score_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 1,
+          "3": 1,
+          "4": 1
+        },
+        "ai_retained_strict": 1,
+        "strict_yield": 0.2,
+        "mostly_or_fully_faithful": 2,
+        "issue_counts": {
+          "omission": 2,
+          "addition": 2,
+          "minor": 1
+        },
+        "cost_per_retained_pair": null
+      }
+    },
+    "Isar": {
+      "bge_m3": {
+        "sources": 64,
+        "produced": 64,
+        "missing": 0,
+        "uncertain": 1,
+        "mean_fidelity_0_4": 0.714,
+        "score_counts": {
+          "0": 37,
+          "1": 11,
+          "2": 13,
+          "3": 0,
+          "4": 2
+        },
+        "ai_retained_strict": 2,
+        "strict_yield": 0.0312,
+        "mostly_or_fully_faithful": 2,
+        "issue_counts": {
+          "uncertain": 1,
+          "addition": 59,
+          "omission": 60,
+          "mistranslation": 6
+        },
+        "cost_per_retained_pair": null
+      },
+      "blind_translation": {
+        "sources": 64,
+        "produced": 64,
+        "missing": 0,
+        "uncertain": 1,
+        "mean_fidelity_0_4": 3.063,
+        "score_counts": {
+          "0": 1,
+          "1": 4,
+          "2": 18,
+          "3": 7,
+          "4": 33
+        },
+        "ai_retained_strict": 33,
+        "strict_yield": 0.5156,
+        "mostly_or_fully_faithful": 40,
+        "issue_counts": {
+          "uncertain": 1,
+          "mistranslation": 26,
+          "addition": 2,
+          "minor": 7,
+          "omission": 9
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_a": {
+        "sources": 64,
+        "produced": 64,
+        "missing": 0,
+        "uncertain": 1,
+        "mean_fidelity_0_4": 3.413,
+        "score_counts": {
+          "0": 1,
+          "1": 2,
+          "2": 11,
+          "3": 5,
+          "4": 44
+        },
+        "ai_retained_strict": 44,
+        "strict_yield": 0.6875,
+        "mostly_or_fully_faithful": 49,
+        "issue_counts": {
+          "uncertain": 1,
+          "mistranslation": 17,
+          "minor": 5,
+          "addition": 1,
+          "omission": 3,
+          "contradiction": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_b": {
+        "sources": 64,
+        "produced": 64,
+        "missing": 0,
+        "uncertain": 1,
+        "mean_fidelity_0_4": 3.571,
+        "score_counts": {
+          "0": 0,
+          "1": 1,
+          "2": 10,
+          "3": 4,
+          "4": 48
+        },
+        "ai_retained_strict": 48,
+        "strict_yield": 0.75,
+        "mostly_or_fully_faithful": 52,
+        "issue_counts": {
+          "uncertain": 1,
+          "mistranslation": 12,
+          "minor": 4,
+          "omission": 4,
+          "contradiction": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "grounded_c": {
+        "sources": 64,
+        "produced": 64,
+        "missing": 0,
+        "uncertain": 1,
+        "mean_fidelity_0_4": 3.413,
+        "score_counts": {
+          "0": 1,
+          "1": 1,
+          "2": 12,
+          "3": 6,
+          "4": 43
+        },
+        "ai_retained_strict": 43,
+        "strict_yield": 0.6719,
+        "mostly_or_fully_faithful": 49,
+        "issue_counts": {
+          "uncertain": 1,
+          "mistranslation": 17,
+          "minor": 6,
+          "addition": 1,
+          "omission": 3,
+          "contradiction": 1
+        },
+        "cost_per_retained_pair": null
+      },
+      "laser_1": {
+        "sources": 64,
+        "produced": 64,
+        "missing": 0,
+        "uncertain": 1,
+        "mean_fidelity_0_4": 0.651,
+        "score_counts": {
+          "0": 38,
+          "1": 13,
+          "2": 10,
+          "3": 0,
+          "4": 2
+        },
+        "ai_retained_strict": 2,
+        "strict_yield": 0.0312,
+        "mostly_or_fully_faithful": 2,
+        "issue_counts": {
+          "uncertain": 1,
+          "addition": 58,
+          "omission": 61,
+          "mistranslation": 3
+        },
+        "cost_per_retained_pair": null
+      },
+      "rerank_only": {
+        "sources": 64,
+        "produced": 27,
+        "missing": 37,
+        "uncertain": 0,
+        "mean_fidelity_0_4": 1.926,
+        "score_counts": {
+          "0": 0,
+          "1": 6,
+          "2": 19,
+          "3": 0,
+          "4": 2
+        },
+        "ai_retained_strict": 2,
+        "strict_yield": 0.0312,
+        "mostly_or_fully_faithful": 2,
+        "issue_counts": {
+          "addition": 24,
+          "omission": 22,
+          "mistranslation": 3
+        },
+        "cost_per_retained_pair": null
+      }
+    }
+  },
+  "paired_vs_blind": {
+    "bge_m3": {
+      "unscored_or_missing": 1,
+      "lower": 492,
+      "tied": 27,
+      "higher": 4
+    },
+    "blind_translation": {
+      "unscored_or_missing": 1,
+      "tied": 523
+    },
+    "grounded_a": {
+      "unscored_or_missing": 1,
+      "tied": 398,
+      "higher": 116,
+      "lower": 9
+    },
+    "grounded_b": {
+      "unscored_or_missing": 1,
+      "tied": 341,
+      "higher": 153,
+      "lower": 29
+    },
+    "grounded_c": {
+      "unscored_or_missing": 1,
+      "tied": 405,
+      "higher": 113,
+      "lower": 5
+    },
+    "laser_1": {
+      "unscored_or_missing": 1,
+      "lower": 497,
+      "tied": 23,
+      "higher": 3
+    },
+    "rerank_only": {
+      "unscored_or_missing": 354,
+      "lower": 139,
+      "tied": 25,
+      "higher": 6
+    }
+  }
+}

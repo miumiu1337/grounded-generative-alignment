@@ -1,0 +1,34 @@
+{
+  "run_name": "laser_bge_development_v1",
+  "protocol_version": 1,
+  "split": "development",
+  "preprocessing_freeze_sha256": "5cf98d0c8e9072cf4915f6679f5beb34d16396bd0ce3cd9022206078b590263f",
+  "source_unit": "single_sentence",
+  "target_unit": "frozen_1_or_2_sentence_span_within_linked_article",
+  "neighbors": 4,
+  "top_k": 5,
+  "margin_method": "ratio",
+  "acceptance_threshold": null,
+  "sensitivity_thresholds": [1.0, 1.02, 1.04, 1.06, 1.1, 1.2],
+  "batch_size": 32,
+  "laser": {
+    "model": "LASER-1",
+    "package": "laserembeddings",
+    "package_version": "1.1.2",
+    "model_directory": "models/laser_1",
+    "model_hash": "1f53121a57525b13aef6bedfe3cf307a6e4078e1cdbb80eefbddb9fde20086ab",
+    "source_tokenizer": "de",
+    "target_tokenizer": "en",
+    "cpu_threads": 1
+  },
+  "bge": {
+    "model": "bge-m3:latest",
+    "provider": "local_ollama",
+    "url": "http://127.0.0.1:11434",
+    "model_digest": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab",
+    "precision": "F16",
+    "embedding_dimension": 1024,
+    "truncate": false,
+    "num_ctx": 8192
+  }
+}

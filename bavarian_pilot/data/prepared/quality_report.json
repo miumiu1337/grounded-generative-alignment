@@ -1,0 +1,324 @@
+{
+  "preprocessing_version": "1.0.1",
+  "sentence_quality_policy": "sentence_quality_v1",
+  "articles": [
+    {
+      "language": "bar",
+      "title": "Isar",
+      "split": "evaluation",
+      "sentences": 65,
+      "eligible_sentences": 64,
+      "candidate_spans": 115,
+      "exclusion_counts": {
+        "incomplete_list_intro": 1
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "en",
+      "title": "Isar",
+      "split": "evaluation",
+      "sentences": 64,
+      "eligible_sentences": 63,
+      "candidate_spans": 107,
+      "exclusion_counts": {
+        "incomplete_list_intro": 1
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "bar",
+      "title": "Bozn",
+      "split": "development",
+      "sentences": 45,
+      "eligible_sentences": 39,
+      "candidate_spans": 67,
+      "exclusion_counts": {
+        "continued_by_leading_punctuation": 1,
+        "leading_punctuation": 1,
+        "punctuation_only": 1,
+        "split_quotation": 4
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "en",
+      "title": "Bolzano",
+      "split": "development",
+      "sentences": 206,
+      "eligible_sentences": 192,
+      "candidate_spans": 327,
+      "exclusion_counts": {
+        "incomplete_list_intro": 8,
+        "standalone_label": 6
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "bar",
+      "title": "Bejgien",
+      "split": "evaluation",
+      "sentences": 27,
+      "eligible_sentences": 26,
+      "candidate_spans": 41,
+      "exclusion_counts": {
+        "incomplete_list_intro": 1
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "en",
+      "title": "Belgium",
+      "split": "evaluation",
+      "sentences": 408,
+      "eligible_sentences": 407,
+      "candidate_spans": 712,
+      "exclusion_counts": {
+        "incomplete_list_intro": 1
+      },
+      "removed": {
+        "back_matter_paragraphs": 1
+      },
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "bar",
+      "title": "Berlin",
+      "split": "evaluation",
+      "sentences": 16,
+      "eligible_sentences": 16,
+      "candidate_spans": 27,
+      "exclusion_counts": {},
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "en",
+      "title": "Berlin",
+      "split": "evaluation",
+      "sentences": 588,
+      "eligible_sentences": 587,
+      "candidate_spans": 1018,
+      "exclusion_counts": {
+        "incomplete_list_intro": 1
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "bar",
+      "title": "Boarisch",
+      "split": "evaluation",
+      "sentences": 326,
+      "eligible_sentences": 270,
+      "candidate_spans": 419,
+      "exclusion_counts": {
+        "abbreviation_fragment": 6,
+        "incomplete_list_intro": 41,
+        "navigation_note": 2,
+        "punctuation_only": 1,
+        "standalone_label": 9
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": [
+        "bar_58_vowel_o_sentence_boundary"
+      ]
+    },
+    {
+      "language": "en",
+      "title": "Bavarian language",
+      "split": "evaluation",
+      "sentences": 62,
+      "eligible_sentences": 57,
+      "candidate_spans": 90,
+      "exclusion_counts": {
+        "incomplete_list_intro": 5
+      },
+      "removed": {
+        "back_matter_paragraphs": 2
+      },
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "bar",
+      "title": "Kristndum",
+      "split": "development",
+      "sentences": 14,
+      "eligible_sentences": 14,
+      "candidate_spans": 23,
+      "exclusion_counts": {},
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "en",
+      "title": "Christianity",
+      "split": "development",
+      "sentences": 591,
+      "eligible_sentences": 588,
+      "candidate_spans": 1012,
+      "exclusion_counts": {
+        "incomplete_list_intro": 3
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "bar",
+      "title": "Deitschland",
+      "split": "evaluation",
+      "sentences": 99,
+      "eligible_sentences": 99,
+      "candidate_spans": 170,
+      "exclusion_counts": {},
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "en",
+      "title": "Germany",
+      "split": "evaluation",
+      "sentences": 402,
+      "eligible_sentences": 402,
+      "candidate_spans": 708,
+      "exclusion_counts": {},
+      "removed": {
+        "back_matter_paragraphs": 1
+      },
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "bar",
+      "title": "Eiropäische Union",
+      "split": "evaluation",
+      "sentences": 29,
+      "eligible_sentences": 26,
+      "candidate_spans": 42,
+      "exclusion_counts": {
+        "incomplete_list_intro": 2,
+        "navigation_note": 1
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "en",
+      "title": "European Union",
+      "split": "evaluation",
+      "sentences": 623,
+      "eligible_sentences": 620,
+      "candidate_spans": 1101,
+      "exclusion_counts": {
+        "incomplete_list_intro": 2,
+        "punctuation_only": 1
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "bar",
+      "title": "Frankreich",
+      "split": "evaluation",
+      "sentences": 22,
+      "eligible_sentences": 18,
+      "candidate_spans": 27,
+      "exclusion_counts": {
+        "incomplete_list_intro": 2,
+        "standalone_label": 2
+      },
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "en",
+      "title": "France",
+      "split": "evaluation",
+      "sentences": 635,
+      "eligible_sentences": 635,
+      "candidate_spans": 1125,
+      "exclusion_counts": {},
+      "removed": {
+        "back_matter_paragraphs": 1
+      },
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "bar",
+      "title": "Geografie",
+      "split": "evaluation",
+      "sentences": 5,
+      "eligible_sentences": 5,
+      "candidate_spans": 9,
+      "exclusion_counts": {},
+      "removed": {},
+      "sentence_boundary_corrections_applied": []
+    },
+    {
+      "language": "en",
+      "title": "Geography",
+      "split": "evaluation",
+      "sentences": 237,
+      "eligible_sentences": 235,
+      "candidate_spans": 425,
+      "exclusion_counts": {
+        "incomplete_list_intro": 2
+      },
+      "removed": {
+        "back_matter_paragraphs": 1
+      },
+      "sentence_boundary_corrections_applied": []
+    }
+  ],
+  "exact_duplicate_groups": [
+    {
+      "language": "bar",
+      "text": "Beispui:",
+      "cross_split": false,
+      "occurrences": [
+        {
+          "sentence_id": "bar_58:v1.0.1:S0206",
+          "split": "evaluation",
+          "eligible_for_matching": false
+        },
+        {
+          "sentence_id": "bar_58:v1.0.1:S0271",
+          "split": "evaluation",
+          "eligible_for_matching": false
+        },
+        {
+          "sentence_id": "bar_58:v1.0.1:S0311",
+          "split": "evaluation",
+          "eligible_for_matching": false
+        },
+        {
+          "sentence_id": "bar_58:v1.0.1:S0313",
+          "split": "evaluation",
+          "eligible_for_matching": false
+        }
+      ]
+    },
+    {
+      "language": "bar",
+      "text": "Sg.",
+      "cross_split": false,
+      "occurrences": [
+        {
+          "sentence_id": "bar_58:v1.0.1:S0127",
+          "split": "evaluation",
+          "eligible_for_matching": false
+        },
+        {
+          "sentence_id": "bar_58:v1.0.1:S0268",
+          "split": "evaluation",
+          "eligible_for_matching": false
+        }
+      ]
+    }
+  ],
+  "duplicate_policy": "Report Unicode-NFC/whitespace-normalized exact repeats without deleting occurrences. Near-duplicates are not detected."
+}

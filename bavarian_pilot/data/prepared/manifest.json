@@ -1,0 +1,150 @@
+{
+  "preprocessing_version": "1.0.1",
+  "preparation": {
+    "beautifulsoup4": "4.15.0",
+    "pysbd": "0.3.4",
+    "requests": "2.32.5",
+    "urllib3": "2.6.3",
+    "certifi": "2026.10.18",
+    "charset-normalizer": "3.5.2",
+    "idna": "3.20",
+    "soupsieve": "2.8.4",
+    "typing-extensions": "4.16.0",
+    "python": "3.12.15",
+    "code_sha256": {
+      "download_articles.py": "69eeb979a0f58a7825705b23df3602cffa220156c7a53ee9eb505707466b5f36",
+      "prepare_articles.py": "d491bd991bfca5ff770b544e7a790e963f99de0303bc4b7c3fc9555a9b79a38f",
+      "source_quality.py": "7babcf8f8994b2a55b23b625c9eb1aee614260d054dfc939abfbbec822271db4"
+    },
+    "maximum_span_sentences": 2,
+    "sentence_quality_policy": "sentence_quality_v1",
+    "sentence_boundary_corrections_sha256": "3652ebb725c9c37394a74b5942e0585135f67ae9e88439813e26b7bd81c96661"
+  },
+  "selection_sha256": "e4771a5435ecbb774a07ad1753572020a0b074bdcf1a707d713b6367586fa356",
+  "split_sha256": "728a518b4dbe164044b6f135c39934abedd62b4caf8c93f1f3bec6821604f4ca",
+  "provenance_sha256": "8b9dd68d9a7d717fea83eef988af2a39ad33e5d91dd609c11bf6b9bcb004db48",
+  "requirements_lock_sha256": "2a712694abd25e285b82d40fab2ddfd48bf9cbef107a21aaef32ab00e0d6db92",
+  "quality_report_sha256": "7af1c870a3e6430d0dea0b2ede35247cd96f67e8178206b01aa23694219415bb",
+  "articles": [
+    {
+      "file": "bar_2241.json",
+      "sha256": "4a019ee9f7abca2195bf531b30dcda745924516afd93e36e310cf289fefa9885",
+      "inputs": {
+        "raw_file": "data/raw/bar_2241_Isar.json",
+        "raw_sha256": "f82942181ff05d8269b1c2f5a33baedab24e9aa7b261f87981f8982e40eb0919",
+        "bar_html_file": "data/html/bar_2241_854073.json",
+        "bar_html_sha256": "0bbb052ac60ba67d7d4cebcb79ce4e3b56351b34525057b04514dc3a0347f797",
+        "en_html_file": "data/html/en_247587_1374512240.json",
+        "en_html_sha256": "8e78b0b94472f832170ab7d97622076ff0f1093e620edde901d216019a0d683d"
+      }
+    },
+    {
+      "file": "bar_2544.json",
+      "sha256": "6698e72c8f4ef905b6522db28e661e9bd948cbf0764c15130c00a41e93427437",
+      "inputs": {
+        "raw_file": "data/raw/bar_2544_Bozn.json",
+        "raw_sha256": "4649270d9c8f9c4b68d143bf97025d3a5d1f81d455fdbce899f6e90fad574337",
+        "bar_html_file": "data/html/bar_2544_808488.json",
+        "bar_html_sha256": "8ffa81cad4a094b4b9266be562a93cdad102fd57451d24f3851e46449515d96d",
+        "en_html_file": "data/html/en_191106_1379701200.json",
+        "en_html_sha256": "d1d0932d0b23f994ca0e18107de7b6477f8863d7b0f41f99f00fe0179af1142e"
+      }
+    },
+    {
+      "file": "bar_56.json",
+      "sha256": "c5810c53c9e55d809a61edbbb0a3e447f001a5cb21331280e2bed756a48fa3e0",
+      "inputs": {
+        "raw_file": "data/raw/bar_56_Bejgien.json",
+        "raw_sha256": "040a39f27b4a0bf51fecd7a077132ee569a69b3be8bab1167e272a58d969481d",
+        "bar_html_file": "data/html/bar_56_850669.json",
+        "bar_html_sha256": "786ca990b584565372fba4d9039f99a73d19e222295d4dfea74e4c57f0ce7db8",
+        "en_html_file": "data/html/en_3343_1380933758.json",
+        "en_html_sha256": "a273eb0bf8cff7a0c149439a958a4705619f1552902cb34747c3de3e77888076"
+      }
+    },
+    {
+      "file": "bar_57.json",
+      "sha256": "01b53ae2961a9ab0e1b22146c720cf92b641ce4a6f73c6f6ed12689117b7ea9a",
+      "inputs": {
+        "raw_file": "data/raw/bar_57_Berlin.json",
+        "raw_sha256": "2a87b50ed9f3368190fc3663ba9ea12835841dc51d9856c10f912ddba4bbd698",
+        "bar_html_file": "data/html/bar_57_845871.json",
+        "bar_html_sha256": "4c050c1ecbd36c2b571360fc4581286a7295eed5a8c2f0f3b4d94b1f6e87cc06",
+        "en_html_file": "data/html/en_3354_1380979968.json",
+        "en_html_sha256": "3726d2b13be8e939ca935171265de34f0335ea4b730d3ffb9fc9851316a1208a"
+      }
+    },
+    {
+      "file": "bar_58.json",
+      "sha256": "0f2ec7efa5a59ea65b1bafbc2bd7bbc8f0152f391e2f7c7081f98b6d0760b1a4",
+      "inputs": {
+        "raw_file": "data/raw/bar_58_Boarisch.json",
+        "raw_sha256": "c7860ad67814db8b898d663a71426c138b1d6c1953263d0f5fb13af966f0e33e",
+        "bar_html_file": "data/html/bar_58_855108.json",
+        "bar_html_sha256": "91c5ff7025d5249fed49c832ffff3bf3643b7cd22ace4f2daf029a752350ba79",
+        "en_html_file": "data/html/en_153500_1379478159.json",
+        "en_html_sha256": "7d2ec7947aebbf3e7663be3bda5ff053e6d294ab742209cd6f463743263cf8b8"
+      }
+    },
+    {
+      "file": "bar_59.json",
+      "sha256": "1be85570cb335db9f6a57dabef991b92f983dee21188cf69f1a3340b49af4ed2",
+      "inputs": {
+        "raw_file": "data/raw/bar_59_Kristndum.json",
+        "raw_sha256": "42972bdada167032359a1b853be418ad7741d871a2531c860c8fb064c17b0da6",
+        "bar_html_file": "data/html/bar_59_836935.json",
+        "bar_html_sha256": "cba57a42eb7e6ba100b2701833488f7464b1fdde3ad03594aa773febc061b5ce",
+        "en_html_file": "data/html/en_5211_1379936152.json",
+        "en_html_sha256": "edf9490fd8509cab7e4c9b37889983ab1257cc6f650eee194a10f0dbb0f6b98a"
+      }
+    },
+    {
+      "file": "bar_60.json",
+      "sha256": "88fbca6cf3ae806448dd5023c7b71cc152ea09b9ffe17d91af071c752b8d4379",
+      "inputs": {
+        "raw_file": "data/raw/bar_60_Deitschland.json",
+        "raw_sha256": "314de4ddcd4080ead1a841653a8ab972057301d222da6776c868f84de991ba76",
+        "bar_html_file": "data/html/bar_60_850185.json",
+        "bar_html_sha256": "27982b78cf6064f540da7aa8778e69c4e54de9f45506ff4e410b32dd77b9dee3",
+        "en_html_file": "data/html/en_11867_1380020945.json",
+        "en_html_sha256": "0ab9a9beebee4a87cb5fe20d1e6aafe7d287d47f50200d9b0c40e9dc0f752204"
+      }
+    },
+    {
+      "file": "bar_62.json",
+      "sha256": "dfcd821b7ca67d93bae3d6e8e9b91b279a63abf5b2d1dfef537b694618fd62cd",
+      "inputs": {
+        "raw_file": "data/raw/bar_62_Eiropäische_Union.json",
+        "raw_sha256": "25360ceaf28733602437290f1f3f1612e173f5832ad4935baa3c1bb41031b918",
+        "bar_html_file": "data/html/bar_62_851840.json",
+        "bar_html_sha256": "7dd4ce034def6bed2cc01f14b3e1e1cda1eaf3b8dab296109e560912733a8041",
+        "en_html_file": "data/html/en_9317_1380814127.json",
+        "en_html_sha256": "f5113b4dc601a5c3803a4496622d24ad5101dc7a80fa664d98dd741dfadde899"
+      }
+    },
+    {
+      "file": "bar_63.json",
+      "sha256": "ef602d344bad8635d16780dac2c572c919297c798e206b6be8ab38972148b4b0",
+      "inputs": {
+        "raw_file": "data/raw/bar_63_Frankreich.json",
+        "raw_sha256": "b66f15425443f4debfd85f0095d6e857cd8df8a21dc4f4b0a62ec1b7d39d4026",
+        "bar_html_file": "data/html/bar_63_850140.json",
+        "bar_html_sha256": "42b52bb29dfe3d49ebfaf35792fb72016d8235eca406cdf41d1ec3ea7a3f4dec",
+        "en_html_file": "data/html/en_5843419_1380887235.json",
+        "en_html_sha256": "1b069425d11685b80a69477bdf4f5188f100fd06c050019ef9927c95c6fc4dd2"
+      }
+    },
+    {
+      "file": "bar_65.json",
+      "sha256": "71ccd21d346b875d608200109d9bef5291d8a7ad2e48bc96f0312cc4c3373f58",
+      "inputs": {
+        "raw_file": "data/raw/bar_65_Geografie.json",
+        "raw_sha256": "33af02fde8a880c1bb1539ac5eaa3c50a8fc48fed457dab4227ccc24bb9c4d12",
+        "bar_html_file": "data/html/bar_65_644766.json",
+        "bar_html_sha256": "b172b1fb88fc9efb7363d687ec58cd9d9704a394e009b5a66cb3517a59cbfbe5",
+        "en_html_file": "data/html/en_18963910_1379721409.json",
+        "en_html_sha256": "3984f783b8211ec14c212a1b389c99f30151f26dd59e4e932a6518fe011e79e9"
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "evaluation_freeze_sha256": "dfafe4319d42bf0e8b69242b8c322f98d61b8db4d19239c9202420f08ac376d1",
+  "review": "Conversational AI source-only inspection before method-output scoring; not human annotation",
+  "source_pool_retained": 524,
+  "issues": [
+    {
+      "source_ids": [
+        "bar_2241:v1.0.1:S0001"
+      ],
+      "kind": "template_residue",
+      "note": "A leftover river-infobox template identifier rather than natural-language prose."
+    },
+    {
+      "source_ids": [
+        "bar_2241:v1.0.1:S0017"
+      ],
+      "kind": "embedded_maintenance_note",
+      "note": "The geographical sentence retains a missing-coordinates and help-editing message."
+    },
+    {
+      "source_ids": [
+        "bar_60:v1.0.1:S0043",
+        "bar_60:v1.0.1:S0044"
+      ],
+      "kind": "sentence_boundary",
+      "note": "A century expression and animal list are split across units."
+    },
+    {
+      "source_ids": [
+        "bar_60:v1.0.1:S0052",
+        "bar_60:v1.0.1:S0053",
+        "bar_60:v1.0.1:S0054",
+        "bar_60:v1.0.1:S0055"
+      ],
+      "kind": "sentence_boundary",
+      "note": "B.C. abbreviation boundaries leave incomplete clauses and a standalone date phrase."
+    },
+    {
+      "source_ids": [
+        "bar_60:v1.0.1:S0080",
+        "bar_60:v1.0.1:S0081",
+        "bar_60:v1.0.1:S0082"
+      ],
+      "kind": "sentence_boundary",
+      "note": "A sentence listing twentieth- and twenty-first-century authors is split into incomplete units."
+    },
+    {
+      "source_ids": [
+        "bar_58:v1.0.1:S0005",
+        "bar_58:v1.0.1:S0293",
+        "bar_58:v1.0.1:S0307"
+      ],
+      "kind": "navigation_or_cross_reference",
+      "note": "Some portal and see-also instructions remain among eligible prose units."
+    },
+    {
+      "source_ids": [
+        "bar_58:v1.0.1:S0056",
+        "bar_58:v1.0.1:S0057",
+        "bar_58:v1.0.1:S0058",
+        "bar_58:v1.0.1:S0059",
+        "bar_58:v1.0.1:S0084",
+        "bar_58:v1.0.1:S0085",
+        "bar_58:v1.0.1:S0086",
+        "bar_58:v1.0.1:S0087",
+        "bar_58:v1.0.1:S0108",
+        "bar_58:v1.0.1:S0109"
+      ],
+      "kind": "abbreviation_boundary",
+      "note": "Abbreviations for Middle/New High German, Viennese and standard German produce fragmented linguistic examples."
+    },
+    {
+      "source_ids": [
+        "bar_58:v1.0.1:S0123",
+        "bar_58:v1.0.1:S0124",
+        "bar_58:v1.0.1:S0125",
+        "bar_58:v1.0.1:S0128",
+        "bar_58:v1.0.1:S0177",
+        "bar_58:v1.0.1:S0178",
+        "bar_58:v1.0.1:S0267",
+        "bar_58:v1.0.1:S0269",
+        "bar_58:v1.0.1:S0303",
+        "bar_58:v1.0.1:S0304"
+      ],
+      "kind": "abbreviation_boundary",
+      "note": "Other abbreviations and numbered grammatical categories leave incomplete segments, sometimes adjacent to excluded abbreviation-only units."
+    },
+    {
+      "source_ids": [
+        "bar_58:v1.0.1:S0110",
+        "bar_58:v1.0.1:S0156",
+        "bar_58:v1.0.1:S0245"
+      ],
+      "kind": "merged_sentences",
+      "note": "Some source units contain two authored sentences around letter or abbreviation boundaries."
+    },
+    {
+      "source_ids": [
+        "bar_58:v1.0.1:S0018"
+      ],
+      "kind": "quoted_other_language",
+      "note": "A Latin historical quotation occurs inside the Bavarian article; article language does not certify the language of every unit."
+    },
+    {
+      "source_ids": [
+        "bar_58:v1.0.1:S0036",
+        "bar_58:v1.0.1:S0092",
+        "bar_58:v1.0.1:S0161",
+        "bar_58:v1.0.1:S0162",
+        "bar_58:v1.0.1:S0288",
+        "bar_58:v1.0.1:S0297",
+        "bar_58:v1.0.1:S0298",
+        "bar_58:v1.0.1:S0299",
+        "bar_58:v1.0.1:S0301",
+        "bar_58:v1.0.1:S0302",
+        "bar_58:v1.0.1:S0305"
+      ],
+      "kind": "phrase_or_lexical_example",
+      "note": "Some eligible units are geographical fragments, labels, vocabulary lists or clock expressions. These may be interpretable text segments without being complete prose sentences."
+    }
+  ],
+  "interpretation": "No source, prompt, threshold or segmentation is changed. These are input-quality limitations. Fidelity to a text segment is distinct from certification that it is a well-formed parallel sentence. Apply the frozen uncertainty option when interpretation is insufficient."
+}

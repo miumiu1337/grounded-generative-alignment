@@ -1,0 +1,11 @@
+[
+  {
+    "id": "bar_58_vowel_o_sentence_boundary",
+    "language": "bar",
+    "page_id": 58,
+    "revision_id": 855108,
+    "paragraph_sha256": "64d5bd844a266640981069bc6a1fce5ee888e51b7fc706d83e30bcf015be3b47",
+    "split_after": "Es liegt fia deitsch Ohrn a näha am o.",
+    "reason": "In this phonology paragraph, o is a vowel label followed by a sentence-ending period. pySBD's German single-lowercase-letter rule protects that period and merges the following sentence beginning Das des zum Zammafoi. Force this boundary without changing the text."
+  }
+]

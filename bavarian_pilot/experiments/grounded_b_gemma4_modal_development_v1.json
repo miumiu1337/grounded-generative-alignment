@@ -1,0 +1,33 @@
+{
+  "run_name": "grounded_b_gemma4_modal_development_v1",
+  "protocol_version": 1,
+  "condition": "grounded_b",
+  "provider": "modal_self_hosted",
+  "model": "google/gemma-4-26B-A4B-it",
+  "model_revision": "47b6801b24d15ff9bcd8c96dfaea0be9ed3a0301",
+  "split": "development",
+  "source_language": "bar",
+  "target_language": "en",
+  "source_unit": "single_sentence",
+  "candidate_policy": "all_frozen_english_1_or_2_sentence_spans_in_linked_article",
+  "preprocessing_freeze_sha256": "5cf98d0c8e9072cf4915f6679f5beb34d16396bd0ce3cd9022206078b590263f",
+  "comparison_a_directory": "data/translations/grounded_a_gemma4_modal_development_v2",
+  "comparison_a_run_id": "8f8b50509e883ed6cedc0a98496c14ae8a3b66d2b843c6426c1f361c4d6d4d09",
+  "selection_prompt": "prompts/grounded_b_selection_v1.txt",
+  "translation_prompt": "prompts/grounded_b_translation_v1.txt",
+  "generation": {
+    "temperature": 0.0,
+    "seed": 42,
+    "max_tokens": 1024,
+    "enable_thinking": false,
+    "structured_output": "selection_valid_span_grammar_translation_json_schema"
+  },
+  "inference": {
+    "vllm": "0.21.0",
+    "transformers": "5.5.4",
+    "gpu": "H200",
+    "dtype": "bfloat16",
+    "max_model_len": 65536,
+    "gpu_memory_utilization": 0.9
+  }
+}

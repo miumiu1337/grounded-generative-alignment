@@ -1,0 +1,58 @@
+{
+  "preprocessing_version": "1.0.1",
+  "freeze_date": "2026-10-24",
+  "scope": "Preprocessing only: ten Bavarian-English Wikipedia article pairs.",
+  "prepared_directory": "data/prepared",
+  "manifest_file": "data/prepared/manifest.json",
+  "manifest_sha256": "1c5e2aa5b94244237e55a26327f570e2a22413b5278f13e56ad866e6573ac157",
+  "quality_report_sha256": "7af1c870a3e6430d0dea0b2ede35247cd96f67e8178206b01aa23694219415bb",
+  "sentence_boundary_corrections_file": "data/sentence_boundary_corrections.json",
+  "sentence_boundary_corrections_sha256": "3652ebb725c9c37394a74b5942e0585135f67ae9e88439813e26b7bd81c96661",
+  "test_file": "tests/test_preprocessing.py",
+  "test_file_sha256": "354d09d51207e212c9b27fb064afe84c2c019d60cbf3e2f396872d3c50cd19d2",
+  "previous_release": {
+    "version": "1.0.0",
+    "prepared_directory": "data/archive/prepared-v1.0.0",
+    "manifest_sha256": "f2d2bb7fbb13f9f52bd57f7e073601f744e975af2206fa9709367a406618f593",
+    "change": "Restore the boundary between two Boarisch sentences at am o. Das des; no other sentence text or eligibility changes."
+  },
+  "validation": {
+    "test_command": ".venv/bin/python -m unittest discover -s tests -v",
+    "tests_passed": 20,
+    "offline_rebuild_byte_identical": true,
+    "raw_and_html_inputs_unchanged": true,
+    "original_workspace_unchanged": true,
+    "only_expected_sentence_boundary_changed": true,
+    "paragraph_text_preserved": true,
+    "sentence_ids_unique": true,
+    "span_eligibility_and_paragraph_boundaries_valid": true,
+    "cross_split_exact_duplicate_groups": 0
+  },
+  "counts": {
+    "bar": {
+      "sentences": 648,
+      "eligible_sentences": 577,
+      "candidate_spans": 940,
+      "development_eligible_sentences": 53,
+      "evaluation_eligible_sentences": 524
+    },
+    "en": {
+      "sentences": 3816,
+      "eligible_sentences": 3786,
+      "candidate_spans": 6625,
+      "development_eligible_sentences": 780,
+      "evaluation_eligible_sentences": 3006
+    }
+  },
+  "matching_units": {
+    "maximum_span_sentences": 2,
+    "cross_paragraph_spans": false,
+    "eligibility_field": "eligible_for_matching"
+  },
+  "evaluation_articles_previously_used": true,
+  "limitations": [
+    "German sentence rules approximate Bavarian; structural checks do not certify linguistic correctness.",
+    "Exact duplicates are reported and retained; near-duplicates are not detected.",
+    "The original eight evaluation articles have already been used and inspected; this freeze does not make them unseen."
+  ]
+}

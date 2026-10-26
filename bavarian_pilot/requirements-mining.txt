@@ -1,0 +1,14 @@
+# Isolated Python 3.9/3.10 environment for the legacy LASER-1 implementation.
+# Keep requirements.lock and the preprocessing environment unchanged.
+-r requirements.lock
+click==8.1.8
+joblib==1.5.3
+laserembeddings==1.1.2
+mock==5.2.0
+numpy==1.26.4
+sacremoses==0.0.35
+six==1.17.0
+subword-nmt==0.3.8
+torch==1.13.1
+tqdm==4.70.1
+transliterate==1.10.2

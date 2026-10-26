@@ -1,0 +1,20 @@
+{
+  "run_name": "blind_gemma4_development_v1",
+  "protocol_version": 1,
+  "provider": "google_gemini_api",
+  "model": "gemma-4-26b-a4b-it",
+  "split": "development",
+  "source_language": "bar",
+  "target_language": "en",
+  "source_unit": "single_sentence",
+  "prompt_file": "prompts/blind_translation_v1.txt",
+  "preprocessing_freeze_sha256": "5cf98d0c8e9072cf4915f6679f5beb34d16396bd0ce3cd9022206078b590263f",
+  "generation_config": {
+    "temperature": 0,
+    "candidateCount": 1,
+    "maxOutputTokens": 1024,
+    "thinkingConfig": {
+      "thinkingLevel": "minimal"
+    }
+  }
+}

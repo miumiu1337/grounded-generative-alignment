@@ -1,0 +1,26 @@
+{
+  "run_name": "blind_gemma4_modal_development_v2",
+  "protocol_version": 1,
+  "provider": "modal_self_hosted",
+  "model": "google/gemma-4-26B-A4B-it",
+  "model_revision": "47b6801b24d15ff9bcd8c96dfaea0be9ed3a0301",
+  "split": "development",
+  "source_language": "bar",
+  "target_language": "en",
+  "source_unit": "single_sentence",
+  "prompt_file": "prompts/blind_translation_v1.txt",
+  "preprocessing_freeze_sha256": "5cf98d0c8e9072cf4915f6679f5beb34d16396bd0ce3cd9022206078b590263f",
+  "generation": {
+    "temperature": 0.0,
+    "seed": 42,
+    "max_tokens": 1024,
+    "enable_thinking": false
+  },
+  "inference": {
+    "vllm": "0.21.0",
+    "gpu": "H200",
+    "dtype": "bfloat16",
+    "max_model_len": 8192,
+    "gpu_memory_utilization": 0.9
+  }
+}

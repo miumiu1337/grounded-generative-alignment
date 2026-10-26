@@ -1,0 +1,14 @@
+{
+  "assessment_judgments_sha256": "8de212468defe2b1949db58d25c39c205bcb84ec9463522cbfdffedcb830313e",
+  "article_macro_mean_fidelity_0_4": {
+    "bge_m3": 0.852623,
+    "blind_translation": 3.298924,
+    "grounded_a": 3.61222,
+    "grounded_b": 3.691312,
+    "grounded_c": 3.617361,
+    "laser_1": 0.467975,
+    "rerank_only": 1.9249
+  },
+  "description": "Secondary descriptive average: equal weight for each of eight article means; no statistical significance claim.",
+  "primary_winner_by_mean_and_strict_yield": "grounded_b"
+}

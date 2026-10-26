@@ -1,0 +1,17 @@
+{
+  "split_unit": "article_pair",
+  "development": [
+    {"bar_page_id": 59, "bar_title": "Kristndum", "en_page_id": 5211, "en_title": "Christianity"},
+    {"bar_page_id": 2544, "bar_title": "Bozn", "en_page_id": 191106, "en_title": "Bolzano"}
+  ],
+  "evaluation": [
+    {"bar_page_id": 56, "bar_title": "Bejgien", "en_page_id": 3343, "en_title": "Belgium"},
+    {"bar_page_id": 57, "bar_title": "Berlin", "en_page_id": 3354, "en_title": "Berlin"},
+    {"bar_page_id": 58, "bar_title": "Boarisch", "en_page_id": 153500, "en_title": "Bavarian language"},
+    {"bar_page_id": 60, "bar_title": "Deitschland", "en_page_id": 11867, "en_title": "Germany"},
+    {"bar_page_id": 62, "bar_title": "Eiropäische Union", "en_page_id": 9317, "en_title": "European Union"},
+    {"bar_page_id": 63, "bar_title": "Frankreich", "en_page_id": 5843419, "en_title": "France"},
+    {"bar_page_id": 65, "bar_title": "Geografie", "en_page_id": 18963910, "en_title": "Geography"},
+    {"bar_page_id": 2241, "bar_title": "Isar", "en_page_id": 247587, "en_title": "Isar"}
+  ]
+}

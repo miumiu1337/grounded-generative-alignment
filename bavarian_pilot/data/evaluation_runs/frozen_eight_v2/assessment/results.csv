@@ -1,0 +1,8 @@
+method,sources,produced,missing,uncertain,mean_fidelity_0_4,ai_retained_strict,strict_yield,mostly_or_fully_faithful
+bge_m3,524,524,0,1,0.518,4,0.0076,10
+blind_translation,524,524,0,1,3.109,284,0.542,345
+grounded_a,524,524,0,1,3.476,370,0.7061,420
+grounded_b,524,524,0,1,3.56,388,0.7405,435
+grounded_c,524,524,0,1,3.461,372,0.7099,416
+laser_1,524,524,0,1,0.298,4,0.0076,7
+rerank_only,524,170,354,0,1.759,6,0.0115,12

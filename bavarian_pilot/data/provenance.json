@@ -1,0 +1,67 @@
+{
+  "purpose": "Preprocessing-only restart of the existing ten-pair pilot.",
+  "source_workspace": "grounded-generative-alignment",
+  "copied_raw_files": [
+    {
+      "file": "data/raw/bar_2241_Isar.json",
+      "sha256": "f82942181ff05d8269b1c2f5a33baedab24e9aa7b261f87981f8982e40eb0919",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_2241_Isar.json"
+    },
+    {
+      "file": "data/raw/bar_2544_Bozn.json",
+      "sha256": "4649270d9c8f9c4b68d143bf97025d3a5d1f81d455fdbce899f6e90fad574337",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_2544_Bozn.json"
+    },
+    {
+      "file": "data/raw/bar_56_Bejgien.json",
+      "sha256": "040a39f27b4a0bf51fecd7a077132ee569a69b3be8bab1167e272a58d969481d",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_56_Bejgien.json"
+    },
+    {
+      "file": "data/raw/bar_57_Berlin.json",
+      "sha256": "2a87b50ed9f3368190fc3663ba9ea12835841dc51d9856c10f912ddba4bbd698",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_57_Berlin.json"
+    },
+    {
+      "file": "data/raw/bar_58_Boarisch.json",
+      "sha256": "c7860ad67814db8b898d663a71426c138b1d6c1953263d0f5fb13af966f0e33e",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_58_Boarisch.json"
+    },
+    {
+      "file": "data/raw/bar_59_Kristndum.json",
+      "sha256": "42972bdada167032359a1b853be418ad7741d871a2531c860c8fb064c17b0da6",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_59_Kristndum.json"
+    },
+    {
+      "file": "data/raw/bar_60_Deitschland.json",
+      "sha256": "314de4ddcd4080ead1a841653a8ab972057301d222da6776c868f84de991ba76",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_60_Deitschland.json"
+    },
+    {
+      "file": "data/raw/bar_62_Eiropäische_Union.json",
+      "sha256": "25360ceaf28733602437290f1f3f1612e173f5832ad4935baa3c1bb41031b918",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_62_Eiropäische_Union.json"
+    },
+    {
+      "file": "data/raw/bar_63_Frankreich.json",
+      "sha256": "b66f15425443f4debfd85f0095d6e857cd8df8a21dc4f4b0a62ec1b7d39d4026",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_63_Frankreich.json"
+    },
+    {
+      "file": "data/raw/bar_65_Geografie.json",
+      "sha256": "33af02fde8a880c1bb1539ac5eaa3c50a8fc48fed457dab4227ccc24bb9c4d12",
+      "copied_from": "grounded-generative-alignment/data/raw/bar_65_Geografie.json"
+    }
+  ],
+  "reused_code": {
+    "download_articles.py": "2aa77511c7d9228088f4fe86aa8b1ac6ca6f84ba000ab819d6a00a8c52ca7187",
+    "prepare_articles.py": "74eb65f7b70a9e2dad03368992aa3b48deff97bdc8bf79c09c6630b1d2df841d",
+    "source_quality.py": "39c11a7959628c925ed31567659060c67b3be16e49a5804187f0bfb6d442103d"
+  },
+  "split_history": {
+    "development_pairs": 2,
+    "evaluation_pairs": 8,
+    "evaluation_articles_previously_used": true,
+    "note": "These evaluation articles have already been mined, translated, and inspected in the source workspace. This copy does not make them unseen. The archived intellectual-property pair was previously replaced by Isar because the miner required four neighbors."
+  }
+}
