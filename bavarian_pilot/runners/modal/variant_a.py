@@ -1,10 +1,10 @@
-"""Gemma 4 Variant B on Modal: read both -> select evidence -> translate.
+"""Gemma 4 Variant A on Modal: reuse blind -> select evidence -> refine.
 
-python modal_variant_b.py                         Offline plan
-python modal_variant_b.py --execute               Same Modal job via Python SDK
-modal run modal_variant_b.py --execute            Two representative sources
-modal run modal_variant_b.py --execute --max-new 53
-modal run modal_variant_b.py --sync               Recover saved stages; no GPU
+python -m runners.modal.variant_a                         Offline plan
+python -m runners.modal.variant_a --execute               Same Modal job via Python SDK
+modal run -m runners.modal.variant_a --execute            Two representative sources
+modal run -m runners.modal.variant_a --execute --max-new 53
+modal run -m runners.modal.variant_a --sync               Recover saved stages; no GPU
 """
 
 import fcntl
@@ -16,12 +16,14 @@ from pathlib import Path
 
 import modal
 
-import variant_b as protocol
-from modal_translate_blind import cache_volume, gpu_image, results_volume
+from blind_records import require_original_runner
+
+import variant_a as protocol
+from runners.modal.blind import cache_volume, gpu_image, results_volume
 
 
-app = modal.App("gga-clean-gemma4-grounded-b-dev")
-image = gpu_image.add_local_python_source("variant_b", "variant_a", "modal_translate_blind")
+app = modal.App("gga-clean-gemma4-grounded-a-dev")
+image = gpu_image.add_local_python_source("variant_a", "blind_records", "runners")
 REMOTE = Path("/results")
 
 
@@ -134,7 +136,7 @@ def run_variant(manifest, items, pages, max_new):
     for item in pending:
         source_id = item["source"]["source_id"]
         page = pages[str(item["source"]["bar_page_id"])]
-        for stage in ("selection", "translation"):
+        for stage in ("selection", "refinement"):
             if stage == "selection" and source_id in saved["selections"]:
                 continue
             selection = saved["selections"].get(source_id, {}).get("result")
@@ -152,12 +154,12 @@ def run_variant(manifest, items, pages, max_new):
                 saved["selections"][source_id] = record
             else:
                 selected = saved["selections"][source_id]
-                result = {"condition": "grounded_b", "run_id": protocol.digest(manifest),
-                          "source": item["source"],
+                result = {"condition": "grounded_a", "run_id": protocol.digest(manifest),
+                          "source": item["source"], "blind": item["blind"],
                           "selection": selected["result"], "selection_sha256": protocol.digest(selected),
                           "evidence": protocol.evidence_for(selected["result"], page),
                           "en_page_id": page["en_page_id"], "en_revision_id": page["en_revision_id"],
-                          "translation": record, "output_group": protocol.output_group(selected["result"]),
+                          "refinement": record, "output_group": protocol.output_group(selected["result"]),
                           "quality_status": "unassessed"}
                 protocol.atomic_json(protocol.record_path(directory / "results", source_id), result)
                 saved["results"][source_id] = result
@@ -171,19 +173,21 @@ def main(execute: bool = False, sync: bool = False, max_new: int = 2):
     if execute and sync or not 1 <= max_new <= 53:
         raise ValueError("Choose --execute or --sync; --max-new must be between 1 and 53")
     manifest, items, pages = protocol.local_run()
+    if execute:
+        require_original_runner(manifest, Path(__file__))
     directory = protocol.ROOT / "data/translations" / manifest["experiment"]["run_name"]
     local = protocol.read_saved(directory, manifest, items, pages)
-    print(f"Variant B: {len(local['results'])}/53 complete; {len(local['selections'])}/53 selections; max new sources: {max_new}")
+    print(f"Variant A: {len(local['results'])}/53 complete; {len(local['selections'])}/53 selections; max new sources: {max_new}")
     print(f"Run fingerprint: {protocol.digest(manifest)}", flush=True)
     if not execute and not sync:
-        print("Offline plan only. No blind drafts enter either stage; no inference call.")
+        print("Offline plan only. The 53 blind translations are reused; no inference call.")
         return
     directory.mkdir(parents=True, exist_ok=True)
     with (directory / ".run.lock").open("a") as lock:
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
-            raise RuntimeError("Another local Variant B process is running") from None
+            raise RuntimeError("Another local Variant A process is running") from None
         saved = saved_results.remote(manifest, items, pages)
         protocol.write_local(saved, manifest, items, pages)
         if execute and len(saved["results"]) < len(items):
@@ -208,14 +212,11 @@ if __name__ == "__main__":
     action.add_argument("--execute", action="store_true")
     action.add_argument("--sync", action="store_true")
     parser.add_argument("--max-new", type=int, default=2)
-    parser.add_argument("--detach", action="store_true", help="Continue the remote worker if this client disconnects")
     args = parser.parse_args()
     if not 1 <= args.max_new <= 53:
         parser.error("--max-new must be between 1 and 53")
-    if args.detach and not args.execute:
-        parser.error("--detach requires --execute")
     if args.execute or args.sync:
-        with modal.enable_output(), app.run(detach=args.detach):
+        with modal.enable_output(), app.run():
             main(execute=args.execute, sync=args.sync, max_new=args.max_new)
     else:
         main(max_new=args.max_new)

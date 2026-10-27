@@ -18,11 +18,15 @@ same topics but are not necessarily translations of each other.
 - `variant_c.py`: refine with additional English evidence found through web search.
 - `rerank_only.py`: select existing English text without rewriting it.
 - `output_quality.py`, `semantic_evaluation.py`: technical checks and AI assessment.
-- `evaluation_pipeline.py`, `modal_evaluation.py`: run the frozen evaluation.
+- `evaluation_pipeline.py`: inspect the completed run and recompute its scores.
 
 Prompts are in `prompts/`, settings in `experiments/`, and article snapshots,
-prepared inputs and results in `data/`. The `modal_*.py` files run inference
-on Modal.
+prepared inputs and results in `data/`. Optional GPU runners are in
+`runners/modal/`; offline analysis does not require Modal.
+
+The original experiment code is preserved at commit `94e719c`. This layout
+can rescore its saved results. Resuming the original inference requires that
+commit; further experiments need a new run name and freeze.
 
 ## Results
 

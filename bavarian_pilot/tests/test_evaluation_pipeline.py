@@ -10,7 +10,12 @@ from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
 import evaluation_pipeline as protocol
-import modal_evaluation as runner
+try:
+    from runners.modal import evaluation as runner
+except ModuleNotFoundError as error:
+    if error.name != "modal":
+        raise
+    runner = None
 
 
 class EvaluationPipelineTests(unittest.TestCase):
@@ -23,7 +28,7 @@ class EvaluationPipelineTests(unittest.TestCase):
         cls.manifest = {"method": "b", "experiment": cls.config,
             "prompts": {"selection": "Select evidence", "translation": "Translate faithfully"},
             "inputs_sha256": protocol.a.digest({"items": cls.items, "pages": cls.pages})}
-        cls.item = runner.work_order(cls.items, cls.pages)[0]
+        cls.item = runner.work_order(cls.items, cls.pages)[0] if runner else cls.items[0]
         cls.page = cls.pages[str(cls.item["source"]["bar_page_id"])]
 
     def stage(self, stage, selection=None):
@@ -39,12 +44,17 @@ class EvaluationPipelineTests(unittest.TestCase):
             "finish_reason": "stop", "prompt_tokens": 100, "output_tokens": 30,
             "runtime": {"vllm": "0.21.0", "transformers": "5.5.4"}, "recorded_at": "2026-10-26T12:00:00+00:00"}
 
+    @unittest.skipIf(runner is None, "Install runners/modal/requirements.txt for cloud worker tests")
     def test_uploaded_modules_import_without_access_to_the_checkout(self):
         with tempfile.TemporaryDirectory() as tmp:
-            for module in (*runner.LOCAL_MODULES, "modal_evaluation"):
-                shutil.copyfile(protocol.ROOT / (module + ".py"), Path(tmp) / (module + ".py"))
+            for module in runner.LOCAL_MODULES:
+                source = protocol.ROOT / module
+                if source.is_dir():
+                    shutil.copytree(source, Path(tmp) / module)
+                else:
+                    shutil.copyfile(source.with_suffix(".py"), Path(tmp) / (module + ".py"))
             result = subprocess.run([sys.executable, "-I", "-B", "-c",
-                "import sys; sys.path.insert(0, sys.argv[1]); import modal_evaluation", tmp],
+                "import sys; sys.path.insert(0, sys.argv[1]); import runners.modal.evaluation", tmp],
                 cwd=tmp, capture_output=True, text=True, timeout=30)
             self.assertEqual(result.returncode, 0, result.stderr)
 
@@ -107,6 +117,7 @@ class EvaluationPipelineTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "differs"):
                 protocol.read_saved(path, changed, self.items, self.pages)
 
+    @unittest.skipIf(runner is None, "Install runners/modal/requirements.txt for cloud worker tests")
     def test_preflight_rejects_oversize_input_without_truncation(self):
         tokenizer = Mock()
         tokenizer.apply_chat_template.return_value = "prompt"
@@ -114,6 +125,7 @@ class EvaluationPipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "no truncation"):
             runner.stage_prompt(tokenizer, "b", "selection", self.manifest, self.item, self.page)
 
+    @unittest.skipIf(runner is None, "Install runners/modal/requirements.txt for cloud worker tests")
     def test_failure_commits_selection_and_resume_does_not_generate_it_again(self):
         selection = self.stage("selection")
         translated = self.stage("translation", selection["result"])

@@ -1,17 +1,13 @@
-"""Gemma 4 blind development translations on Modal; adapted from modal_gemma_dev.py.
+"""Gemma 4 blind development translations on Modal.
 
-python modal_translate_blind.py                       Offline plan; no Modal connection
-modal run modal_translate_blind.py --execute          Two new sentences, then sync
-modal run modal_translate_blind.py --execute --max-new 53
-modal run modal_translate_blind.py --sync             Download committed results; no GPU
+python -m runners.modal.blind                       Offline plan; no Modal connection
+modal run -m runners.modal.blind --execute          Two new sentences, then sync
+modal run -m runners.modal.blind --execute --max-new 53
+modal run -m runners.modal.blind --sync             Download committed results; no GPU
 """
 
 import fcntl
-import hashlib
-import json
-import os
 import platform
-import re
 import time
 from datetime import datetime, timezone
 from importlib.metadata import version
@@ -20,10 +16,9 @@ from pathlib import Path
 import modal
 
 
-ROOT = Path(__file__).resolve().parent
-EXPERIMENT = ROOT / "experiments/blind_gemma4_modal_development_v3.json"
-MODEL = "google/gemma-4-26B-A4B-it"
-REVISION = "47b6801b24d15ff9bcd8c96dfaea0be9ed3a0301"
+from blind_records import (ROOT, EXPERIMENT, MODEL, REVISION, atomic_json, digest,
+                           local_run, messages_for, read_saved, record_path,
+                           require_original_runner, validate_record, validate_run, write_local)
 REMOTE_ROOT = Path("/results")
 RESULTS_VOLUME_NAME = "gga-clean-gemma4-dev-results"
 
@@ -39,91 +34,11 @@ gpu_image = (
     # A cached image contained an unreadable .pyc; compile from the installed sources.
     .run_commands("find /usr/local/lib/python3.12/site-packages -type f -name '*.pyc' -delete")
     .env({"HF_HOME": "/cache/huggingface", "VLLM_CACHE_ROOT": "/cache/vllm", "PYTHONDONTWRITEBYTECODE": "1"})
+    .add_local_python_source("blind_records")
 )
 
 
-def digest(value):
-    return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()
-
-
-def messages_for(source, prompt):
-    return [{"role": "system", "content": prompt},
-            {"role": "user", "content": f"Bavarian text:\n{source['bar_text']}"}]
-
-
-def atomic_json(path, value):
-    if path.exists():
-        if json.loads(path.read_text(encoding="utf-8")) != value:
-            raise ValueError(f"Saved result differs from this run: {path.name}")
-        return
-    path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(".json.tmp")
-    with temporary.open("w", encoding="utf-8") as output:
-        json.dump(value, output, ensure_ascii=False, indent=2)
-        output.write("\n")
-        output.flush()
-        os.fsync(output.fileno())
-    temporary.replace(path)
-
-
-def validate_run(manifest, sources):
-    config = manifest["experiment"]
-    if (config["provider"] != "modal_self_hosted" or config["model"] != MODEL
-            or config["model_revision"] != REVISION or config["split"] != "development"
-            or config["source_language"] != "bar" or config["target_language"] != "en"
-            or config["source_unit"] != "single_sentence"
-            or config["generation"] != {"temperature": 0.0, "seed": 42, "max_tokens": 1024, "enable_thinking": False}
-            or config["inference"] != {"vllm": "0.21.0", "transformers": "5.5.4", "gpu": "H200", "dtype": "bfloat16", "max_model_len": 8192, "gpu_memory_utilization": 0.9}
-            or not re.fullmatch(r"[a-z0-9_]+", config["run_name"])):
-        raise ValueError("Unsupported or changed Gemma Modal development protocol")
-    if len(sources) != 53 or {s["bar_page_id"] for s in sources} != {59, 2544}:
-        raise ValueError("Expected the 53 frozen development sentences")
-    if manifest["sources_sha256"] != digest(sources) or len({s["source_id"] for s in sources}) != len(sources):
-        raise ValueError("Development source fingerprint changed or contains duplicate IDs")
-    if any(not re.fullmatch(r"bar_(?:59|2544):v1\.0\.1:S\d+", s["source_id"]) for s in sources):
-        raise ValueError("Unexpected source ID in development run")
-
-
-def record_path(directory, source_id):
-    return directory / (source_id.replace(":", "_") + ".json")
-
-
-def validate_record(record, source_id, manifest, expected):
-    if (source_id not in expected or not isinstance(record, dict)
-            or record.get("source") != expected[source_id]):
-        raise ValueError(f"Unexpected or changed Modal source: {source_id}")
-    if (record.get("run_id") != digest(manifest) or record.get("condition") != "blind_translation"
-            or record.get("provider") != "modal_self_hosted" or record.get("model") != MODEL
-            or record.get("model_revision") != REVISION
-            or record.get("messages") != messages_for(expected[source_id], manifest["prompt"])
-            or record.get("generation") != manifest["experiment"]["generation"]
-            or record.get("finish_reason") != "stop"
-            or not isinstance(record.get("translation"), str) or not record["translation"].strip()
-            or any(type(record.get(k)) is not int or record[k] < 0 for k in ("prompt_tokens", "output_tokens"))):
-        raise ValueError(f"Saved Modal translation does not match the protocol: {source_id}")
-
-
-def read_saved(directory, manifest, sources):
-    validate_run(manifest, sources)
-    path = directory / "run_manifest.json"
-    if path.exists() and json.loads(path.read_text(encoding="utf-8")) != manifest:
-        raise ValueError("Saved Modal run has different inputs, code or settings; use a new run name")
-    expected = {s["source_id"]: s for s in sources}
-    records = {}
-    for path in sorted(directory.glob("bar_*.json")):
-        record = json.loads(path.read_text(encoding="utf-8"))
-        source = record.get("source") if isinstance(record, dict) else None
-        source_id = source.get("source_id") if isinstance(source, dict) else None
-        if source_id in records:
-            raise ValueError(f"Unexpected, duplicate or changed Modal result: {path.name}")
-        validate_record(record, source_id, manifest, expected)
-        if path != record_path(directory, source_id):
-            raise ValueError(f"Unexpected saved result filename: {path.name}")
-        records[source_id] = record
-    return records
-
-
-@app.function(image=modal.Image.debian_slim(python_version="3.12"),
+@app.function(image=modal.Image.debian_slim(python_version="3.12").add_local_python_source("blind_records"),
               volumes={"/results": results_volume}, timeout=120, retries=0)
 def saved_results(manifest, sources):
     results_volume.reload()
@@ -210,45 +125,13 @@ def translate(manifest, sources, max_new):
     return records
 
 
-def local_run():
-    from download_articles import sha256
-    from translate_blind import load_sources, local_path
-
-    config = json.loads(EXPERIMENT.read_text(encoding="utf-8"))
-    prompt_path = local_path(config["prompt_file"])
-    sources = load_sources(config)
-    manifest = {
-        "condition": "blind_translation", "experiment": config,
-        "experiment_sha256": sha256(EXPERIMENT), "prompt": prompt_path.read_text(encoding="utf-8").strip(),
-        "prompt_sha256": sha256(prompt_path), "runner_sha256": sha256(Path(__file__)),
-        "source_loader_sha256": sha256(ROOT / "translate_blind.py"),
-        "sources_sha256": digest(sources), "modal_sdk": version("modal"),
-        "python": platform.python_version(),
-    }
-    validate_run(manifest, sources)
-    return manifest, sources
-
-
-def write_local(records, manifest, sources):
-    directory = ROOT / "data/translations" / manifest["experiment"]["run_name"]
-    read_saved(directory, manifest, sources)
-    expected = {s["source_id"]: s for s in sources}
-    if not set(records).issubset(expected):
-        raise ValueError("Remote results contain unexpected source IDs")
-    for source_id, record in records.items():
-        validate_record(record, source_id, manifest, expected)
-    atomic_json(directory / "run_manifest.json", manifest)
-    for source_id, record in records.items():
-        atomic_json(record_path(directory, source_id), record)
-    verified = read_saved(directory, manifest, sources)
-    print(f"Saved locally: {len(verified)}/53 in {directory}", flush=True)
-
-
 @app.local_entrypoint()
 def main(execute: bool = False, sync: bool = False, max_new: int = 2):
     if execute and sync or not 1 <= max_new <= 53:
         raise ValueError("Choose --execute or --sync; --max-new must be between 1 and 53")
     manifest, sources = local_run()
+    if execute:
+        require_original_runner(manifest, Path(__file__))
     directory = ROOT / "data/translations" / manifest["experiment"]["run_name"]
     records = read_saved(directory, manifest, sources)
     print(f"Gemma 4, frozen development set: {len(records)}/53 local results; H200; max new: {max_new}")
@@ -274,5 +157,5 @@ def main(execute: bool = False, sync: bool = False, max_new: int = 2):
 if __name__ == "__main__":
     manifest, sources = local_run()
     print(f"Offline plan: {len(sources)} development sentences; {MODEL}; checkpoint {REVISION}")
-    print("Start two translations: .venv/bin/modal run modal_translate_blind.py --execute")
-    print("Complete development: .venv/bin/modal run modal_translate_blind.py --execute --max-new 53")
+    print("Start two translations: .venv/bin/modal run -m runners.modal.blind --execute")
+    print("Complete development: .venv/bin/modal run -m runners.modal.blind --execute --max-new 53")

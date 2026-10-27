@@ -26,6 +26,7 @@ from semantic_evaluation import RUBRIC, prepare_items, summarize, validate_judgm
 
 ROOT = Path(__file__).resolve().parent
 FREEZE = ROOT / "experiments/evaluation_eight_v2.json"
+FROZEN_SHA256 = "dfafe4319d42bf0e8b69242b8c322f98d61b8db4d19239c9202420f08ac376d1"
 OUTPUT = ROOT / "data/evaluation_runs/frozen_eight_v2"
 CONFIGS = {
     "blind": "experiments/blind_gemma4_modal_development_v3.json",
@@ -91,9 +92,9 @@ def frozen_protocol():
     sources, pages, groups = corpus()
     paths = set(CONFIGS.values()) | {
         "data/preprocessing_freeze.json", "data/article_split.json", "data/prepared/manifest.json",
-        "evaluation_pipeline.py", "modal_evaluation.py", "tests/test_evaluation_pipeline.py",
-        "translate_blind.py", "modal_translate_blind.py", "mine_baselines.py", "variant_a.py", "variant_b.py",
-        "variant_c.py", "output_quality.py", "semantic_evaluation.py", "requirements-mining.txt", "requirements-modal.txt",
+        "evaluation_pipeline.py", "runners/modal/evaluation.py", "tests/test_evaluation_pipeline.py",
+        "translate_blind.py", "blind_records.py", "runners/modal/blind.py", "mine_baselines.py", "variant_a.py", "variant_b.py",
+        "variant_c.py", "output_quality.py", "semantic_evaluation.py", "requirements-mining.txt", "runners/modal/requirements.txt",
         "data/search/grounded_c_web_development_v1/collection_protocol.json",
         "data/quality/technical_development_v1/run_manifest.json",
     }
@@ -130,10 +131,21 @@ def frozen_protocol():
         "change_policy": "Do not tune on evaluation outputs. Amendments require a new named protocol and explicit reporting."}
 
 
-def load_freeze():
+def load_freeze(*, read_only=False):
     frozen = read(FREEZE)
-    if frozen != frozen_protocol():
-        raise ValueError("Frozen evaluation settings/code/inputs changed; do not run or overwrite this experiment")
+    current = frozen_protocol()
+    if read_only:
+        # Reanalyse the original results after a code-layout change. Corpus and
+        # scientific settings still have to match; inference remains locked to
+        # the original code. Assessment hashes are checked separately in score().
+        if sha(FREEZE) != FROZEN_SHA256:
+            raise ValueError("The original evaluation freeze changed")
+        current = {**current, "files_sha256": frozen["files_sha256"]}
+    if frozen != current:
+        raise ValueError(
+            "Frozen evaluation settings/code/inputs changed. "
+            "Use commit 94e719c for the original inference, or a new named experiment."
+        )
     return frozen
 
 
@@ -412,7 +424,7 @@ def prepare_judge():
 
 
 def score():
-    load_freeze()
+    load_freeze(read_only=True)
     directory = OUTPUT / "assessment"
     manifest = read(directory / "run_manifest.json")
     blinded, contexts = read(directory / "blinded_items.json"), read(directory / "bavarian_contexts.json")
@@ -475,7 +487,7 @@ def score():
 
 
 def plan():
-    frozen = load_freeze()
+    frozen = load_freeze(read_only=True)
     for article in frozen["articles"]:
         print(f"{article['bar_title']}: {article['source_count']} Bavarian sources; {article['english_spans']} English spans")
     for method in ("blind", "b", "a", "c"):

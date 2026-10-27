@@ -247,7 +247,7 @@ def read_saved(directory, manifest, items, pages):
 def local_run():
     from download_articles import sha256
     from translate_blind import local_path
-    import modal_translate_blind as blind
+    import blind_records as blind
 
     config = json.loads(CONFIG.read_text(encoding="utf-8"))
     blind_manifest, sources = blind.local_run()
@@ -272,18 +272,20 @@ def local_run():
             pages[page_id] = {"bar": numbered_page(prepared["bar"]), "en": numbered_page(prepared["en"]),
                               "en_page_id": prepared["en"]["page_id"], "en_revision_id": prepared["en"]["revision_id"],
                               "candidates": prepared["en"]["candidate_spans"]}
-    from importlib.metadata import version
+    from blind_records import optional_version, recorded_manifest
     import platform
     prompts = {stage: local_path(config[stage + "_prompt"]).read_text(encoding="utf-8").strip()
                for stage in ("selection", "refinement")}
-    manifest = {"experiment": config, "experiment_sha256": sha256(CONFIG), "prompts": prompts,
+    inputs = {"experiment": config, "experiment_sha256": sha256(CONFIG), "prompts": prompts,
                 "prompt_sha256": {stage: sha256(local_path(config[stage + "_prompt"])) for stage in prompts},
-                "protocol_sha256": sha256(Path(__file__)), "runner_sha256": sha256(ROOT / "modal_variant_a.py"),
                 "blind_manifest_sha256": sha256(directory / "run_manifest.json"),
-                "blind_runner_sha256": sha256(ROOT / "modal_translate_blind.py"),
                 "source_loader_sha256": sha256(ROOT / "translate_blind.py"),
-                "inputs_sha256": digest({"items": items, "pages": pages}),
-                "modal_sdk": version("modal"), "python": platform.python_version()}
+                "inputs_sha256": digest({"items": items, "pages": pages})}
+    manifest = recorded_manifest(ROOT / "data/translations" / config["run_name"], inputs) or {
+                **inputs,
+                "protocol_sha256": sha256(Path(__file__)), "runner_sha256": sha256(ROOT / "runners/modal/variant_a.py"),
+                "blind_runner_sha256": sha256(ROOT / "runners/modal/blind.py"),
+                "modal_sdk": optional_version("modal"), "python": platform.python_version()}
     validate_inputs(manifest, items, pages)
     return manifest, items, pages
 

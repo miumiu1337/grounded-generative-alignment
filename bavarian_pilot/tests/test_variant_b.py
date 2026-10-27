@@ -9,7 +9,7 @@ from unittest.mock import Mock, patch
 import variant_b as protocol
 
 try:
-    import modal_variant_b as runner
+    from runners.modal import variant_b as runner
 except ModuleNotFoundError as error:
     if error.name != "modal":
         raise
@@ -138,7 +138,7 @@ class VariantBTests(unittest.TestCase):
             self.assertEqual(len((directory / "grounded_candidates.jsonl").read_text().splitlines()), 1)
             self.assertEqual((directory / "unmatched.jsonl").read_text(), "")
 
-    @unittest.skipIf(runner is None, "Install requirements-modal.txt for the Modal worker test")
+    @unittest.skipIf(runner is None, "Install runners/modal/requirements.txt for the Modal worker test")
     def test_failed_translation_keeps_committed_selection_and_resume_reuses_it(self):
         selection, translated = self.stage("selection"), self.stage("translation", self.selection())
         fake_engine = Mock()

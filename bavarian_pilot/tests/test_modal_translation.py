@@ -7,14 +7,14 @@ from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
 try:
-    import modal_translate_blind as runner
+    from runners.modal import blind as runner
 except ModuleNotFoundError as error:
     if error.name != "modal":
         raise
     runner = None
 
 
-@unittest.skipIf(runner is None, "Install requirements-modal.txt for Modal-specific tests")
+@unittest.skipIf(runner is None, "Install runners/modal/requirements.txt for Modal-specific tests")
 class ModalTranslationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -7,14 +7,14 @@ from unittest.mock import Mock, patch
 
 import variant_a as protocol
 try:
-    import modal_variant_a as runner
+    from runners.modal import variant_a as runner
 except ModuleNotFoundError as error:
     if error.name != "modal":
         raise
     runner = None
 
 
-@unittest.skipIf(runner is None, "Install requirements-modal.txt for Variant A tests")
+@unittest.skipIf(runner is None, "Install runners/modal/requirements.txt for Variant A tests")
 class VariantATests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

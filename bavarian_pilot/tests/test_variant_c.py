@@ -8,7 +8,7 @@ from unittest.mock import Mock, patch
 
 import variant_c as p
 try:
-    import modal_variant_c as runner
+    from runners.modal import variant_c as runner
 except ModuleNotFoundError as error:
     if error.name != "modal":
         raise
@@ -110,7 +110,7 @@ class VariantCTests(unittest.TestCase):
                 reconstructed = reconstructed[:edit["draft_start"]] + edit["new"] + reconstructed[edit["draft_end"]:]
             self.assertEqual(reconstructed, final)
 
-    @unittest.skipIf(runner is None, "Install existing requirements-modal.txt for worker tests")
+    @unittest.skipIf(runner is None, "Install existing runners/modal/requirements.txt for worker tests")
     def test_failed_verification_preserves_refinement_and_resume_reuses_it(self):
         refined, verified = self.stage("refinement"), self.stage("verification", self.refined())
         with (tempfile.TemporaryDirectory() as temporary,

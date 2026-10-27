@@ -1,0 +1,15 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/bavarian_pilot/.venv/bin/python",
+  "python.analysis.extraPaths": ["./bavarian_pilot"],
+  "python.testing.cwd": "${workspaceFolder}/bavarian_pilot",
+  "python.testing.unittestEnabled": true,
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestArgs": ["-v", "-s", "tests", "-p", "test_*.py"],
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.DS_Store": true,
+    "**/.venv*": true,
+    "**/.run.lock": true,
+    "**/models": true
+  }
+}

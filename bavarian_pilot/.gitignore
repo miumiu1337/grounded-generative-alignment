@@ -13,3 +13,14 @@ __pycache__/
 .pytest_cache/
 *.tar.gz
 *.zip
+
+# Generated runs are kept locally. Selected published files remain tracked.
+data/archive/
+data/evaluation/
+data/evaluation_runs/
+data/mining/
+data/quality/
+data/reranking/
+data/search/
+data/translations/
+exports/

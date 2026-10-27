@@ -255,7 +255,7 @@ def prepare_search():
 def local_run():
     from download_articles import sha256
     from translate_blind import local_path
-    from importlib.metadata import version
+    from blind_records import optional_version, recorded_manifest
     import platform
     config, base_manifest, base_items, pages = base_run()
     directory = local_path(config["search_directory"])
@@ -272,16 +272,19 @@ def local_run():
     if missing:
         raise ValueError(f"Search cache incomplete: {len(missing)}/53 sources missing; first: {missing[0]}. Collect evidence before model execution.")
     prompts = {s: local_path(config[s + "_prompt"]).read_text().strip() for s in ("refinement", "verification")}
-    manifest = {"experiment": config, "experiment_sha256": sha256(CONFIG), "prompts": prompts,
+    inputs = {"experiment": config, "experiment_sha256": sha256(CONFIG), "prompts": prompts,
         "prompt_sha256": {s: sha256(local_path(config[s + "_prompt"])) for s in prompts},
-        "protocol_sha256": sha256(Path(__file__)), "runner_sha256": sha256(ROOT / "modal_variant_c.py"),
-        "shared_protocol_sha256": sha256(ROOT / "variant_a.py"), "base_manifest_sha256": digest(base_manifest),
-        "image_definition_sha256": sha256(ROOT / "modal_translate_blind.py"),
-        "search_collection_protocol_sha256": sha256(directory / "collection_protocol.json"),
+        "base_manifest_sha256": digest(base_manifest),
         "search_audit_sha256": {i["source"]["source_id"]: sha256(record_path(directory / "audit", i["source"]["source_id"]))
                                 for i in items},
-        "search_plan_sha256": digest(plan), "inputs_sha256": digest({"items": items, "pages": pages}),
-        "modal_sdk": version("modal"), "python": platform.python_version()}
+        "search_plan_sha256": digest(plan), "inputs_sha256": digest({"items": items, "pages": pages})}
+    manifest = recorded_manifest(ROOT / "data/translations" / config["run_name"], inputs) or {
+        **inputs,
+        "protocol_sha256": sha256(Path(__file__)), "runner_sha256": sha256(ROOT / "runners/modal/variant_c.py"),
+        "shared_protocol_sha256": sha256(ROOT / "variant_a.py"),
+        "image_definition_sha256": sha256(ROOT / "runners/modal/blind.py"),
+        "search_collection_protocol_sha256": sha256(directory / "collection_protocol.json"),
+        "modal_sdk": optional_version("modal"), "python": platform.python_version()}
     validate_inputs(manifest, items, pages)
     return manifest, items, pages
 

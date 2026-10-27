@@ -14,7 +14,7 @@ import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
 
-import modal_translate_blind as blind
+import blind_records as blind
 import variant_a as a
 import variant_b as b
 import variant_c as c

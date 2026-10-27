@@ -1,8 +1,8 @@
 """Run the frozen eight-article Gemma experiment; default is an offline plan.
 
-python modal_evaluation.py --method blind
-python modal_evaluation.py --method blind --execute --max-new 2 --detach
-python modal_evaluation.py --method blind --sync
+python -m runners.modal.evaluation --method blind
+python -m runners.modal.evaluation --method blind --execute --max-new 2 --detach
+python -m runners.modal.evaluation --method blind --sync
 
 Use --method a, b or c for the other conditions. A/C require all blind drafts;
 C also requires the completed and frozen web-search cache. Reranking reuses B.
@@ -19,10 +19,10 @@ from pathlib import Path
 import modal
 
 import evaluation_pipeline as protocol
-from modal_translate_blind import cache_volume, gpu_image, results_volume
+from runners.modal.blind import cache_volume, gpu_image, results_volume
 
 app = modal.App("gga-clean-gemma4-frozen-eight-v2")
-LOCAL_MODULES = ("evaluation_pipeline", "variant_a", "variant_b", "variant_c", "semantic_evaluation", "modal_translate_blind")
+LOCAL_MODULES = ("evaluation_pipeline", "variant_a", "variant_b", "variant_c", "semantic_evaluation", "blind_records", "runners")
 image = gpu_image.add_local_python_source(*LOCAL_MODULES)
 REMOTE = Path("/results")
 
@@ -164,7 +164,8 @@ def run(manifest, items, pages, max_new):
 def main(method, execute=False, sync=False, max_new=2):
     if execute and sync or not 1 <= max_new <= 524:
         raise ValueError("Choose execute or sync; max-new must be between 1 and 524")
-    manifest, items, pages = protocol.build_run(method)
+    frozen = protocol.load_freeze(read_only=not execute)
+    manifest, items, pages = protocol.build_run(method, frozen)
     directory = protocol.OUTPUT / method
     saved = protocol.read_saved(directory, manifest, items, pages)
     print(f"{method}: {len(saved[protocol.STAGES[method][-1]])}/524 complete; run {protocol.a.digest(manifest)}", flush=True)
