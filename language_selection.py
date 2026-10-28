@@ -1,10 +1,8 @@
 
+import argparse
 import re
 from io import StringIO
-
-import pandas as pd
-import requests
-from bs4 import BeautifulSoup
+from pathlib import Path
 
 MIN_PAGES = 20_000
 MAX_PAGES = 200_000
@@ -35,12 +33,38 @@ def normalize(name):
 
 
 def get_html(url):
+    import requests
+
     response = requests.get(url, timeout=30)
     response.raise_for_status()
     return response.text
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(
+        description="Select candidate languages, or collect x_lang–English articles on Toolforge."
+    )
+    parser.add_argument("--x-lang", help="Source Wikipedia language code, e.g. bar, sco, or nds")
+    parser.add_argument("--output-dir", type=Path, help="Corpus directory in the Toolforge tool account")
+    size = parser.add_mutually_exclusive_group()
+    size.add_argument("--limit", type=int, help="Collect this many verified pairs (default: 10)")
+    size.add_argument("--all", action="store_true", help="Collect all linked article candidates")
+    args = parser.parse_args(argv)
+    if args.x_lang:
+        if args.output_dir is None:
+            parser.error("--x-lang requires --output-dir")
+        if args.limit is not None and args.limit <= 0:
+            parser.error("--limit must be positive")
+        from toolforge_articles import collect_articles
+
+        collect_articles(args.x_lang, args.output_dir, None if args.all else (args.limit or 10))
+        return
+    if args.output_dir is not None or args.limit is not None or args.all:
+        parser.error("Article collection options require --x-lang")
+
+    import pandas as pd
+    from bs4 import BeautifulSoup
+
     # load Wikipedia languages
     df = pd.read_csv(FINEWIKI_URL)
     df = df[df["pages"].between(MIN_PAGES, MAX_PAGES)].copy()
