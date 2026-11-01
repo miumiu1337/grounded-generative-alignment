@@ -1,0 +1,98 @@
+{
+  "run_name": "finewiki_bar_en_pilot_20261101_v1",
+  "source_language": "bar",
+  "target_language": "en",
+  "dataset": "HuggingFaceFW/finewiki",
+  "dataset_revision": "8bd13e72e6a002407649b3e898535f42ceb1aeb9",
+  "topic_split": "bavarian_pilot/data/article_split.json",
+  "article_pairing": "equal_nonnull_wikidata_id;reject_missing_or_ambiguous_matches",
+  "article_revision_selection": "latest_available_positive_MediaWiki_revision_ID_per_page_within_pinned_FineWiki_snapshot;retain_all_retrieved_versions_and_selection_audit",
+  "article_text": "use_FineWiki_text_exactly;no_Toolforge_or_MediaWiki_retrieval;no_HTML_reextraction",
+  "segmentation": {
+    "comparison_scope": "two_development_topics_only",
+    "methods": [
+      "newline",
+      "pysbd",
+      "srx",
+      "datatrove"
+    ],
+    "selection": {
+      "bar": "reviewed_datatrove_v1",
+      "en": "reviewed_datatrove_v1"
+    },
+    "boundary_review": "bavarian_pilot/config/finewiki_boundary_review.json;46_disputed_boundaries;19_recorded_changes;AI_assisted_not_human_gold",
+    "development_source_units": 57,
+    "development_target_units": 979,
+    "bar_proxy_language": "de",
+    "preserve_character_offsets": true,
+    "preserve_structure_as_context": true,
+    "source_count": "recompute_from_FineWiki;do_not_force_53",
+    "shared_cohort_across_methods": true
+  },
+  "conditions": [
+    "blind",
+    "laser",
+    "bge_m3",
+    "variant_a",
+    "variant_b",
+    "variant_c",
+    "rerank_only"
+  ],
+  "generator": {
+    "provider": "self_hosted",
+    "model": "google/gemma-4-26B-A4B-it",
+    "revision": "47b6801b24d15ff9bcd8c96dfaea0be9ed3a0301",
+    "temperature": 0.0,
+    "seed": 42,
+    "max_tokens": 1024,
+    "enable_thinking": false
+  },
+  "mining": {
+    "candidate_unit": "one_or_two_adjacent_English_sentences_within_one_paragraph",
+    "neighbors": 4,
+    "top_k": 5,
+    "margin": "ratio",
+    "acceptance_threshold": null,
+    "laser_model": "LASER-1",
+    "laser_source_tokenizer": "de",
+    "bge_model": "BAAI/bge-m3",
+    "bge_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "bge_provider": "self_hosted;no_Ollama"
+  },
+  "variant_c": {
+    "stages": [
+      "reuse_blind_translation",
+      "external_English_search",
+      "refinement",
+      "verification"
+    ],
+    "external_search_allowed": true,
+    "exclude_wikimedia_evidence": true,
+    "queries_per_source": 1,
+    "max_pages_per_source": 2,
+    "max_excerpt_words_per_page": 25,
+    "record_urls_queries_timestamps_and_used_reference_ids": true,
+    "verification_role": "internal_method_diagnostic;not_independent_evaluation"
+  },
+  "rerank_only": "reuse_B_selection_stage;export_selected_English_span_verbatim;no_new_translation",
+  "evaluation": {
+    "LLM_fidelity_ratings": "supplementary_diagnostic_only",
+    "COMET": "optional_diagnostic;Bavarian_support_must_be_qualified",
+    "primary_validation": "train_models_on_each_generated_dataset;evaluate_on_an_independent_held_out_Hugging_Face_benchmark",
+    "training_coordination": "supervisor",
+    "training_or_external_benchmark_not_selected_yet": true
+  },
+  "export": {
+    "format": "Parquet",
+    "subset_names": "bar_en_pilot_<condition>",
+    "required_columns": [
+      "source_lang",
+      "target_lang",
+      "source_text",
+      "target_text"
+    ],
+    "retain_provenance_and_failure_coverage_reports": true,
+    "quality_status_before_filtering": "unassessed_candidates",
+    "publish_after_artifacts_are_reviewable": true
+  }
+}

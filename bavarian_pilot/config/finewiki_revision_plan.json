@@ -1,0 +1,1174 @@
+{
+  "version": 2,
+  "status": "approved_changes;protocol_freeze_pending_user_approval",
+  "scope": "two_development_topics_only",
+  "dataset_revision": "8bd13e72e6a002407649b3e898535f42ceb1aeb9",
+  "approval": "User approved the proposed candidate eligibility, mixed-quotation and rejected-reranking changes and development rerun; final freeze requires separate approval.",
+  "selection_basis": "source/unit structure reviewed before rerun;not_selected_for_translation_score;not_an_automatic_policy_for_heldout_languages",
+  "raw_text_policy": "unchanged;context-only units retain text, offsets and IDs",
+  "expected_source_units": 54,
+  "rerank_acceptance": "nonempty_evidence_and_match_status_in_exact_partial_and_no_contradiction",
+  "C_self_verification": "diagnostic_only;not_an_acceptance_filter",
+  "decisions": [
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0152",
+      "text_sha256": "0810c10b4f493ae8a1c2d654e1370a5eab62b3151ffece7d039755358b8804dc",
+      "original_text": "Its points include:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0338",
+      "text_sha256": "04032798d793543a027c9ea9a4b224bb3ff6226f98ce894b1f3db9481c61af37",
+      "original_text": "The spiritual sense is further subdivided into:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0343",
+      "text_sha256": "60a58dee874af95aa71f80f620decb27f46cd5aa440f1ccc0c581117ee430862",
+      "original_text": "Regarding exegesis, following the rules of sound interpretation, Catholic theology holds:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0408",
+      "text_sha256": "6f35b85ccfa11dec1cfe0211a3d6459d890593e9d4f61769fddedc13a7102d12",
+      "original_text": "- Distribution of Catholics",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0409",
+      "text_sha256": "8385d54139626909bf8235ebb90b95eeda9ce1f5b053625aa4e3f232a338fe53",
+      "original_text": "- Distribution of Protestants",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0410",
+      "text_sha256": "49253676d7f4a2687e1d21d84a539a8fa1b2abcb08b850049916030423da1d16",
+      "original_text": "- Distribution of Eastern Orthodox",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0411",
+      "text_sha256": "ef1761d72a4bf9f566d8d4dfac16ac038b2047e18c0b34d79f3f57b620c3c07e",
+      "original_text": "- Distribution of Oriental Orthodox",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0412",
+      "text_sha256": "eb06f6adb0cfa8fffb2aba6ca775cc0dbd63ae659431334d9dde986808919d23",
+      "original_text": "- Distribution of other Christians",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0413",
+      "text_sha256": "8f37437b8a0bc9747d456e1bf643f3c812bc083551522b9d58c615da79179558",
+      "original_text": "Catholic (48.6%)",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0414",
+      "text_sha256": "7545943c267df4e742fb86e28bdb6c235da34dfc31f9386c23bc5e220cf2676d",
+      "original_text": "Protestant (39.8%)",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0415",
+      "text_sha256": "7935b9a927e68b7837c3276e3cfaadb5d2fd6a3dfa543f889e4f46f679056802",
+      "original_text": "Orthodox (11.1%)",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/5211",
+      "sentence_id": "en_5211:fw8bd13e72:r1306008798:reviewed_datatrove_v1:S0416",
+      "text_sha256": "df8b229b7ce5a7e01b534010aa8c21b0fc45e506ce2e93cad740987e9ca25f08",
+      "original_text": "Other (0.50%)",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0018",
+      "text_sha256": "66150cc80cfce413beafa6b51628914f712516b38ddf498e9713cd4d843fa79b",
+      "original_text": "City districts (most district names were originally in German and italianized at a later stage):",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0019",
+      "text_sha256": "6dde6d9337a76a45b1bbbbc3733b8ed9afde04f84a4c7a57e73c883512c83e7e",
+      "original_text": "- Centro-Piani-Rencio/Zentrum-Bozner Boden-Rentsch",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0020",
+      "text_sha256": "e481e6b9145d6fdd8665605189a953a59107c11a1edb1bdaaf948f985a388a91",
+      "original_text": "- Don Bosco/Don Bosco-Neugries",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0021",
+      "text_sha256": "a7e7d2519999b9ba04be16f6ce8acb8dd3eff5d80b6a698a25beccf021e834d2",
+      "original_text": "- Europa-Novacella/Europa-Neustift",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0022",
+      "text_sha256": "c22781fa0554e1102f1f8b52488fdfe967d771fd17a24ead654449f1dd98f191",
+      "original_text": "- Gries-San Quirino/Gries-Quirein",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0023",
+      "text_sha256": "3dc76ecdfc85923217e021039161f358910f0d159eee5dd483585909c49c4f82",
+      "original_text": "- Oltrisarco-Aslago/Oberau-Haslach",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0103",
+      "text_sha256": "7dc8638731a7681c2a4358e8f804216651c079f5cfc0f193686d6d2e0073e86e",
+      "original_text": "Large companies in Bolzano are:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0104",
+      "text_sha256": "6f93b9674a0dd3c89ccbc2b59614baba42684a93b22bdd38a84245b72fe0756b",
+      "original_text": "- THUN S.p.A. SB (AG)",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0105",
+      "text_sha256": "1749ea078d4072553664d6ca77e1adb1d89d65cfd23ac065853e818a54809e33",
+      "original_text": "- FERCAM S.p.A. (AG)",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0106",
+      "text_sha256": "97b03729d981fe6168910e99f65df7600c4746c71b1aa832f9c4a23e327acec5",
+      "original_text": "- Spar (retailer) Italia S.p.A.",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0107",
+      "text_sha256": "b8b9103d4a4087908df754a355dc40521c2c8ec7dc9ba3f45af8afd1c70f88c4",
+      "original_text": "- Acciaierie Valbruna S.p.A.",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0108",
+      "text_sha256": "54a9539bae32e0f35f577e054a2e4b8ef1b4b5a8ef54b36be7195df7699aa117",
+      "original_text": "- Iveco S.p.A.",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0109",
+      "text_sha256": "f635c4dba6aa1579274c6f628d5df24ed8a5ebafaa24000ebd291285436a9b46",
+      "original_text": "- Oberalp AG",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0110",
+      "text_sha256": "5010e69f37896665f920e96efee6f21f6b0685b2e72a5f4174d5c696c460cc1d",
+      "original_text": "- Alperia S.p.A. (AG)",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0116",
+      "text_sha256": "f944b8ae4c43714fe27d4615c50137901b5653ee1fd899613a790293c1159149",
+      "original_text": "A special focus lies on those fields:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0117",
+      "text_sha256": "9e52b06e021b881e588fa8982cdcf830f10b70290ce6faf00e248209d4286fa4",
+      "original_text": "- Alpine Technology",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0118",
+      "text_sha256": "4c2ced25aa7dec3c756b2421582aa9483ebb7d3af8339acc8d539415438b78f6",
+      "original_text": "- Renewable Energies and Energy Efficiency",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0119",
+      "text_sha256": "2e9166faf461e3299c0600537d7c215991062c2e22073119c4829ddfb0b2ecb5",
+      "original_text": "- Food Technology",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0120",
+      "text_sha256": "6fdb8bfdca7eb8f7132d3462163e6883526b96c72fad86c7f92d2b75e4956aea",
+      "original_text": "- ICT & Automation",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0145",
+      "text_sha256": "66532da3f13c85abf9c05e18ba30d23e89cde20616176526b12cc0d0a2df2bd8",
+      "original_text": "- Franciscan Friary, Bolzano",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0146",
+      "text_sha256": "ef8a9d4f40f287f3400a495f6b8ceb68e012d4a2d4d8b47a72e8a4c675e90f0c",
+      "original_text": "- Sparkassenstraße",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0147",
+      "text_sha256": "91b789606d1e197c0a4575ee478ac2b0e503148f3a26880112100bce5827dc5f",
+      "original_text": "- Kornplatz",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0148",
+      "text_sha256": "79c16592f11b01b2ed50bcf82f19491ee43c56b6420573894bca429e12e10c5b",
+      "original_text": "- Obstplatz",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0149",
+      "text_sha256": "7eff7acebeeb17b6fe0add9cafa43df6c1838af02ff1e53fc74bf2d841481d4f",
+      "original_text": "- Muri-Gries Abbey",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0150",
+      "text_sha256": "5056b5feb9041a7f967651ef61829a0e0f7e7e11c29ef5f9a125e8b1d8fb24b7",
+      "original_text": "- Statue of Walther von der Vogelweide",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0153",
+      "text_sha256": "f3eb3a36c64654a1ac9ce1a1650e3d0cef8e2eb05276773ff651fadbe89c07c3",
+      "original_text": "Among the major monuments and sights are:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0154",
+      "text_sha256": "c696b8edfa62e51f7e7466a68c485629be0688cb392f7d859a59443f92d4f875",
+      "original_text": "- the Walther Square, with a statue of Walther von der Vogelweide,[42] a German minstrel (minnesinger)",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0155",
+      "text_sha256": "41a0be2d9c25aadde16ccb277c8d9ecec44fd318e17209a66644543915b56a89",
+      "original_text": "- the Laubengasse or Via dei Portici, a street 300 metres (980 ft) long, in the city center with medieval arcades along its entire course, now housing countless high-street shops",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0156",
+      "text_sha256": "182c88efa4e13baf4743d315a7ef4af9830650bbdbc98494bc9f50f27557547a",
+      "original_text": "- the Gothic Cathedral, started in 1184, expanded in the 1300s by architects Martin and Peter Schiche and completed in the early 16th century by Hans Lutz von Schussenried",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0157",
+      "text_sha256": "98c0a5bed58961286154b752ce3e28e8db226792392ae27aa40156506f25d0a3",
+      "original_text": "- the Waaghaus at the central Kornplatz (piazza del Grano), the former site of the public weighbridge",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0158",
+      "text_sha256": "f1e0e3f33b3fbe2116f9965ef2bee6802435354ca70919ddcd8ebc849c9a83f6",
+      "original_text": "- the Old Parish Church of Gries, with an altarpiece by Michael Pacher",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0159",
+      "text_sha256": "8f7bb5fc7147764aff8f75522b29b095e1b48bc1fae3e6829b9a68728fc14883",
+      "original_text": "- the benedictine monastery of Muri-Gries, with baroque paintings by Martin Knoller",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0160",
+      "text_sha256": "53866eac604b1366819b1e8823f3bd478c6c694112c1e138c45b1a493fed3373",
+      "original_text": "- the Chiesa dei Domenicani/Dominikanerkirche (13th century), with a series of 14th-century Gothic paintings",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0161",
+      "text_sha256": "8ca7c0fc80fd4e770830c5b07bb2beaef23e5158bf1eca17b4fa9c94aaa33d56",
+      "original_text": "- various castles, including Castle Maretsch, Runkelstein Castle and Firmian/Sigmundskron Castle",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0162",
+      "text_sha256": "a5d1ad24607f78dbd7d0bdf88db7c7fa81f07baa17a24fae1bb4ae3aa0ed945f",
+      "original_text": "- Victory Monument triumphal arch built under Mussolini (1928); now put in context as part of an exhibition on the two dictatorships of Italian Fascism and German Nazism[43]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0163",
+      "text_sha256": "44f621cb71f3c2b965cb8e29e3de1104cb62c6069f4958f7b80a21afac1c7075",
+      "original_text": "- the former Casa del Fascio, another fascist-era monument preserved but recontextualized in 2017[44]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0192",
+      "text_sha256": "3575f08da1bb9a74530b27208e5c24013943841c6fa78073e792abcfb8611b68",
+      "original_text": "- Documentation Center \"BZ '18–'45: one monument, one city, two dictatorships\", Victory Monument.",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0196",
+      "text_sha256": "552e03d2008e6af302d39e3d9283547d7b1a9e068897fb9302a35c309e446186",
+      "original_text": "- Pons Drusi Museum, located in the retirement home \"Grieserhof\" and showing archaeological remains such as frescoes and vases from Roman antiquity.",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0199",
+      "text_sha256": "3a816c736454ec2b256f2587e6623efa839625bc4f882eb9c22f809c6bda95b6",
+      "original_text": "- Tessmann Library",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0200",
+      "text_sha256": "888ab1fd46599699f5817c8bf70ed48375705544292c8b954e7b26cc70c58b68",
+      "original_text": "- University Library of Bozen-Bolzano",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0201",
+      "text_sha256": "5c0ae3cc227f859eabb5fcaef99a08b4682d2a377359f99a5b7aa005cb7bc0e8",
+      "original_text": "- South Tyrolean Provincial Archives",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0202",
+      "text_sha256": "7bc7f0a1e476c39624b52bb1f23bc9d128670b892d897e358f95a78b62cf12cd",
+      "original_text": "- Civic Archives in Bozen-Bolzano",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0228",
+      "text_sha256": "b350604f5891580eb4dcd5bf5efac8c35bc4c99354567cd0490eb4e3ed200411",
+      "original_text": "- UCI Cinema, opened in 2015 and located in the shopping center \"Twenty\".",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0231",
+      "text_sha256": "180583b8d8cbfbeb1951defa714caaffb93033c08058fb9ed77cb025d93f21c6",
+      "original_text": "Bolzano organizes the following events every year:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0258",
+      "text_sha256": "ef1099411e4d932dbf544e8c3a0be4bb63f0f647f9a93a4d31daa553577085fa",
+      "original_text": "The University of Bolzano has the following five faculties:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0259",
+      "text_sha256": "f301f4d191783bdec1a8057ea29e5a2080e9c4af33d47396bbfe32a376e7dc18",
+      "original_text": "- Economics",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0260",
+      "text_sha256": "cfefe1944f1dd7eb002430cd64db35f3e8515c0a8d92bf3106d06d41b1419c3b",
+      "original_text": "- Computer science",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0261",
+      "text_sha256": "c9e03d70959a7b37be89054fb62ad9ec09afddbc72dd13581e37b9af4e691d7f",
+      "original_text": "- Design and arts",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0262",
+      "text_sha256": "e0254603226b3f84d1a1bbf46791d8281000709bf12abae8ccf6b6cd44cc4655",
+      "original_text": "- Science and technology",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0263",
+      "text_sha256": "55d7e7740ad7db990124416eb4aba5fc5996d9d11e560c4782a834ce95ea78b8",
+      "original_text": "- Education",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0287",
+      "text_sha256": "122bd963fd4887797954f7be18c5196e9836df938f6b9d5559113f082d37c854",
+      "original_text": "- Cable car Ritten",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0288",
+      "text_sha256": "dfb5f4500c5e50caf223a345e5acc2a4182f382f9266b8541b133ac7cc975e98",
+      "original_text": "- Bolzano railway station",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0289",
+      "text_sha256": "7d18c844be70f54ba90cc8ad94f6f67984d00016f243c0f555b81ef0eec261ca",
+      "original_text": "- Bolzano Airport",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0293",
+      "text_sha256": "cbe1b7d7f446e134f78cefe973dfbbde9969b81e541853b56eec04a77a6505c3",
+      "original_text": "Football",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0294",
+      "text_sha256": "ac7fc3dcee9edaee86e0fb44bd6a289976feb7c0e009540482ed28b88505b035",
+      "original_text": "- F.C. Südtirol",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0295",
+      "text_sha256": "60318ee95a96b0bc428ac5154015f698700c9ab1978ffbb94ae2e7398082cf8c",
+      "original_text": "- A.C. Virtus Bolzano",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0296",
+      "text_sha256": "1b8fb6fb303d49cfeded6f07536cc5f395e95a6a9a68f213a2afca792bd162d2",
+      "original_text": "- Bozner F.C.",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0297",
+      "text_sha256": "0fca909afebdeeff182563bdddf3cf5cfd6dfed479bd91e4e087592cc1a140a8",
+      "original_text": "- F.C. Neugries",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0298",
+      "text_sha256": "083491e87d535196d2164737bfc1e38c2beef0bc50a0684e43ffb553b2c06d73",
+      "original_text": "- F.C. Bolzano 1996",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0299",
+      "text_sha256": "e26da430d515f311f0b500be8bd04fe0d1fa0bab9fa5ed03342c5d51300a0e72",
+      "original_text": "- Virtus Don Bosco",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0300",
+      "text_sha256": "c56b9c5f30d3349ea14eb859e71e867f50a72d705cda94a462da7bc7d6d2e5c8",
+      "original_text": "Handball",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0301",
+      "text_sha256": "4d3708c318223fb8ec60d5ec1a1c83e83a3293237eff23f97f0c42fd787fd16a",
+      "original_text": "- Loacker Bozen Handball A-Elite Liga",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0302",
+      "text_sha256": "841ff4420c8d54f7f12a3f5dfcdba30c05852a635f4acfad353f0331a6608bbd",
+      "original_text": "Ice hockey",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0305",
+      "text_sha256": "4fc93b3be81bf5d53ac2b91fc2267e61b42c477c97f5aa2e89a3be0aba070740",
+      "original_text": "Rugby",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0307",
+      "text_sha256": "2eb3ff0fb926668d759ee9a0da266ac39036d27dbed814c62e442b54dabb4e0d",
+      "original_text": "American football",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0309",
+      "text_sha256": "65c35ad18ac2682af7b9900b40cfd3a711cabe8f2115b1d3c0eecf6516b20d54",
+      "original_text": "Softball and baseball",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0310",
+      "text_sha256": "3b7ebc88b7a09a45f72cb7cb72f9abbe572aec3b1f181712b30bbf383b1bfa98",
+      "original_text": "- Adler",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0311",
+      "text_sha256": "ab45bab4a73d4b05bc1e1792dd483476bb42d30fde74eabbd3658e3b8f4fc57b",
+      "original_text": "- Pool 77",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0312",
+      "text_sha256": "d6091c55cbca4ada275ddfa5f02fc5f6d557ae1e1f516dd6edfe84f8c32d5549",
+      "original_text": "- Softball Club Dolomiti",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0313",
+      "text_sha256": "690d58f681cc5176be67da012d765f9e51ee3260d3094ec98cde2dd0bc34b697",
+      "original_text": "Fistball",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0315",
+      "text_sha256": "dd5599926670f6415b9e760e136ec964ad902845fb5dad8112e345f97cac60b7",
+      "original_text": "Notable people born in or associated with Bolzano include:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0316",
+      "text_sha256": "1b41cc4d610d8701f9f995ee302bb8fc7a5d6adcfdb6c079413f39c770e86252",
+      "original_text": "14th century",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0317",
+      "text_sha256": "579013e539f5d8c73dad5d06e345d18a3fed0d9d8fd5e03977ffb872b4cc572d",
+      "original_text": "- Blessed Henry of Treviso (died 1315), a lay pilgrim and holy man, a German from Bolzano",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0318",
+      "text_sha256": "2fbbd49be10f31b5e836da7f7ad655a952cf0ab5e84616d92d9b149187ec4485",
+      "original_text": "18th century",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0319",
+      "text_sha256": "b18622347d6c1c05314f65ef82420b6f24b51876c6c170ae533b03737eb5dc66",
+      "original_text": "- Joseph Tiefenthaler (1710–1785), a Jesuit missionary who wrote about India",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0320",
+      "text_sha256": "958ecaf0dc5e835aff4c19724e728d61e25f75d7d62370a9e31a75e5762b676a",
+      "original_text": "- Johann Nepomuk von Tschiderer zu Gleifheim (1777–1860), Prince-Bishop of Trent",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0321",
+      "text_sha256": "02b1bce07ad5ae49f144247950f0c163ba9dbfb6c803ba905c8f7e27cd459e6b",
+      "original_text": "- Archduke Rainer Joseph of Austria (1783–1853), Viceroy of Lombardy-Venetia",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0322",
+      "text_sha256": "1da0e4c859785a966a16a3f2851e1c66acdefc1b4a0e62eec676a656a1a74296",
+      "original_text": "- Jacob Anton Zallinger zum Thurn (1735–1813), philosopher and canonist",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0324",
+      "text_sha256": "42a7c4d0508175c065dcb1d4a34101065c2c1f0c49f9bf2b8cbd27d0705bd590",
+      "original_text": "- Jakob Schgraffer (1799-1859), composer",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0325",
+      "text_sha256": "e712e048610af35a517ffe1e90002d4161a5669e1029330c9a4c1a54ee1a6adb",
+      "original_text": "19th century",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0326",
+      "text_sha256": "3dc36680043c85b8487bc5426065bbb600d3e65bd0a4fa2c7de2f3409ea638b8",
+      "original_text": "- Daniel Harrwitz (1821 – 1884), German chess master",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0327",
+      "text_sha256": "965c7efcb8abb731fa3e3457e1d76c953de12586d20b0a8cffbb32db226f989b",
+      "original_text": "- Heinrich Anton of Austria (1828-1891), Archduke of Austria",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0328",
+      "text_sha256": "8f2875f92cfc692f6fc7343afee5cd459f9319455ac36fe92f83f485fadcfa8e",
+      "original_text": "- Anton Ausserer (1843–1889), naturalist and arachnologist",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0329",
+      "text_sha256": "6e005408379f41ee37dd584bf1c501331566836f390185008e5f84139cdc46b7",
+      "original_text": "- Alois Riehl (1844–1924), neo-Kantian philosopher",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0330",
+      "text_sha256": "eeb638e6d0cdb8542c6bcf49eca728b96c0fbc97f4ece4339ccea972b66f4418",
+      "original_text": "- Julius Perathoner (1849–1926), last mayor of Bolzano of German ethnicity, 1895-1922",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0332",
+      "text_sha256": "37fbe288a5b894dc0ca6c59ea8d7a70da0e074136a0d7534f2119ab3400d2dcb",
+      "original_text": "- Ludwig Thuille (1861–1907), composer, teacher and music theorist",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0333",
+      "text_sha256": "6b23470aca1ec106477c36532cf0a5bb0e1099292072bc477e604ce88aa8421a",
+      "original_text": "- Prince Carlos of Bourbon-Two Sicilies (1870–1949), member of the Spanish Royal family",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0334",
+      "text_sha256": "bf1230481c870fe46a17478d0fd7419a9da6c0a80fb203ee272c21d58fc45f4d",
+      "original_text": "- Karl Theodor Hoeniger (1881–1970), author and cultural historian[56]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0336",
+      "text_sha256": "57301c923cde0f802d78681227578dd5a46d7ce7dec92e1f221fdf0097b66d5a",
+      "original_text": "- Max Valier (1895–1930), rocketry pioneer, astronomer and writer",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0337",
+      "text_sha256": "f2abd1e615d74521712d2de6c1173ce81f0081d9b181689fcce7567480e8aac0",
+      "original_text": "- Christian Hess (1895–1944), painter and sculptor[58]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0338",
+      "text_sha256": "aae79f9046b238341e6c441ffa8b8606c9e087e9bc32f20ef1ea04dcf2d69d81",
+      "original_text": "- Walther Oberhaidacher (1896–1945), Austrian Nazi Party politician",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0339",
+      "text_sha256": "27c3f8025dd98b8b23dad1e78503572e31b73ca9c7d50bccccf782cc71dd6453",
+      "original_text": "20th century",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0340",
+      "text_sha256": "cf7f381552614e86d4931bdd22251feea3d7a4be1ba123511cda621eeb048855",
+      "original_text": "- Josef Mayr-Nusser (1910–1945), South Tyrolean leader of the resistance against Nazi rule",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0341",
+      "text_sha256": "937bac068a53641f6a4db117b6d527ec3ae909ef151be83c206aad52b48d5fc6",
+      "original_text": "- Maria Luise Thurmair (1912–2005), a Catholic theologian, hymnodist and writer",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0342",
+      "text_sha256": "c50e3621a9a0e8f33837d1893a0525eb45421e790e77d2bd5e27d334a10f1c35",
+      "original_text": "- Carlo Maria Giulini (1914–2005), conductor",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0343",
+      "text_sha256": "6c926ae9fd8cfcd3fd52a9ff9e22dc3cd6e8cde4f31d15647c37a3735d27a602",
+      "original_text": "- Silvius Magnago (1914-2010), lawyer and politician",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0344",
+      "text_sha256": "f015b18238838044db2e41c756fd0443585904b0146ed26da9034949ae4665cf",
+      "original_text": "- Maria Gardena (1920–2008) film actress and later architect[59]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0345",
+      "text_sha256": "af48757a31c0eb292b4fcc7d545bef19ba6f15ebb9a4b07ee0df63a170464ce1",
+      "original_text": "- Alcide Berloffa (1922-2011), politician [60]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0346",
+      "text_sha256": "137a2d0f2980ab784abc5960676580850710c9cc7bdb65b4a2a46f577d1954a0",
+      "original_text": "- Valentin Braitenberg (1926-2011), brain researcher, cyberneticist and writer",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0347",
+      "text_sha256": "cb42fe93f56b77bcc3f311f903b5a4656cffe03af280bf783e65b74bfa490022",
+      "original_text": "- Dorian Gray (1928-2011), actress [61]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0348",
+      "text_sha256": "04aac9e51fda9eaf3fed1b474905dcc2bb58e1f557d80e1f39f7efeefed40ae5",
+      "original_text": "- Herbert Rosendorfer (1934–2012), German jurist and writer",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0349",
+      "text_sha256": "14ca59202bee204f0273b6d5ea466b8a7bf8e28dc64797038c1608858d6e8343",
+      "original_text": "- Giuseppe Anfossi (born 1935), bishop emeritus of the Diocese of Aosta 1994 to 2011",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0350",
+      "text_sha256": "7fb12bb524daca6536f57969794ffe461e1a92bbd544b163a236e9684aad36db",
+      "original_text": "- Adolf Dallapozza (born 1940), tenor in opera, operetta and musical theatre at the Vienna Volksoper[62]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0351",
+      "text_sha256": "395f8e9450d227b297a627212dabcc7d9f3f1c6de8291338c3558a5fd8a51b93",
+      "original_text": "- Ottavia Piccolo (born 1949), theatre and film actress [63]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0352",
+      "text_sha256": "ad4b05c10235851a61857621112b1ea7dc663a0751f25f995b6c5e25bf94d5b2",
+      "original_text": "- Matteo Thun (born 1952), an architect and designer",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0353",
+      "text_sha256": "1a1cf907b2d9f7b7803dfe38d5f5dfe48fbf5711f607e7385b0c789018ce5c6f",
+      "original_text": "- Andrea Bonatta (born 1952), pianist and conductor",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0354",
+      "text_sha256": "32319c544af7ae5c5d0b24f2b1c835eb9eaf65e7af59fd671111b60c29223cbf",
+      "original_text": "- Franz Fischnaller (born 1954), new media artist and transdisciplinary researcher",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0355",
+      "text_sha256": "2fcacd3dcb289161b0d0b68ed95dcbd9cedfa9020473c777b0e9ca5fa5632385",
+      "original_text": "- Cuno Tarfusser (born 1954), former judge of the International Criminal Court",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0356",
+      "text_sha256": "adc03763747c9f70fd6fa64a54c49138ad363a090af650b27ab18d09e4149b14",
+      "original_text": "- Lilli Gruber (born 1957), journalist, former politician and TV talk show host",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0357",
+      "text_sha256": "cc91fedaac2442099256ffe61e98d52914ebc1301e9bd902dc2886b581628dfd",
+      "original_text": "- Marco Bergamo (1966-2017) the Monster of Bolzano, an Italian serial killer",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0358",
+      "text_sha256": "8dd0a068ed080b9d2e177b303b2fa73a0b1b0a9be89b256c55282fdcdd912d91",
+      "original_text": "- Sergio Azzolini (born 1967) bassoonist and music conductor",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0359",
+      "text_sha256": "7a05caceda057d9466b7766eefad1bdd0d2bd4e59b2216b0997c99f1a4675e6d",
+      "original_text": "- Anna Unterberger (born 1985) actress [64]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0360",
+      "text_sha256": "9a085dd854f03306988189d9b57c89b54a9303bdbba275ea9fc5739d64e3b50c",
+      "original_text": "Sport",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0361",
+      "text_sha256": "594c28a2038ad33118d78fe9bbdb8558fcf1c76378d4d565caed700793475f6d",
+      "original_text": "- Paula Wiesinger (1907-2001), mountaineer, ski racer and restaurateur",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0362",
+      "text_sha256": "17f45c54f77c90a025856e341a864dd333404b3f919269d8529dfa6cd25533e1",
+      "original_text": "- Erika Lechner (born 1947), luger, medallist at the 1968 Winter Olympics",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0363",
+      "text_sha256": "e52bba4c8701deb315f2af75802a118d6746d07bae40ecdc340954e7d9239b7a",
+      "original_text": "- Hans Kammerlander (born 1956), mountaineer",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0364",
+      "text_sha256": "a10b7aea34e45d81127eef7c643576196d14c30f2c0080193cab313be2b6f70f",
+      "original_text": "- Antonella Bellutti (born 1968), racing cyclist and two-time Olympic champion in track cycling",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0367",
+      "text_sha256": "03e0fa563984c8f43e3ed96a48ba70d673633600c531a614680de8614759bc36",
+      "original_text": "- Isolde Kostner (born 1975), Alpine skier, two bronze medals at the 1994 Winter Olympics and a silver medal at the 2002 Winter Olympics",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0368",
+      "text_sha256": "a7e5fe24d09f9284c924dfa0f3e471d376b928c5cba311543141d5f39a68b8c2",
+      "original_text": "- Karen Putzer (born 1978), former alpine skier, bronze medallist at the 2002 Winter Olympics",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0370",
+      "text_sha256": "7e4a9200f73a3472d7ff1c80b8e33744fb64d7ce39bb5dab3f95fde84048b29a",
+      "original_text": "- Manuela Gostner (born 1984), racing driver",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0371",
+      "text_sha256": "3f34a4d8397bd6a68a406ffaef5100ee8051c35f25bf742f47f0110f1f0de26c",
+      "original_text": "- Tania Cagnotto (born 1985), world and European champion in diving, Olympic bronze and silver medallist",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0372",
+      "text_sha256": "2af85e5c3d0c24bc1231649cf3ec874b85a4b923f20ddb382885bcf7d3daeb29",
+      "original_text": "- Carolina Kostner (born 1987), figure skater, World Champion and Olympic bronze medalist",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0373",
+      "text_sha256": "5870da49d0fbf47146b07bb0453a9d49c176197d04f975fa277b56717cac5a7d",
+      "original_text": "- Raphael Andergassen (born 1993), ice hockey player",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0374",
+      "text_sha256": "c8579a174dd157cd066f57c9404e1e5687c6a622d3d5259110a49e3b801691b1",
+      "original_text": "- Alex Trivellato (born 1993), ice hockey player",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0375",
+      "text_sha256": "5a7a78c96bdd9401b4bb537e9a0afb1b0410b9cb2e0af858b53dcd9d518fdabb",
+      "original_text": "- Peter Hochkofler (born 1994), ice hockey player",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0376",
+      "text_sha256": "98a8c02ba937ce9735fd4623d1a6fb50e13e6925f96df40ec361eca9a5d0455a",
+      "original_text": "- Simone Giannelli (born 1996) , volleyball player",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0377",
+      "text_sha256": "a8c04f78f1523881fb8b27cce52a08308e975917963d1a38a997ea29f25a7f43",
+      "original_text": "Bolzano is twinned with:",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0378",
+      "text_sha256": "563371d2b09aab24bf7ace1432f2ff44ac61c15857d7fe24f842239e729917a0",
+      "original_text": "- Erlangen, Germany[65]",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0379",
+      "text_sha256": "b3487961bbbd49e4bf44b08e668ba6ab736d511a69ac1dd0a7730d8c13508b77",
+      "original_text": "- Koziatyn, Ukraine",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "enwiki/191106",
+      "sentence_id": "en_191106:fw8bd13e72:r1306893484:reviewed_datatrove_v1:S0380",
+      "text_sha256": "610d8c9e89965738ce937ff12828fd2dee4409839ce1ef667f0f1777768558fb",
+      "original_text": "- Sopron, Hungary",
+      "action": "context_only",
+      "reason": "nominal_label_or_list_introduction;not_an_independent_sentence_statement"
+    },
+    {
+      "article_id": "barwiki/2544",
+      "sentence_id": "bar_2544:fw8bd13e72:r808488:reviewed_datatrove_v1:S0029",
+      "text_sha256": "9eee2c4542f2cfbd6575ff55c1f27689f517649599354626a25d3ac0fd3948f2",
+      "original_text": "Da Bau isch nit lei wegn seines Initiators so umstritten, sondern vor ollem a wegn da eingemoaßelten Inschrift, de wia folg lautet:\"Hic patriae fines siste signa.",
+      "action": "context_only",
+      "reason": "mixed_Latin_German_inscription_passage"
+    },
+    {
+      "article_id": "barwiki/2544",
+      "sentence_id": "bar_2544:fw8bd13e72:r808488:reviewed_datatrove_v1:S0030",
+      "text_sha256": "4a1df07bf25345fe30435a8c2239843d1e25bb0f216826e4e51152e26c174219",
+      "original_text": "Hinc ceteros excoluimus lingua legibus artibus\", af deitsch: \"Hier als Grenzen des Vaterlandes hisse die Fahnen.",
+      "action": "context_only",
+      "reason": "mixed_Latin_German_inscription_passage"
+    },
+    {
+      "article_id": "barwiki/2544",
+      "sentence_id": "bar_2544:fw8bd13e72:r808488:reviewed_datatrove_v1:S0031",
+      "text_sha256": "2bd4c37c1f5af378f12be35a956a9308592dec54bd9b1acd67f0b6e989e67f6b",
+      "original_text": "Von hier bildeten wir die übrigen durch Sprache, Gesetze und Künste.\".",
+      "action": "context_only",
+      "reason": "mixed_Latin_German_inscription_passage"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# Keep the exact bytes recorded in the frozen experiment's SHA-256 hashes.
+* -text
+# Python's CSV exports use CRLF record endings.
+*.csv whitespace=cr-at-eol

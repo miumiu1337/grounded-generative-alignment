@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "protocol_version": "finewiki_bar_en_pilot_v2",
+  "status": "approved_frozen_for_eight_article_training_data_generation",
+  "approval": {
+    "date": "2026-11-01",
+    "scope": "Freeze procedure and generate training datasets from the remaining eight article pairs."
+  },
+  "development": {
+    "page_ids": [
+      59,
+      2544
+    ],
+    "eligible_source_units": 54,
+    "cohort_sha256": "7ddd3d65dd6c2d6e2c4209db52f59d519005c68bacc01dbd3715bfbcaaae8870"
+  },
+  "training": {
+    "page_ids": [
+      56,
+      57,
+      58,
+      60,
+      62,
+      63,
+      65,
+      2241
+    ],
+    "role": "generate separate method-specific training datasets;not_the_final_translation_test_set",
+    "legacy_split_label": "evaluation"
+  },
+  "final_test": {
+    "role": "independent_external_bar_en_reference_benchmark",
+    "candidate": "user_provided_Tatoeba_or_other_translations",
+    "exact_files_and_version": "pending_before_MT_training_and_evaluation",
+    "benchmark_access_during_generation": false
+  },
+  "dataset": {
+    "name": "HuggingFaceFW/finewiki",
+    "revision": "8bd13e72e6a002407649b3e898535f42ceb1aeb9",
+    "pairing": "equal_nonnull_wikidata_id;reject_missing_or_ambiguous_matches",
+    "revision_selection": "latest_available_positive_MediaWiki_revision_ID_per_page_within_pinned_FineWiki_snapshot;retain_all_retrieved_versions_and_selection_audit"
+  },
+  "segmentation": {
+    "base": "datatrove",
+    "bar_proxy_language": "de",
+    "english_language": "en",
+    "comparison_methods": [
+      "newline",
+      "pysbd",
+      "srx",
+      "datatrove"
+    ],
+    "review": "AI-assisted structural boundary review before generation;not_human_gold",
+    "boundary_rules": [
+      "Keep abbreviations, dates, initials and citation markers with their sentence.",
+      "Merge soft line wraps inside a clause; split independent sentences at genuine sentence boundaries.",
+      "Preserve all original FineWiki characters and exact offsets; never rewrite source facts."
+    ],
+    "eligibility_rules": [
+      "Headings, tables, code and formatting-only blocks remain context.",
+      "Bare labels, nominal fragments and list introductions remain context-only; full sentence statements inside lists may be candidates.",
+      "Mixed-language inscription/quotation fragments without an independent Bavarian statement remain source context-only.",
+      "Record article-specific review decisions before generation; do not choose exclusions from translation outcomes."
+    ],
+    "candidate_spans": "one or two eligible adjacent English units within the same paragraph;no_bridging_excluded_units"
+  },
+  "conditions": [
+    "blind",
+    "laser",
+    "bge_m3",
+    "variant_a",
+    "variant_b",
+    "variant_c",
+    "rerank_only"
+  ],
+  "generator": {
+    "provider": "self_hosted",
+    "model": "google/gemma-4-26B-A4B-it",
+    "revision": "47b6801b24d15ff9bcd8c96dfaea0be9ed3a0301",
+    "temperature": 0.0,
+    "seed": 42,
+    "max_tokens": 1024,
+    "enable_thinking": false
+  },
+  "mining": {
+    "candidate_unit": "one_or_two_adjacent_English_sentences_within_one_paragraph",
+    "neighbors": 4,
+    "top_k": 5,
+    "margin": "ratio",
+    "acceptance_threshold": null,
+    "laser_model": "LASER-1",
+    "laser_source_tokenizer": "de",
+    "bge_model": "BAAI/bge-m3",
+    "bge_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "bge_provider": "self_hosted;no_Ollama"
+  },
+  "variant_c": {
+    "stages": [
+      "reuse_blind_translation",
+      "external_English_search",
+      "refinement",
+      "verification"
+    ],
+    "external_search_allowed": true,
+    "exclude_wikimedia_evidence": true,
+    "queries_per_source": 1,
+    "max_pages_per_source": 2,
+    "max_excerpt_words_per_page": 25,
+    "record_urls_queries_timestamps_and_used_reference_ids": true,
+    "verification_role": "internal_method_diagnostic;not_independent_evaluation"
+  },
+  "rerank_only": "reuse_B_selection;export_verbatim_only_for_exact_or_partial_match_without_contradiction;retain_all_rejections_in_coverage",
+  "prompt_files": {
+    "bavarian_pilot/prompts/blind_translation_v1.txt": "f33d1d0f6d8fcc1e4b4e9fe2cc991864cf7247899358e98605707029081e3cde",
+    "bavarian_pilot/prompts/grounded_a_refinement_v1.txt": "b54c8a61eb0365b119c9900f56eac157e896254bd5f9876c4fafd179fc286d96",
+    "bavarian_pilot/prompts/grounded_a_selection_v1.txt": "b083c992a5da848fbb794c0faac526747aa9673a5702f70987a1a89cce59c64d",
+    "bavarian_pilot/prompts/grounded_b_selection_v1.txt": "cfafd2593f5bec6cb42654469f7658c45b5d68c159f6a584c00220e5f5c9606c",
+    "bavarian_pilot/prompts/grounded_b_translation_v1.txt": "da26955d702d6f19114c8f73f685a486eaa0988c426e4c656c46a53f0abcb283",
+    "bavarian_pilot/prompts/grounded_c_refinement_v1.txt": "a5fdafc69bebe934b6a7382af0e6e70f8d08877832ad01ff322bf506e99bae24",
+    "bavarian_pilot/prompts/grounded_c_verification_v1.txt": "5a2086a6aa11d860a0085487bef7abbd87dab998e858b7846b4af6ae2b4b5d45"
+  },
+  "preprocessing_packages": {
+    "datatrove": "0.10.1",
+    "spacy": "3.8.18",
+    "pysbd": "0.3.4",
+    "sentence-splitter": "1.4",
+    "numpy": "2.2.6",
+    "regex": "2026.9.29"
+  },
+  "context_policy": "retain_both_complete_numbered_articles;select_65536_131072_or_262144_context_to_fit_without_truncation",
+  "quality_status": "unassessed_candidates;self_verification_is_diagnostic_only;no_hand_corrected_translations",
+  "change_control": "record_material_method_changes_as_a_new_protocol;retain_v1_v2_and_all_raw_training_run_records"
+}
