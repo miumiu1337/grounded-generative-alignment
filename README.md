@@ -12,6 +12,8 @@ Each condition uses 20k sentence pairs, the same 500 validation pairs and the or
 
 Run checks with `python -m unittest discover -s tests`. Data-preparation scripts retain the original relative archive paths; they require the frozen source artifacts. The pilot exclusion file is included at `bavarian_pilot/data/article_split.json`. The preparation script expects its enclosing checkout to be named `grounded-generative-alignment`. Training and evaluation require a hosted CUDA GPU.
 
-Source files are unchanged; `snapshot.json` records hashes. 
+`snapshot.json` records file hashes. 
 
 For results and parallel datasets see [Hugging Face](https://huggingface.co/adahmpl/datasets).
+
+The 5k learning-rate comparison is defined in `experiments/blind_5k/plan.json`.

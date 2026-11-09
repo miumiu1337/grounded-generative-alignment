@@ -322,6 +322,13 @@ def run(package, drive, seconds, checkpoint_storage='drive'):
         trainer.train(resume_from_checkpoint=str(resume) if resume else None)
         step = trainer.state.global_step
         complete = step >= trainer.state.max_steps
+        if complete and settings.get('evaluate_final_validation', False):
+            metrics = trainer.evaluate(metric_key_prefix='final_validation')
+            write_json(root / 'final_validation.json', {
+                'run_id': manifest['run_id'], 'global_step': step,
+                'validation_pairs': manifest['counts']['validation'],
+                'interpretation': 'Held-out synthetic validation loss; not external benchmark quality',
+                'metrics': metrics})
         local_checkpoint = local / f'checkpoint-{step}'
         if not local_checkpoint.exists():
             trainer.save_model(str(local_checkpoint))

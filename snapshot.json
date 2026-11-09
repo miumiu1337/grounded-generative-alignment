@@ -1,11 +1,9 @@
 {
   "date": "2026-11-09",
-  "purpose": "Scientific code review before changing the experiment",
+  "purpose": "Bavarian experiments and controlled 5k learning-rate comparison",
   "source_files_unchanged": [
     "runners/__init__.py",
-    "runners/nllb_blind_training.py",
     "runners/nllb_local_recovery.py",
-    "runners/nllb_modal_execution.py",
     "runners/nllb_tatoeba_eval.py",
     "runners/prepare_nllb_blind.py",
     "runners/prepare_nllb_mining.py",
@@ -39,8 +37,8 @@
       "bytes": 100
     },
     "README.md": {
-      "sha256": "a9d0b458edbe3522bd5bbccf75cec7d792b240e17cf45ea4c7e542ba03351ace",
-      "bytes": 1171
+      "sha256": "e72eb252915f2cbf1dc1e43e0ecdbfd6cfd4b1b0977b87c32887bce375ad655b",
+      "bytes": 1229
     },
     "bavarian_pilot/data/article_split.json": {
       "sha256": "728a518b4dbe164044b6f135c39934abedd62b4caf8c93f1f3bec6821604f4ca",
@@ -139,16 +137,16 @@
       "bytes": 23
     },
     "runners/nllb_blind_training.py": {
-      "sha256": "28d69bf056640ad70c1e80e1413096ee1a0635ca46dba4e97fb816919e425a7a",
-      "bytes": 20908
+      "sha256": "ee5b205fe61d6472f9b699bd21f09fe3bbb5a7c6b5d456080c4e4c2807723142",
+      "bytes": 21394
     },
     "runners/nllb_local_recovery.py": {
       "sha256": "8962495349b03c12fe4adeb9878f2c4a56ab94f693ab32ed4f7fe70439aa2d3e",
       "bytes": 11806
     },
     "runners/nllb_modal_execution.py": {
-      "sha256": "a2c06d6fdc4bad2755199f786bdd821fcb6949d7b6172bc0eb1edeb52698d846",
-      "bytes": 4021
+      "sha256": "bb3d43706e98a93665cbe667fb707414bfcbbc06dfd716d6962531f4c63ebc0d",
+      "bytes": 4029
     },
     "runners/nllb_tatoeba_eval.py": {
       "sha256": "3bad1b395366d2d3188996d39b1b962befc873472b2a356919fea13d44cfceaa",
@@ -197,7 +195,40 @@
     "experiments/evaluation/blind.py": {
       "sha256": "00c71ddecc095dd52011b39ea838dc226d34c91bf234419fb1748e970fbacffc",
       "bytes": 11226
+    },
+    "runners/prepare_nllb_5k.py": {
+      "sha256": "7b05318f158d752c5524286615817a5991794a03b6fd001dc8581b5d936eea2f",
+      "bytes": 5337
+    },
+    "runners/nllb_gradient_probe.py": {
+      "sha256": "9527d31d2d3ddeee5c2f64ca47341459255f2ce280d008cbc34d1abfec4994ec",
+      "bytes": 4482
+    },
+    "tests/test_prepare_nllb_5k.py": {
+      "sha256": "42c37cd75114ab55e342069e198edcbd06475b5a08bc9c8532b7b96f61463f58",
+      "bytes": 1295
+    },
+    "experiments/blind_5k/plan.json": {
+      "sha256": "a8fe12d47f46944a1d33919d66cd4f2aaf5cdc754a2120779bc28f6e845e0747",
+      "bytes": 1724
+    },
+    "experiments/blind_5k/lr_1e4/manifest.json": {
+      "sha256": "fedd1e54520e9b0f74570b5a8100ba6235fdfcd6b8b0d02a7bbde605861da587",
+      "bytes": 2003
+    },
+    "experiments/blind_5k/lr_3e5/manifest.json": {
+      "sha256": "d8b95f1a3fd24a8c40fe9122705d14a9d49e737b4977bfcaeb0189155545937a",
+      "bytes": 2002
     }
   },
-  "original_blind_evaluation_runner_sha256": "00c71ddecc095dd52011b39ea838dc226d34c91bf234419fb1748e970fbacffc"
+  "original_blind_evaluation_runner_sha256": "00c71ddecc095dd52011b39ea838dc226d34c91bf234419fb1748e970fbacffc",
+  "frozen_20k_code_commit": "1315bb08420cc1a4f8b882f84b7d260c46b34fc6",
+  "parameter_experiment_source_files": [
+    "runners/nllb_blind_training.py",
+    "runners/nllb_modal_execution.py",
+    "runners/prepare_nllb_5k.py",
+    "runners/nllb_gradient_probe.py",
+    "tests/test_prepare_nllb_5k.py"
+  ],
+  "parameter_experiment_worker_sha256": "ee5b205fe61d6472f9b699bd21f09fe3bbb5a7c6b5d456080c4e4c2807723142"
 }

@@ -15,7 +15,7 @@ def load_worker(package):
 
 def unpack_inputs(archive_path, destination, expected_sha, expected_run, sha,
                   expected_condition='variant_a'):
-    if expected_condition not in {'variant_a','variant_b','bge_m3'}:
+    if expected_condition not in {'blind','variant_a','variant_b','bge_m3'}:
         raise ValueError('Unsupported Modal training condition')
     if sha(archive_path) != expected_sha:
         raise ValueError('Modal training input archive checksum differs')
