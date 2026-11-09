@@ -16,4 +16,3 @@ Run checks with `python -m unittest discover -s tests`. Data-preparation scripts
 
 For results and parallel datasets see [Hugging Face](https://huggingface.co/adahmpl/datasets).
 
-The 5k learning-rate comparison is defined in `experiments/blind_5k/plan.json`.
