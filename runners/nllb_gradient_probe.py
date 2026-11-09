@@ -3,11 +3,14 @@
 import json
 import math
 from importlib.metadata import version
+import hashlib
+from pathlib import Path
 
 
 def probe(package, manifest):
     import torch
     from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, DataCollatorForSeq2Seq, set_seed
+    from transformers.models.m2m_100.modeling_m2m_100 import shift_tokens_right
     import torch.nn.functional as F
 
     if not torch.cuda.is_available() or version('transformers') != '4.57.6':
@@ -32,15 +35,23 @@ def probe(package, manifest):
     batch = DataCollatorForSeq2Seq(tokenizer, model=model, pad_to_multiple_of=8)(features)
     if not (batch['input_ids'][:, 0].eq(english).all() and batch['labels'][:, 0].eq(bar).all()):
         raise ValueError('Source/target language tokens are reversed')
-    if not (batch['decoder_input_ids'][:, 0].eq(model.config.decoder_start_token_id).all()
-            and batch['decoder_input_ids'][:, 1].eq(bar).all()):
-        raise ValueError('Teacher-forcing decoder shift differs from the Bavarian labels')
-    pad = tokenizer.pad_token_id
     for i, feature in enumerate(features):
         length = len(feature['labels'])
         if batch['labels'][i, length:].ne(-100).any():
             raise ValueError('Target padding contributes to the loss')
     batch = {k: v.cuda() for k, v in batch.items()}
+    expected_decoder = shift_tokens_right(batch['labels'], tokenizer.pad_token_id,
+                                           model.config.decoder_start_token_id)
+    if not (expected_decoder[:, 0].eq(model.config.decoder_start_token_id).all()
+            and expected_decoder[:, 1].eq(bar).all()):
+        raise ValueError('Teacher-forcing decoder shift differs from the Bavarian labels')
+    observed = {'decoder_shift': False}
+    def check_decoder(module, args, kwargs):
+        actual = kwargs.get('input_ids', args[0] if args else None)
+        if actual is None or not torch.equal(actual, expected_decoder):
+            raise ValueError('Actual decoder inputs differ from shifted Bavarian labels')
+        observed['decoder_shift'] = True
+    model.model.decoder.register_forward_pre_hook(check_decoder, with_kwargs=True)
     scaler = torch.amp.GradScaler('cuda')
     for attempt in range(8):
         set_seed(manifest['training']['seed'])
@@ -58,7 +69,7 @@ def probe(package, manifest):
         gradients = [p.grad for p in model.parameters() if p.grad is not None]
         norm = torch.stack([g.detach().float().norm(2) for g in gradients]).norm(2) / scale
         value = float(norm)
-        if math.isfinite(value) and value > 0:
+        if math.isfinite(value) and value > 0 and observed['decoder_shift']:
             return {'status': 'forward_backward_checks_passed',
                 'training_run_id': manifest['run_id'], 'sampled_source_ids': [r['source_id'] for r in rows],
                 'gpu': torch.cuda.get_device_name(0), 'torch': torch.__version__,
@@ -66,6 +77,7 @@ def probe(package, manifest):
                 'masked_cross_entropy_matches': True, 'decoder_shift_matches': True,
                 'padding_ignored': True, 'finite_nonzero_gradient_norm': value,
                 'gradient_scale': scale, 'scale_backoffs': attempt,
+                'probe_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                 'actual_training_weights_modified': False}
         scaler.update(new_scale=scale / 2)
         del result, expected, gradients, norm
