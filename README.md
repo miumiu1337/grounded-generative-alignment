@@ -10,7 +10,7 @@ Tests on preprocessing, parallel-pair construction, fine-tuning and Tatoeba eval
 
 Each condition uses 20k sentence pairs, the same 500 validation pairs and the original base initialization.
 
-Run checks with `python -m unittest discover -s tests`. Data-preparation scripts retain the original relative archive paths; they require the frozen source artifacts. The pilot exclusion file is included at `bavarian_pilot/data/article_split.json`. The preparation script expects its enclosing checkout to be named `grounded-generative-alignment`. Training and evaluation require a hosted CUDA GPU.
+Run checks with `python -m unittest discover -s tests`. Data-preparation scripts retain the original relative archive paths; they require the frozen source artifacts. The preparation script expects its enclosing checkout to be named `grounded-generative-alignment`. Training and evaluation require a hosted CUDA GPU.
 
 `snapshot.json` records file hashes. 
 
