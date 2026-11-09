@@ -17,12 +17,14 @@ def ordered_selection(selection):
     return {key: selection[key] for key in ("source_id", "evidence_ids", "match_status", "contradiction")}
 
 
-def freeze_inputs(pairs, prepared, methods):
+def freeze_inputs(pairs, prepared, methods, split="development"):
+    if split not in {"development", "training", "evaluation"}:
+        raise ValueError("Unknown pilot split")
     if set(methods) != {"bar", "en"} or any(method not in (*data.METHODS, data.REVIEWED_METHOD) for method in methods.values()):
         raise ValueError("A compared splitter must be selected for each language")
     pages, sources, provenance = {}, [], {}
     for pair in pairs:
-        if pair["split"] != "development":
+        if pair["split"] != split:
             continue
         bar, en = (prepared[(pair[language]["id"], methods[language])] for language in ("bar", "en"))
         for language, article in (("bar", bar), ("en", en)):
@@ -47,6 +49,8 @@ def freeze_inputs(pairs, prepared, methods):
             "en_text_sha256": en["text_sha256"],
         }
         for sentence in bar["sentences"]:
+            if not sentence["eligible_for_matching"]:
+                continue
             source = {"source_id": sentence["sentence_id"], "bar_text": sentence["text"],
                       "bar_page_id": bar["page_id"], "bar_title": bar["title"], "bar_revision_id": bar["revision_id"]}
             sources.append(source)
@@ -55,11 +59,11 @@ def freeze_inputs(pairs, prepared, methods):
                 "target_article_id": en["dataset_id"], "source_url": bar["url"], "target_url": en["url"],
                 "source_revision": bar["revision_id"], "target_revision": en["revision_id"],
                 "source_segmentation": methods["bar"], "target_segmentation": methods["en"],
-                "source_start": sentence["start"], "source_end": sentence["end"], "split": "development"}
+                "source_start": sentence["start"], "source_end": sentence["end"], "split": split}
     sources.sort(key=lambda source: (source["bar_page_id"], source["source_id"]))
-    if (len(pages) != 2 or not sources or len({s["source_id"] for s in sources}) != len(sources)
+    if (len(pages) != {"development": 2, "training": 8, "evaluation": 8}[split] or not sources or len({s["source_id"] for s in sources}) != len(sources)
             or set(provenance) != {s["source_id"] for s in sources}):
-        raise ValueError("FineWiki development cohort is empty, repeated or incomplete")
+        raise ValueError("FineWiki cohort is empty, repeated or incomplete")
     return {"sources": sources, "pages": pages, "provenance": provenance,
             "sources_sha256": data.digest(sources), "pages_sha256": data.digest(pages),
             "segmentation": methods, "dataset_revision": data.REVISION}

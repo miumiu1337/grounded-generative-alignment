@@ -1,0 +1,39 @@
+{
+  "base_model": "facebook/nllb-200-distilled-600M",
+  "base_revision": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+  "direction": "en_to_bar",
+  "dataset_revision": "8bd13e72e6a002407649b3e898535f42ceb1aeb9",
+  "counts": {
+    "train": 20000,
+    "validation": 500
+  },
+  "language_policy": "bar_Latn added token; initialize its embedding from deu_Latn; unchanged SentencePiece vocabulary",
+  "training": {
+    "epochs": 3,
+    "micro_batch": 2,
+    "gradient_accumulation": 16,
+    "learning_rate": 0.0001,
+    "seed": 42,
+    "optimizer": "adafactor",
+    "maximum_tokens": 512,
+    "truncation": false,
+    "precision": "fp16_amp",
+    "checkpoint_selection": "final_fixed_epoch; validation loss is diagnostic"
+  },
+  "condition": "variant_a",
+  "blind_reference_run": "6118061ff595e502291f4033692dc0a2a1da10626d718246dbc1d2bde82fb00b",
+  "training_source_ids_sha256": "a41b71f7349c0b8529648dec269e4d914ddcb32ba30c2f82b7943be775055af9",
+  "files": {
+    "data_audit.json": "6e8065d704dc434b64cd1d20acc8203e3d134d895d90d1c35720a3baf557ab16",
+    "export_helper.py": "63a1f310a4aea8bcea0d95efd9c837a1f51a3937b6f97b9afb06f946897f42e3",
+    "tokenizer/added_tokens.json": "766873d7d00802427cc5ffedfb3ab0e3628bb2a2531a01d8afadb5d61d812258",
+    "tokenizer/sentencepiece.bpe.model": "14bb8dfb35c0ffdea7bc01e56cea38b9e3d5efcdcb9c251d6b40538e1aab555a",
+    "tokenizer/special_tokens_map.json": "b809e12e3a97c9be6c953ada6a9c31b28040689ca02a177aff1833275c2489a2",
+    "tokenizer/tokenizer.json": "224be166907f451112871bd364d2184842b4accf5edf8722ba94da7e9fbae579",
+    "tokenizer/tokenizer_config.json": "787caadeb03e00b22495d58e9be5f6c128f12ba1a5fb8fd156ac7478e88ac3b3",
+    "train.jsonl": "431a8b643b164a4a53379527b272deefba16379a8baee1d431d02241fbe9d521",
+    "train.py": "28d69bf056640ad70c1e80e1413096ee1a0635ca46dba4e97fb816919e425a7a",
+    "validation.jsonl": "348581e436f275c74cfc6f15cbca0fce83ab4e41a33430303d87bbd31415b020"
+  },
+  "run_id": "fbcc8ac4546c6b9945cac5b6227f89bb9a68bb3baa7f2b6e515a4b779268cf92"
+}

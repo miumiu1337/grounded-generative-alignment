@@ -1,0 +1,198 @@
+{
+  "date": "2026-11-09",
+  "purpose": "Scientific code review before changing the experiment",
+  "source_files_unchanged": [
+    "runners/__init__.py",
+    "runners/nllb_blind_training.py",
+    "runners/nllb_local_recovery.py",
+    "runners/nllb_modal_execution.py",
+    "runners/nllb_tatoeba_eval.py",
+    "runners/prepare_nllb_blind.py",
+    "runners/prepare_nllb_mining.py",
+    "runners/prepare_nllb_variant_a.py",
+    "runners/prepare_nllb_variant_b.py",
+    "runners/scale_cohort.py",
+    "parallel_data_generation/__init__.py",
+    "parallel_data_generation/translate_blind.py",
+    "parallel_data_generation/variant_a.py",
+    "parallel_data_generation/variant_b.py",
+    "parallel_data_generation/variant_c.py",
+    "parallel_data_generation/finewiki_experiments.py",
+    "parallel_data_generation/finewiki_mining.py",
+    "parallel_data_generation/scale_protocol.py",
+    "parallel_data_generation/scale_mining.py",
+    "preprocessing/__init__.py",
+    "preprocessing/article_matching.py",
+    "preprocessing/finewiki_pilot.py",
+    "preprocessing/finewiki_revision.py",
+    "preprocessing/scale_preparation.py",
+    "tests/test_nllb_blind_training.py",
+    "tests/test_nllb_tatoeba_eval.py",
+    "tests/test_nllb_modal_execution.py",
+    "tests/test_prepare_nllb_mining.py",
+    "tests/test_prepare_nllb_variant_a.py"
+  ],
+  "shared_executed_worker_sha256": "28d69bf056640ad70c1e80e1413096ee1a0635ca46dba4e97fb816919e425a7a",
+  "files": {
+    ".gitignore": {
+      "sha256": "99dd6db81938e1b2610fb4e4b7fa9d746a214e4c51ccaff6d28abdc68fe3a827",
+      "bytes": 100
+    },
+    "README.md": {
+      "sha256": "c7f81d37d291c7cb31d40996dcd80f2c85c1bea85a438d0f49c7e8544b11cf1d",
+      "bytes": 1231
+    },
+    "bavarian_pilot/data/article_split.json": {
+      "sha256": "728a518b4dbe164044b6f135c39934abedd62b4caf8c93f1f3bec6821604f4ca",
+      "bytes": 1053
+    },
+    "experiments/bge_m3.json": {
+      "sha256": "cd73337ae3886c09cd413d5f602344fb6fccba40342c1b8ebaaf6715ffaa85e6",
+      "bytes": 2011
+    },
+    "experiments/blind.json": {
+      "sha256": "8a139e2894e49e1d3db7e0d0bfdc1a7353f59d6af787af47c71fdc4ef598bdf4",
+      "bytes": 1725
+    },
+    "experiments/generation/cohort_v2/addendum_config.json": {
+      "sha256": "a244688b9eaa89129f72ac53fbab2d9f89ec929c304de10f10a081444424bd2f",
+      "bytes": 22183
+    },
+    "experiments/generation/frozen/config.json": {
+      "sha256": "213664bec61c80b28ce68845630001673ca90b9dc2497c01338521c04e759976",
+      "bytes": 11023
+    },
+    "experiments/laser.json": {
+      "sha256": "bd0803a5f0ab73879c724ff734a15e6b362bef03a9e54dbb9ff169fb88bddd2b",
+      "bytes": 2010
+    },
+    "experiments/variant_a.json": {
+      "sha256": "f29f50916e0ed5cf8f567cf8461dad8ef165d74ae655943e972dfabf6978fb39",
+      "bytes": 2014
+    },
+    "experiments/variant_b.json": {
+      "sha256": "9dd461ec0f1b7e9ad15154f3b645921bef1d9fc168899e587a2b17a4f3d69fb9",
+      "bytes": 2014
+    },
+    "parallel_data_generation/__init__.py": {
+      "sha256": "11cd1b36171da5e2136cbfff2f645dd26e757a9fd3ea778860dcf228133f5711",
+      "bytes": 70
+    },
+    "parallel_data_generation/finewiki_experiments.py": {
+      "sha256": "d3bf065b534bb0d8fb84ed49c9be9a9c983a1fc808d4eb303b11c44c3128e36e",
+      "bytes": 9255
+    },
+    "parallel_data_generation/finewiki_mining.py": {
+      "sha256": "444eab2ed3b066e1b9dc83028eaf8c71d27c80006f593c1cbe9d8011f767f74d",
+      "bytes": 2285
+    },
+    "parallel_data_generation/scale_mining.py": {
+      "sha256": "89dbaaaaa298b2e4855269e743cc11f04238ceff84201aad6962113acbcdf64a",
+      "bytes": 3289
+    },
+    "parallel_data_generation/scale_protocol.py": {
+      "sha256": "294a7696cd4f0c8908c2bef4abda421be3c42355cd77e9051a7f366a647ab412",
+      "bytes": 4238
+    },
+    "parallel_data_generation/translate_blind.py": {
+      "sha256": "64e4978800372f445f8f5acdda603356468dc90fb84a4769cdbf0a94d0f68178",
+      "bytes": 332
+    },
+    "parallel_data_generation/variant_a.py": {
+      "sha256": "697078b9d35d9e3019c94537c80ac4d64df1dfdf64f76b7080027bf3fbef8100",
+      "bytes": 5308
+    },
+    "parallel_data_generation/variant_b.py": {
+      "sha256": "a7bcb27962171204022141a5f854c85b92b0c54b41395703d23992f03c37c6dc",
+      "bytes": 1526
+    },
+    "parallel_data_generation/variant_c.py": {
+      "sha256": "0b7506256d958ff74c8c19d946a8f7c849fd2a6ef8c74527b5e065e20ae45d3b",
+      "bytes": 7959
+    },
+    "preprocessing/__init__.py": {
+      "sha256": "7dfaa1046acc5ad511327985db85a3f7628c90e13956cd0be3cc02445ab87806",
+      "bytes": 29
+    },
+    "preprocessing/article_matching.py": {
+      "sha256": "1eae6c449f2219cde39bdf4b5201a1fecda023eacb6f02b898ebab2c7fca9e3a",
+      "bytes": 3759
+    },
+    "preprocessing/finewiki_pilot.py": {
+      "sha256": "282b7668e4ed3f336db1d5845c51bce46593cb149c9f558177a473e7fbfcafd2",
+      "bytes": 13799
+    },
+    "preprocessing/finewiki_revision.py": {
+      "sha256": "9ce3e9c522d92b2a7ca81b3a7d718f940128d331f85004425c98fd26e4aea85f",
+      "bytes": 4450
+    },
+    "preprocessing/scale_preparation.py": {
+      "sha256": "899c68b371c6bdf9a95d3f04bcdaff96b02c4077d4bbb8c7a3236831bc505178",
+      "bytes": 8387
+    },
+    "requirements.txt": {
+      "sha256": "59a9527066b64b6ffad5e09a881746de463793e22e0aeb0cf672e416f117a5ea",
+      "bytes": 145
+    },
+    "runners/__init__.py": {
+      "sha256": "e198a805d254b9715a471213a00b4ea8b618459aad15e5b83b58a7a4b504502d",
+      "bytes": 23
+    },
+    "runners/nllb_blind_training.py": {
+      "sha256": "28d69bf056640ad70c1e80e1413096ee1a0635ca46dba4e97fb816919e425a7a",
+      "bytes": 20908
+    },
+    "runners/nllb_local_recovery.py": {
+      "sha256": "8962495349b03c12fe4adeb9878f2c4a56ab94f693ab32ed4f7fe70439aa2d3e",
+      "bytes": 11806
+    },
+    "runners/nllb_modal_execution.py": {
+      "sha256": "a2c06d6fdc4bad2755199f786bdd821fcb6949d7b6172bc0eb1edeb52698d846",
+      "bytes": 4021
+    },
+    "runners/nllb_tatoeba_eval.py": {
+      "sha256": "3bad1b395366d2d3188996d39b1b962befc873472b2a356919fea13d44cfceaa",
+      "bytes": 12027
+    },
+    "runners/prepare_nllb_blind.py": {
+      "sha256": "cee993b4f220a56224f58bbbf0e00c01ebf406aea7e59c806f866e5ac899f5b9",
+      "bytes": 13980
+    },
+    "runners/prepare_nllb_mining.py": {
+      "sha256": "4c411cb3ea91416c7851325e68c2006d1c8232cc25d06834745ec3cb3e0ad7f6",
+      "bytes": 10683
+    },
+    "runners/prepare_nllb_variant_a.py": {
+      "sha256": "7f9f96d70c0366ff58d37fd5565f8dc4e81a7ae0a84c854dda7dfd527dc3e1a7",
+      "bytes": 11067
+    },
+    "runners/prepare_nllb_variant_b.py": {
+      "sha256": "0845344340367f004b7ff78b8eff82a0c17487cf61d5d00ceb4995e8b5abab98",
+      "bytes": 192
+    },
+    "runners/scale_cohort.py": {
+      "sha256": "b365cdef1a6ec56e167a5842cd9caf259119005931c63c723df5853805236b65",
+      "bytes": 3010
+    },
+    "tests/test_nllb_blind_training.py": {
+      "sha256": "92a5dc78f96724592ad61e42a2ff3446636c35890346d5f13b35a0f223cb8a4b",
+      "bytes": 12501
+    },
+    "tests/test_nllb_modal_execution.py": {
+      "sha256": "65b8bc659fce2071a0f2eb73f0217b089aa015eae0a019898940ca331316d98a",
+      "bytes": 4343
+    },
+    "tests/test_nllb_tatoeba_eval.py": {
+      "sha256": "87bc824b0f0873ce0326ceb36995b3c1f66bd36ccb79b896b6dbdd8ab5814928",
+      "bytes": 3546
+    },
+    "tests/test_prepare_nllb_mining.py": {
+      "sha256": "65dd2fb446a3fe886f9323fc7ce8d431ee835b271c462c8521a4ac6263842f01",
+      "bytes": 2370
+    },
+    "tests/test_prepare_nllb_variant_a.py": {
+      "sha256": "fc4dbf4f4994725887f2ae07601faa0dca76e7caf5e3f9c3dcd7cffda35c9c24",
+      "bytes": 4014
+    }
+  }
+}
