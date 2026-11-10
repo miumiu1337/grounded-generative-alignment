@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "scope": "Original 20000-pair experiments and revised structural preprocessing with article context",
+  "scope": "Original 20000-pair experiments, structural screening and cleanup retaining all 225700 source records",
   "frozen_source_commit": "1315bb08420cc1a4f8b882f84b7d260c46b34fc6",
   "source_files_unchanged": [
     "experiments/evaluation/blind.py",
@@ -41,8 +41,8 @@
       "bytes": 100
     },
     "README.md": {
-      "sha256": "bb45172d9964e8ef1828fd66334093cd615b4a672f0716693b99ce85a28d4904",
-      "bytes": 1464
+      "sha256": "eae154c72d4598f3a5fd1d23f46078196d42ec9f90d9ed5bd2f3a48c8245c1fd",
+      "bytes": 1871
     },
     "experiments/bge_m3.json": {
       "sha256": "cd73337ae3886c09cd413d5f602344fb6fccba40342c1b8ebaaf6715ffaa85e6",
@@ -205,8 +205,8 @@
       "bytes": 8791
     },
     "runners/export_quality_context.py": {
-      "sha256": "f209b7a5b8d418b7fb9d7d72a15969a6e8363926af46935aea16b827fa276810",
-      "bytes": 15580
+      "sha256": "7c4fa3f3e04d526664d0bea3a3c20359430458f0ba56e5bd6c0110027ded320b",
+      "bytes": 15686
     },
     "tests/test_quality_prose.py": {
       "sha256": "de8dcc386b5b1d41d73307d07a2d038284981ebd10fcd8f9150b07552589942f",
@@ -215,7 +215,24 @@
     "tests/test_quality_context.py": {
       "sha256": "eff8347f15057beca224961f4506accd0b26342ada4f7281918a521ae3ac4ec5",
       "bytes": 2408
+    },
+    "preprocessing/retained_cleanup.py": {
+      "sha256": "855c967b16a0e65e92b780eeeb95b96d810dec02b4be82f0118bce48455b71df",
+      "bytes": 11082
+    },
+    "runners/retain_source_cleanup.py": {
+      "sha256": "a483519cddd3a2cc56e0bb2ee6f11c64f703b775203ad68e20008d80c8605ffd",
+      "bytes": 5981
+    },
+    "runners/export_retained_cleanup.py": {
+      "sha256": "4fc9a89105b9dc2567344fd9fe84a412bd9814671362c242a1498ba7de8f5f1e",
+      "bytes": 11838
+    },
+    "tests/test_retained_cleanup.py": {
+      "sha256": "761a091ba486ab4b5ee1c9458bb8e9e4d229e6fb7e02a8b43fde2c3d1e7da9c0",
+      "bytes": 4495
     }
   },
-  "revised_preprocessing_policy": "prose_quality_v5"
+  "revised_preprocessing_policy": "prose_quality_v5",
+  "retained_cleanup_policy": "retained_cleanup_v6"
 }

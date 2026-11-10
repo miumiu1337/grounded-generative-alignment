@@ -19,3 +19,6 @@ For results and parallel datasets see [Hugging Face](https://huggingface.co/adah
 
 
 Revised sentence preparation is in `preprocessing/quality_prose.py`; `runners/refine_preprocessing.py` applies it to the frozen articles. `runners/export_quality_context.py` adds full article context to the datasets and exports the revised source inventory. The original 20k training inputs and reported scores remain historical; structural screening does not establish translation correctness.
+
+
+`preprocessing/retained_cleanup.py` and `runners/retain_source_cleanup.py` preserve all 225,700 original source records and record non-generative repairs. Unresolved clauses remain marked for review. `runners/export_retained_cleanup.py` exports the complete retained inventory with article context and retraining readiness; repaired context requires new aligned English outputs before fitting new models.

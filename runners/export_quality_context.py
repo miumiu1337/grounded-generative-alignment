@@ -54,9 +54,9 @@ def table(rows):
                     unique.append(value)
                 indices.append(lookup[value])
             columns[key] = pa.DictionaryArray.from_arrays(pa.array(indices, type=pa.int32()), pa.array(unique, type=pa.string()))
-        elif key == 'heading_path':
+        elif key in {'heading_path','cleaning_operations','review_reasons','finite_verb_clues','contributing_source_ids'}:
             columns[key] = pa.array(values, type=pa.list_(pa.string()))
-        elif key in {'legacy_source_id', 'source_id_v5', 'preprocessing_v5_reason', 'wikidata_id'}:
+        elif key in {'legacy_source_id', 'source_id_v5', 'preprocessing_v5_reason', 'wikidata_id','cleaned_sentence'}:
             columns[key] = pa.array(values, type=pa.string())
         else:
             columns[key] = pa.array(values)
