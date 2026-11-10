@@ -14,31 +14,30 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 import yaml
 
-from preprocessing import finewiki_pilot as data, quality_prose as prose
+from preprocessing import finewiki_pilot as data, article_structure
+from preprocessing.article_structure import ArticleStructure,HEADING
 from preprocessing.datatrove_sentences import SentenceQuality,COLUMNS,normalized_key,surface_text
-from runners.export_quality_context import PACKAGES
-from runners.nllb_blind_training import sha
-from runners.refine_preprocessing import write
+from runners import scale_cohort
+from runners.nllb_blind_training import sha,write_json as write
 
 ROOT=Path(__file__).resolve().parents[1]
 CORPUS=ROOT/'results/finewiki_scale_20261102'
-INPUTS=CORPUS/'preprocessing_v6_20261110'
-WORK=ROOT/'publication_work_20261110_datatrove'
+INPUTS=CORPUS/'colab_bge_full_20261105/raw'
+WORK=ROOT/'publication_work_20261110_structure'
 OUT=WORK/'huggingface'
+PACKAGES={
+    'blind':'bavarian_nllb_blind_20k_20261108/package',
+    'laser':'bavarian_nllb_mining_20k_20261108/package/laser',
+    'bge_m3':'bavarian_nllb_mining_20k_20261108/package/bge_m3',
+    'variant_a':'bavarian_nllb_variant_a_20k_20261109/package',
+    'variant_b':'bavarian_nllb_variant_b_20k_20261109/package',
+}
 METHODS=tuple(PACKAGES)
+MARKER=re.compile(r'\[((?:bar|en)_\d+:fw[0-9a-f]{8}:r\d+:(?:[a-z0-9_]+:)?S\d+)\] ')
 
 
 def reference_ranges(text):
-    stack=[];ranges=[]
-    for block in data.blocks(text):
-        if block['kind']=='heading':
-            match=re.match(r'^(#{1,6})\s+(.*?)\s*#*$',block['text'].strip())
-            if match:
-                level,title=len(match[1]),match[2]
-                while stack and stack[-1][0]>=level:stack.pop()
-                stack.append((level,bool(prose.REFERENCE.fullmatch(prose.normalized_heading(title)))))
-        if any(item[1] for item in stack):ranges.append((block['start'],block['end']))
-    return ranges
+    return [(start,end) for start,end,reason in ArticleStructure(text).removed if reason=='reference_section']
 
 
 def write_pairs(path,rows):
@@ -72,8 +71,54 @@ def write_pairs(path,rows):
         elif restored[name].to_pylist()!=[row[name] for row in rows]:raise ValueError('Parallel text changed during export')
 
 
-@lru_cache(maxsize=768)
-def article(pid):return data.read_json(INPUTS/'articles'/(str(pid)+'.json.gz'))
+@lru_cache(maxsize=1)
+def frozen_index():return {str(item['bar_page_id']):item for item in scale_cohort.index(CORPUS)}
+
+
+@lru_cache(maxsize=128)
+def article(pid):
+    pid=str(pid);path=INPUTS/(pid+'.json.gz')
+    if sha(path)!=frozen_index()[pid]['inputs_sha256']:raise ValueError('Frozen input checksum differs: '+pid)
+    bundle=data.read_json(path)
+    if data.digest(bundle['page'])!=bundle['page_sha256'] or data.digest(bundle['sources'])!=bundle['sources_sha256']:
+        raise ValueError('Frozen article payload differs: '+pid)
+    value={'bundle':bundle,'structures':{},'cleaned_context':{}}
+    for language in ('bar','en'):
+        numbered=bundle['page'][language].split('\n',1)[1]
+        text=MARKER.sub('',numbered)
+        if hashlib.sha256(text.encode()).hexdigest()!=bundle['page'][language+'_text_sha256']:
+            raise ValueError('Reconstructed raw article checksum differs: '+pid+'/'+language)
+        value[language]={'text':text}
+        value['structures'][language]=ArticleStructure(text)
+        value['cleaned_context'][language]=value['structures'][language].cleaned_text
+    return value
+
+
+def english_origin_reason(value,ids):
+    if not ids:return None
+    if 'english_units' not in value:
+        numbered=value['bundle']['page']['en'].split('\n',1)[1];positions={};offset=0
+        for match in MARKER.finditer(numbered):
+            positions[match[1]]=match.start()-offset;offset+=len(match[0])
+        units={}
+        for candidate in value['bundle']['page']['candidates']:
+            if len(candidate['sentence_ids'])!=1:continue
+            sid=candidate['sentence_ids'][0];start=positions[sid];end=start+len(candidate['text'])
+            if value['en']['text'][start:end]!=candidate['text']:raise ValueError('English span text/offset mismatch')
+            units[sid]=(start,end)
+        value['english_units']=units
+    for sid in ids:
+        if sid not in value['english_units']:raise ValueError('Unknown saved English evidence ID: '+sid)
+        reason=value['structures']['en'].reason_for_span(*value['english_units'][sid])
+        if reason:return reason
+    return None
+
+
+def output_structure_reason(text):
+    if not text.strip():return 'empty_text'
+    if any(HEADING.match(line) for line in text.splitlines()):return 'structural_heading'
+    structure=ArticleStructure(text)
+    return structure.reason_for_span(0,len(text))
 
 
 def source_pass(engine,config,cohort_ids):
@@ -84,6 +129,7 @@ def source_pass(engine,config,cohort_ids):
             raise ValueError('Previous source pass identity differs')
         return data.read_json(WORK/'selected_source_checks.json'),summary
     counters=Counter();reasons=Counter();seen={};ids=set();selected={};batch=[];started=time.monotonic()
+    article_removals={'bar':Counter(),'en':Counter()}
     temporary=WORK/'source_audit.jsonl.gz.partial'
     with gzip.open(temporary,'wt',encoding='utf-8',compresslevel=1) as audit:
         def flush():
@@ -106,14 +152,16 @@ def source_pass(engine,config,cohort_ids):
                 if sid in cohort_ids:selected[sid]=dict(item)
                 audit.write(json.dumps(item,ensure_ascii=False,separators=(',',':'))+'\n')
             batch.clear()
-        for number,path in enumerate(sorted((INPUTS/'articles').glob('*.json.gz')),1):
-            value=data.read_json(path);ranges=reference_ranges(value['bar']['text'])
-            for record in value['records']:
-                reason=('reference_section' if any(start<=record['original_sentence_start']<end for start,end in ranges) else
-                        'structural_'+record['block_kind'] if record['block_kind'] not in {'prose','list'} else None)
-                text=surface_text(record['source_text'])
-                batch.append({'source_id':record['source_id'],'page_id':str(value['page_id']),'text':text,'reason':reason,
-                    'saved_translation_reusable':normalized_key(text)==normalized_key(record['original_source_text'])})
+        for number,pid in enumerate(sorted(frozen_index(),key=int),1):
+            value=article(pid);bundle=value['bundle']
+            for language in ('bar','en'):article_removals[language].update(value['structures'][language].counts)
+            for record in bundle['sources']:
+                sid=record['source_id'];provenance=bundle['provenance'][sid]
+                start,end=provenance['source_start'],provenance['source_end']
+                if value['bar']['text'][start:end]!=record['bar_text']:raise ValueError('Original source span mismatch')
+                reason=value['structures']['bar'].reason_for_span(start,end)
+                text=surface_text(record['bar_text'])
+                batch.append({'source_id':sid,'page_id':pid,'text':text,'reason':reason,'saved_translation_reusable':True})
                 if len(batch)>=512:flush()
             if number%1000==0:
                 write(WORK/'status.json',{'stage':'source_quality','processed_articles':number,'target_articles':16306,
@@ -123,6 +171,7 @@ def source_pass(engine,config,cohort_ids):
     if len(ids)!=225700 or set(selected)!=cohort_ids:raise ValueError('Full original source coverage was not verified')
     temporary.replace(WORK/'source_audit.jsonl.gz')
     summary={'curation_id':config['curation_id'],'counts':dict(counters),'rejections':dict(reasons),
+             'removed_article_lines':{lang:dict(values) for lang,values in article_removals.items()},
              'audit_sha256':sha(WORK/'source_audit.jsonl.gz'),'elapsed_seconds':round(time.monotonic()-started,1)}
     write(WORK/'selected_source_checks.json',selected);write(marker,summary)
     return selected,summary
@@ -150,7 +199,11 @@ def run():
     os.nice(10);WORK.mkdir(exist_ok=True)
     engine=SentenceQuality()
     config={'quality':engine.config(),'source_code_sha256':sha(ROOT/'preprocessing/datatrove_sentences.py'),
-        'runner_sha256':sha(Path(__file__)),'input_preprocessing_id':data.read_json(INPUTS/'config.json')['preprocessing_id'],
+        'runner_sha256':sha(Path(__file__)),'structure_code_sha256':sha(Path(article_structure.__file__)),
+        'dataset_revision':data.REVISION,'frozen_article_index_sha256':data.digest(list(frozen_index().values())),
+        'input_segmentation':'original_frozen_datatrove_quality_auto_v3',
+        'structure_policy':'prose_only;remove_reference_sections_lists_enumerations_tables_code_and_bibliographic_entries',
+        'article_context':'cleaned_prose_and_nonempty_headings;raw_originals_archived',
         'matching':'same_Bavarian_sources_across_five_conditions;article_disjoint_validation',
         'mining_alignment_filter':'reciprocal_top1_required_for_LASER_and_BGE_training_pairs',
         'translation_reuse':'surface_changes_only;exclude_context_expansion_with_new_words',
@@ -182,6 +235,16 @@ def run():
                     if original[method][split][index]['reciprocal_top1'] is not True:
                         reason=method+'_not_reciprocal';break
             english={method:surface_text(original[method][split][index]['english']) for method in METHODS}
+            if reason is None:
+                value=article(str(row['page_id']))
+                if not value['cleaned_context']['bar'] or not value['cleaned_context']['en']:
+                    reason='empty_cleaned_article_context'
+                for method in METHODS:
+                    if reason is not None:break
+                    saved=original[method][split][index]
+                    origin=english_origin_reason(value,saved.get('english_sentence_ids',saved.get('evidence_ids',[])))
+                    structural=origin or output_structure_reason(saved['english'])
+                    if structural is not None:reason='english_'+method+'_'+structural
             candidates[split].append({'source_id':sid,'source_text':source['text'],'page_id':row['page_id'],
                 'wikidata_id':row['wikidata_id'],'english':english,'reason':reason})
     texts=[text for rows in candidates.values() for item in rows if item['reason'] is None for text in item['english'].values()]
@@ -211,10 +274,10 @@ def run():
             rows=[]
             for item in kept[split]:
                 value=article(str(item['page_id']))
-                rows.append(dict(zip(COLUMNS,('bar','en',item['source_text'],item['english'][method],value['bar']['text'],value['en']['text']),strict=True)))
+                rows.append(dict(zip(COLUMNS,('bar','en',item['source_text'],item['english'][method],value['cleaned_context']['bar'],value['cleaned_context']['en']),strict=True)))
             write_pairs(OUT/f'data/{method}/{split}.parquet',rows)
             print('Six-column export verified:',method,split,len(rows),flush=True)
-    release=OUT/'releases/datatrove_20261110'
+    release=OUT/'releases/structure_20261110'
     write(release/'config.json',config)
     write(release/'summary.json',{'source_corpus':source_summary,'paired_split_counts':{s:len(r) for s,r in kept.items()},
         'paired_rejections':rejections,'matched_conditions':METHODS,'unique_sources_and_targets_per_condition':True,
@@ -222,31 +285,34 @@ def run():
     write(release/'source_ids.json',{split:[r['source_id'] for r in rows] for split,rows in kept.items()})
     # Private review rows retain source IDs for the next versioned training packages.
     write(WORK/'matched_pairs.json',kept)
-    for relative in ('preprocessing/datatrove_sentences.py','runners/curate_datatrove_parallel.py','tests/test_datatrove_sentences.py'):
+    for relative in ('preprocessing/datatrove_sentences.py','preprocessing/article_structure.py',
+                     'runners/curate_datatrove_parallel.py','tests/test_datatrove_sentences.py','tests/test_article_structure.py','requirements-quality.txt'):
         target=release/'code'/relative;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes((ROOT/relative).read_bytes())
     body=(f'# Bavarian parallel pairs\n\nFive matched conditions: blind, LASER, BGE-M3, Variant A and Variant B. '
           f"Each contains {len(kept['train']):,} training pairs and the same {len(kept['validation']):,} held-out validation pairs.\n\n"
           '`source_lang` is `bar` and `target_lang` is `en`. `source_text` is Bavarian; `target_text` is the corresponding method’s English output. '
-          '`source_article` and `target_article` contain the full original matched Bavarian and English FineWiki articles. '
+          '`source_article` and `target_article` contain the matched Bavarian and English articles with reference sections, lists, enumerations, tables and code removed. Raw original articles are archived locally. '
           'These are the only six table columns. NLLB fine-tuning reverses the text columns for English → Bavarian.\n\n'
           'Filtering uses DataTrove Gopher quality, C4 quality and Gopher repetition checks configured for individual sentences. '
-          'Bavarian uses German tokenization and clause analysis, supplemented by explicit dialect auxiliary forms; English uses English settings. '
-          'Reference sections, captions, incomplete clauses, markup and repeated text are excluded. Exact duplicate keys normalize case, whitespace and punctuation while preserving numbers and diacritics. '
+          'Bavarian uses German tokenization; English uses English settings. No trained grammar models, finite-verb tests, subject tests, SVO checks, capitalization requirements or forced full stops are used. '
+          'Reference sections (including observed Bavarian heading variants), displayed lists, enumerations, publication entries, tables and code are removed using article structure before quality filtering. Inline numeric citation markers are removed; the text is otherwise unchanged apart from NFC and whitespace normalization. '
+          'Mining spans and selected A/B evidence are checked against the cleaned English article structure too. Exact duplicate keys normalize case, whitespace and punctuation while preserving numbers and diacritics. '
           'Sources are unique across training and validation. English outputs are also unique within each condition. '
           'LASER and BGE-M3 training pairs must be reciprocal top-one matches. All five conditions retain the same source IDs.\n\n'
           f"The full source pass screened 225,700 frozen units and retained {source_summary['counts']['unique_quality_sources']:,} unique source candidates. "
-          'The published parallel subsets use the intersection with existing completed outputs. Repaired sources that add words need new English outputs and are excluded from these reusable pairs. '
+          'The published parallel subsets use the intersection with existing completed outputs, keeping the original frozen unit boundaries. No source sentences are rewritten or expanded. '
           'Original articles and rejected data remain in local archives; previous Hugging Face revisions preserve historical releases.\n\n'
-          'This is automatic textual and structural screening, not human-gold translation validation. German analysis may miss valid dialect forms. '
+          'This is automatic textual and structural screening, not grammatical or human-gold translation validation. DataTrove heuristic thresholds can still reject valid material. '
           'The original Tatoeba scores and training histories in `assessment/` describe the earlier 20k inputs, not this filtered release. '
           'New comparisons must restart from the original NLLB base using the matched filtered data.\n\n'
           'FineWiki revision: `8bd13e72e6a002407649b3e898535f42ceb1aeb9`. '
-          'Policy, counts and source IDs are in `releases/datatrove_20261110/`. Code: '
+          'FineWiki intentionally preserves lists and removes most, not all, reference sections. Its frozen Bavarian heading list omits common spellings such as Literatua. '
+          'Policy, counts and source IDs are in `releases/structure_20261110/`. Code: '
           '[GitHub](https://github.com/miumiu1337/grounded-generative-alignment/tree/test).\n')
     metadata={'license':'cc-by-sa-4.0','language':['bar','en'],'task_categories':['translation'],'configs':configs}
     (OUT/'README.md').write_text('---\n'+yaml.safe_dump(metadata,sort_keys=False,allow_unicode=True)+'---\n\n'+body)
     artifacts=[{'path':p.relative_to(OUT).as_posix(),'bytes':p.stat().st_size,'sha256':sha(p)} for p in sorted(OUT.rglob('*')) if p.is_file()]
-    write(release/'manifest.json',{'release':'datatrove_sentence_quality_20261110','curation_id':config['curation_id'],
+    write(release/'manifest.json',{'release':'datatrove_structural_quality_20261110','curation_id':config['curation_id'],
         'artifacts':artifacts,'schema':COLUMNS,'parquet_round_trip_verified':True})
     print(json.dumps({'status':'prepared_and_verified','source_counts':source_summary['counts'],
         'paired_counts':{s:len(r) for s,r in kept.items()},'files':len(artifacts)+1,'bytes':sum(a['bytes'] for a in artifacts)}),flush=True)

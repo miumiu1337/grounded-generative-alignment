@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "scope": "Original 20000-pair experiments and current DataTrove sentence curation with six-column parallel exports",
+  "scope": "Original 20000-pair experiments and structural prose curation without added grammar rules",
   "frozen_source_commit": "1315bb08420cc1a4f8b882f84b7d260c46b34fc6",
   "source_files_unchanged": [
     "experiments/evaluation/blind.py",
@@ -41,8 +41,8 @@
       "bytes": 100
     },
     "README.md": {
-      "sha256": "fbb2b6103d5ff48911813fcefa31fc8174d276ef129f464b2f8d4a9f42046cfc",
-      "bytes": 1708
+      "sha256": "c8c580be988eeef8567e6bb52e61b5ef6e351d41ceb53723b8fa841f19deb600",
+      "bytes": 2063
     },
     "experiments/bge_m3.json": {
       "sha256": "cd73337ae3886c09cd413d5f602344fb6fccba40342c1b8ebaaf6715ffaa85e6",
@@ -196,60 +196,30 @@
       "sha256": "fc4dbf4f4994725887f2ae07601faa0dca76e7caf5e3f9c3dcd7cffda35c9c24",
       "bytes": 4014
     },
-    "preprocessing/quality_prose.py": {
-      "sha256": "7c5d6c5e549a0af69c72edbdcccb262c8d17c0968ff6f8de06d043139506665a",
-      "bytes": 7410
-    },
-    "runners/refine_preprocessing.py": {
-      "sha256": "c0f4343969b66cf6ee42f868ec259f079a58b5e8f226de10615f34789b8b120f",
-      "bytes": 8791
-    },
-    "runners/export_quality_context.py": {
-      "sha256": "7c4fa3f3e04d526664d0bea3a3c20359430458f0ba56e5bd6c0110027ded320b",
-      "bytes": 15686
-    },
-    "tests/test_quality_prose.py": {
-      "sha256": "de8dcc386b5b1d41d73307d07a2d038284981ebd10fcd8f9150b07552589942f",
-      "bytes": 4139
-    },
-    "tests/test_quality_context.py": {
-      "sha256": "eff8347f15057beca224961f4506accd0b26342ada4f7281918a521ae3ac4ec5",
-      "bytes": 2408
-    },
-    "preprocessing/retained_cleanup.py": {
-      "sha256": "855c967b16a0e65e92b780eeeb95b96d810dec02b4be82f0118bce48455b71df",
-      "bytes": 11082
-    },
-    "runners/retain_source_cleanup.py": {
-      "sha256": "a483519cddd3a2cc56e0bb2ee6f11c64f703b775203ad68e20008d80c8605ffd",
-      "bytes": 5981
-    },
-    "runners/export_retained_cleanup.py": {
-      "sha256": "4fc9a89105b9dc2567344fd9fe84a412bd9814671362c242a1498ba7de8f5f1e",
-      "bytes": 11838
-    },
-    "tests/test_retained_cleanup.py": {
-      "sha256": "761a091ba486ab4b5ee1c9458bb8e9e4d229e6fb7e02a8b43fde2c3d1e7da9c0",
-      "bytes": 4495
-    },
     "preprocessing/datatrove_sentences.py": {
-      "sha256": "e6570e70fae99c8390f8147db733165a409cb57d34088b4dad18444fad52ae40",
-      "bytes": 6314
+      "sha256": "7817366f8b634b752aae4898cb6ab1983e884d51b207d0d1f7474720cf6d5eb3",
+      "bytes": 3725
     },
     "runners/curate_datatrove_parallel.py": {
-      "sha256": "6cc353a9105e137cf6810e9ecf4bc91de6679aa510f65041e4a4ec9060efddf0",
-      "bytes": 16959
+      "sha256": "f9fb1855fe93798aa70073f9bd4799f94d43fb80c9dc5e1c141c68d20ccd1dfd",
+      "bytes": 21357
     },
     "tests/test_datatrove_sentences.py": {
-      "sha256": "14294dbc06060f6639a9a41c1578c7d121593be32a41e33c96a08d4324530503",
-      "bytes": 4271
+      "sha256": "8c4fbb7e7732c9c82ee8379ddddf00c51a8001cc44fcf3009c5bd482d351e584",
+      "bytes": 5564
     },
     "requirements-quality.txt": {
-      "sha256": "3421141071727775fadab15f9e09be42178827be2860d8cdc3106b1142b77f4c",
-      "bytes": 519
+      "sha256": "cfe25034c495f8ee5115e5cdbf333a7aee996b1ca055102061b8e072b5114367",
+      "bytes": 135
+    },
+    "preprocessing/article_structure.py": {
+      "sha256": "79bb72367c4164f0a1c46fc6bfee7fcc4b3c59879d59e7f0f8e4d5aa3dfd07ee",
+      "bytes": 8024
+    },
+    "tests/test_article_structure.py": {
+      "sha256": "9e479a4b860abde1e6c42efff24ac999cf7003534a1d8dc2d9eaca2268320fa3",
+      "bytes": 4340
     }
   },
-  "revised_preprocessing_policy": "prose_quality_v5",
-  "retained_cleanup_policy": "retained_cleanup_v6",
-  "current_data_preparation": "datatrove_sentence_quality_v7"
+  "current_data_preparation": "datatrove_structural_quality_v8"
 }
