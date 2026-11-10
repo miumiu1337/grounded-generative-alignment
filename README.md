@@ -16,3 +16,6 @@ Run checks with `python -m unittest discover -s tests`. Data-preparation scripts
 
 For results and parallel datasets see [Hugging Face](https://huggingface.co/adahmpl/datasets).
 
+
+
+Revised sentence preparation is in `preprocessing/quality_prose.py`; `runners/refine_preprocessing.py` applies it to the frozen articles. `runners/export_quality_context.py` adds full article context to the datasets and exports the revised source inventory. The original 20k training inputs and reported scores remain historical; structural screening does not establish translation correctness.

@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-09",
-  "scope": "Original 20000-pair experiments: preparation, training, evaluation and tests",
+  "date": "2026-11-10",
+  "scope": "Original 20000-pair experiments and revised structural preprocessing with article context",
   "frozen_source_commit": "1315bb08420cc1a4f8b882f84b7d260c46b34fc6",
   "source_files_unchanged": [
     "experiments/evaluation/blind.py",
@@ -41,8 +41,8 @@
       "bytes": 100
     },
     "README.md": {
-      "sha256": "e9576b54b854810c3a8d2c0f9b86e9e816489ead88dffc0430865996b5ce15ad",
-      "bytes": 1067
+      "sha256": "bb45172d9964e8ef1828fd66334093cd615b4a672f0716693b99ce85a28d4904",
+      "bytes": 1464
     },
     "experiments/bge_m3.json": {
       "sha256": "cd73337ae3886c09cd413d5f602344fb6fccba40342c1b8ebaaf6715ffaa85e6",
@@ -133,8 +133,8 @@
       "bytes": 8387
     },
     "requirements.txt": {
-      "sha256": "59a9527066b64b6ffad5e09a881746de463793e22e0aeb0cf672e416f117a5ea",
-      "bytes": 145
+      "sha256": "4a2b30497337d7fe18103f43793416fd5f0cd44e39dcf2adb5ccf3d7cb6b529e",
+      "bytes": 175
     },
     "runners/__init__.py": {
       "sha256": "e198a805d254b9715a471213a00b4ea8b618459aad15e5b83b58a7a4b504502d",
@@ -195,6 +195,27 @@
     "tests/test_prepare_nllb_variant_a.py": {
       "sha256": "fc4dbf4f4994725887f2ae07601faa0dca76e7caf5e3f9c3dcd7cffda35c9c24",
       "bytes": 4014
+    },
+    "preprocessing/quality_prose.py": {
+      "sha256": "7c5d6c5e549a0af69c72edbdcccb262c8d17c0968ff6f8de06d043139506665a",
+      "bytes": 7410
+    },
+    "runners/refine_preprocessing.py": {
+      "sha256": "c0f4343969b66cf6ee42f868ec259f079a58b5e8f226de10615f34789b8b120f",
+      "bytes": 8791
+    },
+    "runners/export_quality_context.py": {
+      "sha256": "f209b7a5b8d418b7fb9d7d72a15969a6e8363926af46935aea16b827fa276810",
+      "bytes": 15580
+    },
+    "tests/test_quality_prose.py": {
+      "sha256": "de8dcc386b5b1d41d73307d07a2d038284981ebd10fcd8f9150b07552589942f",
+      "bytes": 4139
+    },
+    "tests/test_quality_context.py": {
+      "sha256": "eff8347f15057beca224961f4506accd0b26342ada4f7281918a521ae3ac4ec5",
+      "bytes": 2408
     }
-  }
+  },
+  "revised_preprocessing_policy": "prose_quality_v5"
 }
