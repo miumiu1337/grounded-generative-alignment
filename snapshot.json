@@ -41,8 +41,8 @@
       "bytes": 100
     },
     "README.md": {
-      "sha256": "c8c580be988eeef8567e6bb52e61b5ef6e351d41ceb53723b8fa841f19deb600",
-      "bytes": 2063
+      "sha256": "dfe3a58b6a41f68b8828e3d67af21f015a5535add741534a6c2ca639505ee23e",
+      "bytes": 2117
     },
     "experiments/bge_m3.json": {
       "sha256": "cd73337ae3886c09cd413d5f602344fb6fccba40342c1b8ebaaf6715ffaa85e6",
@@ -201,12 +201,12 @@
       "bytes": 3725
     },
     "runners/curate_datatrove_parallel.py": {
-      "sha256": "f9fb1855fe93798aa70073f9bd4799f94d43fb80c9dc5e1c141c68d20ccd1dfd",
-      "bytes": 21357
+      "sha256": "3b6242f50f7a91ffbe011ea81ffbeb5f491b72ee8e154f0e7b908b0b026ad36b",
+      "bytes": 21722
     },
     "tests/test_datatrove_sentences.py": {
-      "sha256": "8c4fbb7e7732c9c82ee8379ddddf00c51a8001cc44fcf3009c5bd482d351e584",
-      "bytes": 5564
+      "sha256": "1a3c1190c7628d5fc4a51ebc272a10a6e18ace57a15a3780fe231943e83570e3",
+      "bytes": 6091
     },
     "requirements-quality.txt": {
       "sha256": "cfe25034c495f8ee5115e5cdbf333a7aee996b1ca055102061b8e072b5114367",
@@ -221,5 +221,6 @@
       "bytes": 4340
     }
   },
-  "current_data_preparation": "datatrove_structural_quality_v8"
+  "current_data_preparation": "datatrove_structural_quality_v8",
+  "article_columns": "original_article_titles_only"
 }

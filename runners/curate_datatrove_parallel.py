@@ -75,6 +75,14 @@ def write_pairs(path,rows):
 def frozen_index():return {str(item['bar_page_id']):item for item in scale_cohort.index(CORPUS)}
 
 
+def article_title(page,language):
+    if language not in {'bar','en'}:raise ValueError('Unsupported article-title language')
+    header=page[language].split('\n',1)[0]
+    match=re.fullmatch(r'(.*) \('+language+r'\), revision \d+',header)
+    if not match or not match[1].strip():raise ValueError('Malformed frozen article title')
+    return match[1]
+
+
 @lru_cache(maxsize=128)
 def article(pid):
     pid=str(pid);path=INPUTS/(pid+'.json.gz')
@@ -88,7 +96,7 @@ def article(pid):
         text=MARKER.sub('',numbered)
         if hashlib.sha256(text.encode()).hexdigest()!=bundle['page'][language+'_text_sha256']:
             raise ValueError('Reconstructed raw article checksum differs: '+pid+'/'+language)
-        value[language]={'text':text}
+        value[language]={'text':text,'title':article_title(bundle['page'],language)}
         value['structures'][language]=ArticleStructure(text)
         value['cleaned_context'][language]=value['structures'][language].cleaned_text
     return value
@@ -203,7 +211,7 @@ def run():
         'dataset_revision':data.REVISION,'frozen_article_index_sha256':data.digest(list(frozen_index().values())),
         'input_segmentation':'original_frozen_datatrove_quality_auto_v3',
         'structure_policy':'prose_only;remove_reference_sections_lists_enumerations_tables_code_and_bibliographic_entries',
-        'article_context':'cleaned_prose_and_nonempty_headings;raw_originals_archived',
+        'article_columns':'article_titles_only;cleaned_context_used_internally;raw_originals_archived',
         'matching':'same_Bavarian_sources_across_five_conditions;article_disjoint_validation',
         'mining_alignment_filter':'reciprocal_top1_required_for_LASER_and_BGE_training_pairs',
         'translation_reuse':'surface_changes_only;exclude_context_expansion_with_new_words',
@@ -274,7 +282,7 @@ def run():
             rows=[]
             for item in kept[split]:
                 value=article(str(item['page_id']))
-                rows.append(dict(zip(COLUMNS,('bar','en',item['source_text'],item['english'][method],value['cleaned_context']['bar'],value['cleaned_context']['en']),strict=True)))
+                rows.append(dict(zip(COLUMNS,('bar','en',item['source_text'],item['english'][method],value['bar']['title'],value['en']['title']),strict=True)))
             write_pairs(OUT/f'data/{method}/{split}.parquet',rows)
             print('Six-column export verified:',method,split,len(rows),flush=True)
     release=OUT/'releases/structure_20261110'
@@ -291,7 +299,7 @@ def run():
     body=(f'# Bavarian parallel pairs\n\nFive matched conditions: blind, LASER, BGE-M3, Variant A and Variant B. '
           f"Each contains {len(kept['train']):,} training pairs and the same {len(kept['validation']):,} held-out validation pairs.\n\n"
           '`source_lang` is `bar` and `target_lang` is `en`. `source_text` is Bavarian; `target_text` is the corresponding method’s English output. '
-          '`source_article` and `target_article` contain the matched Bavarian and English articles with reference sections, lists, enumerations, tables and code removed. Raw original articles are archived locally. '
+          '`source_article` and `target_article` contain only the original Bavarian and English article titles. Raw original articles and cleaned prose contexts are retained locally. '
           'These are the only six table columns. NLLB fine-tuning reverses the text columns for English → Bavarian.\n\n'
           'Filtering uses DataTrove Gopher quality, C4 quality and Gopher repetition checks configured for individual sentences. '
           'Bavarian uses German tokenization; English uses English settings. No trained grammar models, finite-verb tests, subject tests, SVO checks, capitalization requirements or forced full stops are used. '

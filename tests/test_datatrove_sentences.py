@@ -7,7 +7,7 @@ import pyarrow.parquet as pq
 
 try:
     from preprocessing.datatrove_sentences import SentenceQuality,normalized_key,surface_text,COLUMNS
-    from runners.curate_datatrove_parallel import select_unique,write_pairs,english_origin_reason,METHODS
+    from runners.curate_datatrove_parallel import select_unique,write_pairs,english_origin_reason,article_title,METHODS
     from preprocessing.article_structure import ArticleStructure
 except ModuleNotFoundError as error:
     if error.name not in {'datatrove','spacy'}:raise
@@ -58,6 +58,14 @@ class DataTroveSentenceTests(unittest.TestCase):
             self.assertEqual(pq.read_table(path).to_pylist(),[row])
             with self.assertRaisesRegex(ValueError,'exactly six'):
                 write_pairs(path,[{**row,'extra':'forbidden'}])
+
+    def test_article_columns_use_exact_titles_from_frozen_headers(self):
+        page={'bar':'Wean (bar), revision 839830\nFull Bavarian article.',
+              'en':'Vienna (city) (en), revision 1300000000\nFull English article.'}
+        self.assertEqual(article_title(page,'bar'),'Wean')
+        self.assertEqual(article_title(page,'en'),'Vienna (city)')
+        with self.assertRaisesRegex(ValueError,'Malformed frozen article title'):
+            article_title({'bar':'Body without a title header'},'bar')
 
     def test_deduplication_reserves_keys_only_for_retained_common_rows(self):
         def item(sid,text,reason=None):
