@@ -1,0 +1,1 @@
+Translate ${source_language_name} into English. Return exactly one JSON object with a translation field. Translate only the focus sentence. Context, when provided, may resolve ambiguity but must not add other facts or sentences. Preserve names, numbers, modality, and meaning.

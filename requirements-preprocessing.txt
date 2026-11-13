@@ -1,0 +1,8 @@
+-r requirements-quality.txt
+requests==2.32.4
+wtpsplit[onnx-cpu]==2.2.2
+onnxruntime==1.31.1
+transformers==5.5.4
+huggingface-hub==1.33.0
+numpy==2.2.6
+pyahocorasick==2.3.0

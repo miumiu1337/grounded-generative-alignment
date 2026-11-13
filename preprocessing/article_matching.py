@@ -4,19 +4,21 @@ from collections import Counter, defaultdict
 import re
 
 
-def match_articles(sources, english_rows):
+def match_articles(sources, english_rows, *, source_language='bar'):
     """English rows must include all revisions of every page matching any wanted topic.
 
     The metadata scan performs this two-pass selection so an obsolete Wikidata ID
     cannot survive simply because a newer revision has a different topic ID.
     """
+    if not re.fullmatch(r'[a-z]{2,3}', source_language):
+        raise ValueError('Invalid source language code')
     source_ids, source_topics, by_page = set(), defaultdict(list), defaultdict(list)
     for source in sources:
         aid, qid = source['article_id'], source['wikidata_id']
-        if aid in source_ids or not re.fullmatch(r'barwiki/[1-9][0-9]*', aid):
-            raise ValueError('Invalid or repeated Bavarian article ID')
+        if aid in source_ids or not re.fullmatch(source_language + r'wiki/[1-9][0-9]*', aid):
+            raise ValueError('Invalid or repeated source article ID')
         if qid is not None and (not isinstance(qid, str) or not re.fullmatch(r'Q[1-9][0-9]*', qid)):
-            raise ValueError('Invalid Bavarian Wikidata ID')
+            raise ValueError('Invalid source Wikidata ID')
         source_ids.add(aid)
         if qid is not None:
             source_topics[qid].append(aid)

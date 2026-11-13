@@ -9,3 +9,8 @@ notebooks/
 *.pt
 *.bin
 *.zip
+work/
+models/
+*.sqlite
+*.sqlite-*
+*.partial

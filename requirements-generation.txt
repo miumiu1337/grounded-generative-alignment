@@ -1,0 +1,10 @@
+requests==2.32.4
+numpy==2.2.6
+fasteners==0.20
+torch>=2.6
+transformers==5.5.4
+huggingface-hub==1.33.0
+
+# FineWeb passage indexing also uses requirements-preprocessing.txt.
+# LASER-1 uses its original separate environment: Python3.10,
+# torch1.13.1, numpy1.26.4, laserembeddings1.1.2, with the three pinned assets.

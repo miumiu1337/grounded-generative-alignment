@@ -1,0 +1,43 @@
+{
+  "source_language": "ast",
+  "source_language_name": "Asturian",
+  "quality_tokenizer_language": "es",
+  "reference_headings": ["Referencies", "Notes", "Bibliografía", "Enllaces esternos", "Ver tamién"],
+  "finewiki_revision": "8bd13e72e6a002407649b3e898535f42ceb1aeb9",
+  "context_sentences": 3,
+  "sat_threshold": 0.25,
+  "minimum_alpha_token_ratio": 0.5,
+  "methods": ["blind", "mining", "variant_a", "variant_b", "variant_c"],
+  "mining": {
+    "encoder": "bge_m3",
+    "device": "cuda",
+    "bge_model": "BAAI/bge-m3",
+    "bge_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+    "laser_tokenizer_language": "es",
+    "laser_model_directory": "models/laser"
+  },
+  "teacher": {
+    "model": "google/gemma-4-26B-A4B-it",
+    "model_revision": "47b6801b24d15ff9bcd8c96dfaea0be9ed3a0301",
+    "quantized_model": "unsloth/gemma-4-26B-A4B-it-GGUF",
+    "quantized_revision": "c099eb48e663fd284577b04978a94ffccb261841",
+    "quantized_file": "gemma-4-26B-A4B-it-UD-IQ4_XS.gguf",
+    "quantized_sha256": "babd1e389d386352f71600765d37390f7dc993fbfad6725caccf996ffe34aecf",
+    "llama_release": "b12110",
+    "llama_binary_sha256": "831e456e593724d6f7ef5017446c3cd382dee54709ebecf3abba888b5030ca45",
+    "chat_template_sha256": "2dfbfc7d538912f4ea11d29d85b4e25d7bc26386e53f57529f1d707c28b5828c",
+    "temperature": 0,
+    "seed": 42,
+    "context_tokens": 4096,
+    "maximum_output_tokens": 512
+  },
+  "fineweb": {
+    "revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+    "shard": "sample/10BT/000_00000.parquet",
+    "sha256": "6b552ea48424648dc86d00df276f93fdfc55e9ad342ce3e4affc23a3a370792b",
+    "maximum_documents_per_topic": 100,
+    "maximum_retained_text_bytes": 268435456,
+    "maximum_excerpt_words": 160,
+    "sources_per_sentence": 2
+  }
+}

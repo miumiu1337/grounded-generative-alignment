@@ -1,0 +1,6 @@
+# Separate Linux/Python3.10 environment for the original LASER-1 baseline.
+torch==1.13.1
+numpy==1.26.4
+laserembeddings==1.1.2
+requests==2.32.4
+fasteners==0.20
